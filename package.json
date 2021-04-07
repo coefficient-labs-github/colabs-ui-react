@@ -1,0 +1,66 @@
+{
+  "name": "colabs-ui-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "styleguidist server",
+    "build": "npm run build:library && npm run build:styleguide",
+    "build:library": "cross-env NODE_ENV=development webpack-cli --progress --color",
+    "build:styleguide": "node webpack/fixCraSupport.js && styleguidist build",
+    "postbuild:library": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    ">0.25%",
+    "not ie 11",
+    "not op_mini all"
+  ],
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-styled-components": "^1.12.0",
+    "core-js": "^3.8.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "file-loader": "^6.2.0",
+    "prettier": "^2.2.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-styleguidist": "^11.1.4",
+    "replace-in-file": "^6.1.0",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.9.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-merge": "^5.4.0"
+  },
+  "files": [
+    "/dist"
+  ],
+  "dependencies": {
+    "lottie-web": "^5.7.5",
+    "styled-components": "^5.2.1"
+  }
+}
