@@ -9,6 +9,6 @@ module.exports = {
       __dirname,
       'src/styleguide/StyleGuideRenderer'
     ),
-    // Wrapper: path.join(__dirname, 'src/styleguide/Wrapper'),
+    Wrapper: path.join(__dirname, 'src/styleguide/Wrapper'),
   },
 };
