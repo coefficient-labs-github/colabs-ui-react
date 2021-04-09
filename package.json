@@ -61,6 +61,7 @@
   ],
   "dependencies": {
     "lottie-web": "^5.7.5",
+    "react-number-format": "^4.5.3",
     "styled-components": "^5.2.1"
   }
 }

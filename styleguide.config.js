@@ -4,6 +4,7 @@ module.exports = {
   title: 'colabs-ui-react',
   showSidebar: true,
   version: '1.0.0',
+  styleguideDir: 'docs/',
   styleguideComponents: {
     StyleGuideRenderer: path.join(
       __dirname,
