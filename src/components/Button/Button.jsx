@@ -69,8 +69,6 @@ const StyledButton = styled.button`
       }};
     }
   }
-  // siempre en hover x:0 y:3px blur:4px opacity:0.16
-  //
   > .text {
     width: fit-content;
   }
@@ -96,6 +94,7 @@ const StyledButton = styled.button`
           if (variant === 'secondary') return '#d3d3d3';
           return '#ffffff00';
         }};
+      box-shadow: 0px 3px 4px #00000016;
     }
     &:focus {
       outline: none;
