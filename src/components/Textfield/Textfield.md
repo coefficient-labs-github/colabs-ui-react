@@ -1,13 +1,14 @@
 ```jsx
-<span
+<div
   style={{
     display: 'grid',
     justifyItems: 'center',
     alignItems: 'center',
+    gridTemplateColumns: '1fr 1fr 1fr',
   }}
 >
   <Textfield />
-</span>
+</div>
 ```
 
 It has two variants:
@@ -16,7 +17,7 @@ It has two variants:
 <span
   style={{
     display: 'grid',
-    gap: '1rem',
+    gridTemplateColumns: '1fr 1fr 1fr',
     justifyItems: 'center',
     alignItems: 'center',
   }}
@@ -32,12 +33,12 @@ It could have a middle "Or" text
 <span
   style={{
     display: 'grid',
-    gap: '1rem',
+    gridTemplateColumns: '1fr 1fr 1fr',
     justifyItems: 'center',
     alignItems: 'center',
   }}
 >
-  <Textfield />
-  <Textfield />
+  <Textfield placeholder="Placeholder" label="This is a label" />
+  <Textfield placeholder="Placeholder" label="This is a label" />
 </span>
 ```

@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+// const dotenv = require('dotenv');
 const commonPaths = require('./paths');
 
 module.exports = {
@@ -40,5 +42,9 @@ module.exports = {
       'prop-types': 'prop-types',
     },
   ],
-  plugins: [],
+  plugins: [
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
+  ],
 };

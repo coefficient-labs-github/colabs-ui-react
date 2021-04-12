@@ -30,7 +30,7 @@ const StyledButton = styled.button`
   border: 1px solid
     ${({ variant }) => {
       if (variant === 'tertiary') return '#ffffff00';
-      if (variant === 'secondary') return 'white';
+      if (variant === 'secondary') return '#d3d3d3';
       return '#ffffff00';
     }};
   height: ${({ size }) => {
@@ -69,6 +69,8 @@ const StyledButton = styled.button`
       }};
     }
   }
+  // siempre en hover x:0 y:3px blur:4px opacity:0.16
+  //
   > .text {
     width: fit-content;
   }
@@ -98,7 +100,7 @@ const StyledButton = styled.button`
     &:focus {
       outline: none;
       box-shadow: ${({ variant }) => {
-        if (variant === 'secondary') return '0px 0px 3px #00000029;';
+        if (variant === 'secondary') return '0px 0px 3px #00000016;';
         if (variant === 'primary') return '0px 0px 5px #1171ff;';
         return '0';
       }};
@@ -119,6 +121,8 @@ const StyledButton = styled.button`
         return '0';
       }};
       background: ${({ variant }) => {
+        if (variant === 'primary')
+          return '-webkit-linear-gradient(90deg, #1E84FA, #2E9BFB)';
         if (['tertiary', 'secondary'].includes(variant)) return '#f1f1f1';
         return '-webkit-linear-gradient(90deg, #1E84FA, #41B5FC)';
       }};

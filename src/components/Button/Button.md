@@ -146,3 +146,43 @@ import LeftArrow from '../../../assets/LeftArrowIcon';
   />
 </span>;
 ```
+
+It can also just hold buttons
+
+```jsx
+import LeftArrow from '../../../assets/LeftArrowIcon';
+<span
+  style={{
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr',
+    justifyItems: 'center',
+    alignItems: 'center',
+  }}
+>
+  <Button
+    size="lg"
+    variant="tertiary"
+    iconPos="right"
+    onClick={() => false}
+    icon={<LeftArrow />}
+  />
+  <Button
+    size="md"
+    variant="secondary"
+    onClick={() => false}
+    icon={<LeftArrow />}
+  />
+  <Button
+    size="sm"
+    variant="primary"
+    onClick={() => false}
+    icon={<LeftArrow />}
+  />
+  <Button
+    size="lg"
+    variant="tertiary"
+    onClick={() => false}
+    icon={<LeftArrow />}
+  />
+</span>;
+```
