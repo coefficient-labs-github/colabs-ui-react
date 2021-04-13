@@ -910,15 +910,18 @@ __webpack_require__.r(__webpack_exports__);
 var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.button.withConfig({
   displayName: "Button__StyledButton",
   componentId: "sc-1arvxpj-0"
-})(["position:relative;border:0;cursor:pointer;height:100%;white-space:nowrap;display:flex;align-items:center;justify-content:center;border-radius:0.625rem;font-family:", ";width:", ";flex-direction:", ";background:", ";color:", ";border:1px solid ", ";height:", ";font-size:", ";padding:", ";> .icon{margin-right:0.25rem;display:flex;align-items:center;justify-content:center;left:0.5rem;> *{stroke:", ";", ";}}> .text{width:fit-content;}&.disabled{", " color:#868686;:focus{outline:none;}> .icon{stroke:#a6a6a6;}}&:not(.disabled){&:hover{background:", ";border:1px solid ", ";box-shadow:0px 3px 4px #00000016;}&:focus{outline:none;box-shadow:", ";background:", ";border:1px solid ", ";}&:active{box-shadow:", ";background:", ";border:1px solid ", ";}}"], function (_ref) {
+})(["position:relative;border:0;cursor:pointer;box-sizing:border-box;height:100%;white-space:nowrap;display:flex;align-items:center;justify-content:center;border-radius:0.625rem;font-family:", ";width:", ";box-shadow:", ";background:", ";color:", ";border:1px solid ", ";height:fit-content;&:not(.iconOnly){padding:", ";}&.iconOnly{padding:", ";}&.disabled{", " color:#868686;box-shadow:", ";:focus{outline:none;}> .icon{stroke:#a6a6a6;}}&:not(.disabled){&:hover{background:", ";border:1px solid ", ";box-shadow:", ";}&:focus{outline:none;box-shadow:", ";background:", ";border:1px solid ", ";}&:active{box-shadow:", ";background:", ";border:1px solid ", ";}}&.right{flex-direction:row-reverse;> .icon{margin-left:", ";", ";}}&:not(.right){flex-direction:row;> .icon{margin-right:", ";", ";}}> .icon{display:flex;align-items:center;justify-content:center;left:0.5rem;> *{", ";}}> .text{width:fit-content;font-size:", ";}"], function (_ref) {
   var theme = _ref.theme;
   return theme.font.main.regular;
 }, function (_ref2) {
   var fullWidth = _ref2.fullWidth;
   return fullWidth ? '100%' : 'fit-content';
 }, function (_ref3) {
-  var iconPos = _ref3.iconPos;
-  return iconPos === 'left' ? 'row' : 'row-reverse';
+  var variant = _ref3.variant,
+      elevated = _ref3.elevated;
+  if (variant === 'tertiary') return '0';
+  if (elevated) return '0px 3px 4px #00000029;';
+  return '0';
 }, function (_ref4) {
   var variant = _ref4.variant;
   if (variant === 'tertiary') return '#ffffff00';
@@ -936,89 +939,124 @@ var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.button
   return '#ffffff00';
 }, function (_ref7) {
   var size = _ref7.size;
-  if (size === 'lg') return '3.5rem';
-  if (size === 'md') return '2.625rem';
-  return '2rem';
+  if (size === 'lg') return '1rem 3rem';
+  if (size === 'md') return '0.75rem 2.5rem';
+  return '0.5rem 1.5rem';
 }, function (_ref8) {
   var size = _ref8.size;
-  if (size === 'lg') return '1.5rem';
-  if (size === 'md') return '1.125rem';
-  return '1rem';
+  if (size === 'lg') return '1rem 3rem';
+  if (size === 'md') return '1rem 2.5rem';
+  return '0.5rem 1.5rem';
 }, function (_ref9) {
-  var size = _ref9.size,
-      iconOnly = _ref9.iconOnly;
-  if (iconOnly) return '0';
-  if (size === 'lg') return '0 3rem';
-  if (size === 'md') return '0 2.5rem';
-  return '0 2rem';
-}, function (_ref10) {
-  var variant = _ref10.variant;
-  if (variant === 'tertiary') return 'black';
-  if (variant === 'secondary') return 'black';
-  return 'white';
-}, function (_ref11) {
-  var size = _ref11.size;
-  if (size === 'lg') return 'height: 1.5rem; width: 1.5;';
-  if (size === 'md') return 'height: 1.25rem; width: 1.25;';
-  return 'height: 1.125rem; width: 1.125;';
-}, function (_ref12) {
-  var variant = _ref12.variant;
+  var variant = _ref9.variant;
   return variant === 'primary' ? 'background: #cecece;' : '';
-}, function (_ref13) {
-  var variant = _ref13.variant;
+}, function (_ref10) {
+  var variant = _ref10.variant,
+      elevated = _ref10.elevated;
+  if (variant === 'tertiary') return '0';
+  if (elevated) return '0px 1px 3px #00000029;';
+  return '0';
+}, function (_ref11) {
+  var variant = _ref11.variant;
   if (['tertiary', 'secondary'].includes(variant)) return '#f9f9f9';
   return '-webkit-linear-gradient(90deg, #1E84FA, #41B5FC)';
-}, function (_ref14) {
-  var variant = _ref14.variant;
+}, function (_ref12) {
+  var variant = _ref12.variant;
   if (variant === 'tertiary') return '#ffffff00';
   if (variant === 'secondary') return '#d3d3d3';
   return '#ffffff00';
+}, function (_ref13) {
+  var variant = _ref13.variant,
+      elevated = _ref13.elevated;
+
+  if (['primary', 'secondary'].includes(variant)) {
+    if (elevated) return '0px 4px 6px #00000029;';
+    return '0px 3px 4px #00000016;';
+  }
+
+  return '0';
+}, function (_ref14) {
+  var variant = _ref14.variant,
+      elevated = _ref14.elevated;
+
+  if (variant === 'secondary') {
+    if (elevated) return '0px 4px 6px #00000029;';
+    return '0px 0px 3px #00000016;';
+  }
+
+  if (variant === 'primary') return '0px 0px 5px #1171ff;';
+  if (variant === 'tertiary' && elevated) return '0px 0px 3px #00000029;';
+  return '0';
 }, function (_ref15) {
   var variant = _ref15.variant;
-  if (variant === 'secondary') return '0px 0px 3px #00000016;';
-  if (variant === 'primary') return '0px 0px 5px #1171ff;';
-  return '0';
-}, function (_ref16) {
-  var variant = _ref16.variant;
   if (['tertiary', 'secondary'].includes(variant)) return '#f9f9f9';
   return '-webkit-linear-gradient(90deg, #1E84FA, #41B5FC)';
-}, function (_ref17) {
-  var variant = _ref17.variant;
+}, function (_ref16) {
+  var variant = _ref16.variant;
   if (variant === 'tertiary') return '#ffffff00';
   if (variant === 'secondary') return '#b1b1b1';
   return '#0B6EFF';
+}, function (_ref17) {
+  var variant = _ref17.variant,
+      elevated = _ref17.elevated;
+  if (variant === 'primary') return '0px 0px 3px #00000029;';
+  if (variant === 'secondary' && elevated) return '0px 1px 3px ##0000001C;';
+  return '0';
 }, function (_ref18) {
   var variant = _ref18.variant;
-  if (variant === 'primary') return '0px 0px 3px #00000029;';
-  return '0';
-}, function (_ref19) {
-  var variant = _ref19.variant;
   if (variant === 'primary') return '-webkit-linear-gradient(90deg, #1E84FA, #2E9BFB)';
   if (['tertiary', 'secondary'].includes(variant)) return '#f1f1f1';
   return '-webkit-linear-gradient(90deg, #1E84FA, #41B5FC)';
-}, function (_ref20) {
-  var variant = _ref20.variant;
+}, function (_ref19) {
+  var variant = _ref19.variant;
   if (variant === 'secondary') return '#d3d3d3';
   return '#ffffff00';
+}, function (_ref20) {
+  var size = _ref20.size;
+  if (size === 'lg') return '1rem';
+  if (size === 'md') return '0.75rem';
+  return '0.5rem';
+}, function (_ref21) {
+  var iconPos = _ref21.iconPos;
+  return iconPos === 'left' ? '0 0.25rem 0 0' : '0 0 0 0.25rem';
+}, function (_ref22) {
+  var size = _ref22.size;
+  if (size === 'lg') return '1rem';
+  if (size === 'md') return '0.75rem';
+  return '0.5rem';
+}, function (_ref23) {
+  var iconPos = _ref23.iconPos;
+  return iconPos === 'left' ? '0 0.25rem 0 0' : '0 0 0 0.25rem';
+}, function (_ref24) {
+  var size = _ref24.size;
+  if (size === 'lg') return 'height: 1.5rem; width: 1.5;';
+  if (size === 'md') return 'height: 1.25rem; width: 1.25;';
+  return 'height: 1.125rem; width: 1.125;';
+}, function (_ref25) {
+  var size = _ref25.size;
+  if (size === 'lg') return '1.5rem';
+  if (size === 'md') return '1.125rem';
+  return '1rem';
 });
 
-var Button = function Button(_ref21) {
-  var text = _ref21.text,
-      icon = _ref21.icon,
-      onClick = _ref21.onClick,
-      variant = _ref21.variant,
-      iconPos = _ref21.iconPos,
-      fullWidth = _ref21.fullWidth,
-      disabled = _ref21.disabled,
-      size = _ref21.size,
-      type = _ref21.type;
+var Button = function Button(_ref26) {
+  var text = _ref26.text,
+      icon = _ref26.icon,
+      onClick = _ref26.onClick,
+      variant = _ref26.variant,
+      iconPos = _ref26.iconPos,
+      fullWidth = _ref26.fullWidth,
+      disabled = _ref26.disabled,
+      size = _ref26.size,
+      type = _ref26.type,
+      elevated = _ref26.elevated;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(StyledButton, {
     onClick: disabled ? null : onClick,
     variant: variant,
-    iconPos: iconPos,
     fullWidth: fullWidth,
     size: size,
-    className: "cui-button ".concat(disabled ? 'disabled' : '', " ").concat(text ? '' : 'iconOnly'),
+    elevated: elevated,
+    className: "\n        cui-button \n        ".concat(disabled ? 'disabled' : '', "\n        ").concat(text ? '' : 'iconOnly', "\n        ").concat(iconPos === 'right' ? 'right' : 'left', "\n        ").concat(elevated ? 'elevated' : '', "\n      "),
     type: type
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("span", {
     className: "icon"
@@ -1038,6 +1076,7 @@ Button.propTypes = {
   icon: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().element),
   onClick: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
   fullWidth: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+  elevated: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
   disabled: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
   type: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string)
 };
@@ -1045,6 +1084,7 @@ Button.defaultProps = {
   onClick: null,
   type: null,
   disabled: false,
+  elevated: false,
   variant: 'primary',
   size: 'sm',
   text: null,

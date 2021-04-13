@@ -2,7 +2,7 @@
 <span
   style={{
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+    gridTemplateColumns: '1fr',
     justifyItems: 'center',
     alignItems: 'center',
   }}

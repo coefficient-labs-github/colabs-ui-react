@@ -7,7 +7,7 @@ export default function Wrapper({ children }) {
     // <ThemeProvider theme={theme}>
     <div
       style={{
-        background: '#efefef',
+        background: '#ffffff',
         padding: '1rem',
         margin: 'auto',
       }}

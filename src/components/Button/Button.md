@@ -1,5 +1,14 @@
 ```jsx
-<Button text="Test Button" handleClick={() => false} />
+<span
+  style={{
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gridGap: '1rem',
+    justifyItems: 'center',
+  }}
+>
+  <Button text="Test Button" handleClick={() => false} />
+</span>
 ```
 
 It comes in three variants
@@ -9,8 +18,8 @@ import LeftArrow from '../../../assets/LeftArrowIcon';
 <span
   style={{
     display: 'grid',
-    background: '#efefef',
     gridTemplateColumns: '1fr 1fr 1fr',
+    gridGap: '1rem',
     justifyItems: 'center',
   }}
 >
@@ -19,7 +28,7 @@ import LeftArrow from '../../../assets/LeftArrowIcon';
     size="md"
     variant="primary"
     onClick={() => false}
-    icon={<LeftArrow />}
+    icon={<LeftArrow fill="white" />}
   />
   <Button
     text="Secondary"
@@ -38,7 +47,7 @@ import LeftArrow from '../../../assets/LeftArrowIcon';
 </span>;
 ```
 
-The icon could be on the left or on the right:
+The button can have one of three sizes:
 
 ```jsx
 import LeftArrow from '../../../assets/LeftArrowIcon';
@@ -46,35 +55,7 @@ import LeftArrow from '../../../assets/LeftArrowIcon';
   style={{
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
-    justifyItems: 'center',
-    alignItems: 'center',
-  }}
->
-  <Button
-    text="Button with Icon"
-    icon={<LeftArrow />}
-    iconPos="left"
-    size="md"
-    onClick={() => false}
-  />
-  <Button
-    text="Button with Icon"
-    icon={<LeftArrow />}
-    size="md"
-    iconPos="right"
-    onClick={() => false}
-  />
-</span>;
-```
-
-It comes in three sizes
-
-```jsx
-import LeftArrow from '../../../assets/LeftArrowIcon';
-<span
-  style={{
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+    gridGap: '1rem',
     justifyItems: 'center',
     alignItems: 'center',
   }}
@@ -84,26 +65,26 @@ import LeftArrow from '../../../assets/LeftArrowIcon';
     size="lg"
     variant="primary"
     onClick={() => false}
-    icon={<LeftArrow />}
+    icon={<LeftArrow fill="white" />}
   />
   <Button
     text="Medium"
     size="md"
     variant="primary"
     onClick={() => false}
-    icon={<LeftArrow />}
+    icon={<LeftArrow fill="white" />}
   />
   <Button
     text="Small"
     size="sm"
     variant="primary"
     onClick={() => false}
-    icon={<LeftArrow />}
+    icon={<LeftArrow fill="white" />}
   />
 </span>;
 ```
 
-You can combine all options as you wish
+The button compontent can have either text, an icon, or both.
 
 ```jsx
 import LeftArrow from '../../../assets/LeftArrowIcon';
@@ -111,6 +92,72 @@ import LeftArrow from '../../../assets/LeftArrowIcon';
   style={{
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
+    gridGap: '1rem',
+    justifyItems: 'center',
+    alignItems: 'center',
+  }}
+>
+  <Button
+    size="lg"
+    variant="secondary"
+    onClick={() => false}
+    icon={<LeftArrow />}
+  />
+  <Button
+    size="md"
+    variant="tertiary"
+    iconPos="right"
+    onClick={() => false}
+    icon={<LeftArrow />}
+  />
+  <Button
+    size="sm"
+    variant="primary"
+    onClick={() => false}
+    icon={<LeftArrow fill="white" />}
+  />
+</span>;
+```
+
+And when both are present, the icon can be on either side:
+
+```jsx
+import LeftArrow from '../../../assets/LeftArrowIcon';
+<span
+  style={{
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gridGap: '1rem',
+    justifyItems: 'center',
+    alignItems: 'center',
+  }}
+>
+  <Button
+    text="Button with Icon"
+    icon={<LeftArrow fill="white" />}
+    iconPos="left"
+    size="md"
+    onClick={() => false}
+  />
+  <Button
+    text="Button with Icon"
+    icon={<LeftArrow fill="white" />}
+    size="md"
+    iconPos="right"
+    onClick={() => false}
+  />
+</span>;
+```
+
+It can be disabled to not allow execute event onClick:
+
+```jsx
+import LeftArrow from '../../../assets/LeftArrowIcon';
+<span
+  style={{
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr',
+    gridGap: '1rem',
     justifyItems: 'center',
     alignItems: 'center',
   }}
@@ -120,69 +167,115 @@ import LeftArrow from '../../../assets/LeftArrowIcon';
     size="lg"
     variant="tertiary"
     iconPos="right"
+    disabled
     onClick={() => false}
-    icon={<LeftArrow />}
+    icon={<LeftArrow fill="#868686" />}
   />
   <Button
     text="Test"
     size="md"
+    disabled
     variant="secondary"
     onClick={() => false}
-    icon={<LeftArrow />}
+    icon={<LeftArrow fill="#868686" />}
   />
   <Button
     text="Test"
     size="sm"
+    disabled
     variant="primary"
     onClick={() => false}
-    icon={<LeftArrow />}
-  />
-  <Button
-    text="Test"
-    size="lg"
-    variant="tertiary"
-    onClick={() => false}
-    icon={<LeftArrow />}
+    icon={<LeftArrow fill="#868686" />}
   />
 </span>;
 ```
 
-It can also just hold buttons
+If used over transparent surfaces, it will need to have the elevation styling. For that, just pass 'elevated' as prop:
+
+```jsx
+import LeftArrow from '../../../assets/LeftArrowIcon';
+<div
+  style={{
+    backgroundColor: '#8BA85D',
+    padding: '2rem',
+    position: 'relative',
+  }}
+>
+  <span
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundColor: '#ffffffdd',
+    }}
+  />
+  <span
+    style={{
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr 1fr',
+      gridGap: '1rem',
+      justifyItems: 'center',
+      alignItems: 'center',
+    }}
+  >
+    <Button
+      text="Test"
+      size="lg"
+      variant="tertiary"
+      iconPos="right"
+      onClick={() => false}
+      icon={<LeftArrow />}
+    />
+    <Button
+      text="Test"
+      size="md"
+      variant="secondary"
+      onClick={() => false}
+      elevated
+      icon={<LeftArrow />}
+    />
+    <Button
+      text="Test"
+      size="sm"
+      variant="primary"
+      elevated
+      onClick={() => false}
+      icon={<LeftArrow fill="white" />}
+    />
+  </span>
+</div>;
+```
+
+For special situations, it also can be set to take its parent width. Mostly for usage in small containers like cards and modals. Use this sparingly.
 
 ```jsx
 import LeftArrow from '../../../assets/LeftArrowIcon';
 <span
   style={{
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+    gridTemplateColumns: '1fr 1fr',
+    gridGap: '1rem',
     justifyItems: 'center',
     alignItems: 'center',
   }}
 >
   <Button
     size="lg"
-    variant="tertiary"
-    iconPos="right"
+    variant="primary"
     onClick={() => false}
-    icon={<LeftArrow />}
+    text="Full Width Example"
+    icon={<LeftArrow fill="white" />}
+    fullWidth
   />
   <Button
     size="md"
-    variant="secondary"
-    onClick={() => false}
-    icon={<LeftArrow />}
-  />
-  <Button
-    size="sm"
     variant="primary"
     onClick={() => false}
-    icon={<LeftArrow />}
-  />
-  <Button
-    size="lg"
-    variant="tertiary"
-    onClick={() => false}
-    icon={<LeftArrow />}
+    text="Full Width Example"
+    icon={<LeftArrow fill="white" />}
+    fullWidth
   />
 </span>;
 ```
