@@ -84,6 +84,7 @@ const TextField = ({
   inputTag,
   error,
   helperText,
+  elevated,
   // ...props
 }) => {
   const getInputTag = () => {
@@ -107,6 +108,7 @@ const TextField = ({
       rows={rows}
       error={error}
       size={size}
+      elevated={elevated}
     >
       {label && (
         <label htmlFor={uniqueId}>
@@ -148,6 +150,7 @@ TextField.propTypes = {
   onChange: PropTypes.func,
   icon: PropTypes.element,
   label: PropTypes.string,
+  elevated: PropTypes.bool,
   required: PropTypes.bool,
   minLength: PropTypes.number,
   maxLength: PropTypes.number,
@@ -167,6 +170,7 @@ TextField.defaultProps = {
   rows: 2,
   icon: null,
   onChange: null,
+  elevated: false,
   type: 'text',
   iconPos: 'left',
   label: null,
