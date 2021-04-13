@@ -910,7 +910,7 @@ __webpack_require__.r(__webpack_exports__);
 var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.button.withConfig({
   displayName: "Button__StyledButton",
   componentId: "sc-1arvxpj-0"
-})(["position:relative;border:0;cursor:pointer;box-sizing:border-box;height:100%;white-space:nowrap;display:flex;align-items:center;justify-content:center;border-radius:0.625rem;font-family:", ";width:", ";box-shadow:", ";background:", ";color:", ";border:1px solid ", ";height:fit-content;&:not(.iconOnly){padding:", ";}&.iconOnly{padding:", ";}&.disabled{", " color:#868686;box-shadow:", ";:focus{outline:none;}> .icon{stroke:#a6a6a6;}}&:not(.disabled){&:hover{background:", ";border:1px solid ", ";box-shadow:", ";}&:focus{outline:none;box-shadow:", ";background:", ";border:1px solid ", ";}&:active{box-shadow:", ";background:", ";border:1px solid ", ";}}&.right{flex-direction:row-reverse;> .icon{margin-left:", ";", ";}}&:not(.right){flex-direction:row;> .icon{margin-right:", ";", ";}}> .icon{display:flex;align-items:center;justify-content:center;left:0.5rem;> *{", ";}}> .text{width:fit-content;font-size:", ";}"], function (_ref) {
+})(["position:relative;border:0;cursor:pointer;box-sizing:border-box;height:100%;white-space:nowrap;display:flex;align-items:center;justify-content:center;border-radius:0.625rem;font-family:", ";width:", ";box-shadow:", ";background:", ";color:", ";border:1px solid ", ";height:fit-content;&:not(.iconOnly){padding:", ";}&.iconOnly{padding:", ";}&.disabled{", " color:#868686;box-shadow:", ";:focus{outline:none;}> .icon{stroke:#a6a6a6;}}&:not(.disabled){&:hover{background:", ";border:1px solid ", ";box-shadow:", ";}&:focus{outline:none;box-shadow:", ";background:", ";border:1px solid ", ";}&:active{box-shadow:", ";background:", ";border:1px solid ", ";}}&.right{flex-direction:row-reverse;> .icon{margin-left:", ";", ";}}&:not(.right){flex-direction:row;> .icon{margin-right:", ";", ";}}&.iconOnly{> .icon{margin:0;}}> .icon{display:flex;align-items:center;justify-content:center;left:0.5rem;> *{", ";}}> .text{width:fit-content;font-size:", ";}"], function (_ref) {
   var theme = _ref.theme;
   return theme.font.main.regular;
 }, function (_ref2) {
@@ -944,9 +944,9 @@ var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.button
   return '0.5rem 1.5rem';
 }, function (_ref8) {
   var size = _ref8.size;
-  if (size === 'lg') return '1rem 3rem';
-  if (size === 'md') return '1rem 2.5rem';
-  return '0.5rem 1.5rem';
+  if (size === 'lg') return '1rem';
+  if (size === 'md') return '0.75rem';
+  return '0.5rem';
 }, function (_ref9) {
   var variant = _ref9.variant;
   return variant === 'primary' ? 'background: #cecece;' : '';
@@ -1053,7 +1053,7 @@ var Button = function Button(_ref26) {
     fullWidth: fullWidth,
     size: size,
     elevated: elevated,
-    className: "\n        cui-button \n        ".concat(disabled ? 'disabled' : '', "\n        ").concat(text ? '' : 'iconOnly', "\n        ").concat(iconPos === 'right' ? 'right' : 'left', "\n        ").concat(elevated ? 'elevated' : '', "\n      "),
+    className: "\n        cui-button ".concat(disabled ? 'disabled' : '', " ").concat(text ? '' : 'iconOnly', " ").concat(iconPos === 'right' ? 'right' : 'left', " ").concat(elevated ? 'elevated' : '', "\n      "),
     type: type
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("span", {
     className: "icon"
@@ -1244,6 +1244,281 @@ Text.defaultProps = {
 
 /***/ }),
 
+/***/ "./src/components/Textfield/Textfield.jsx":
+/*!************************************************!*\
+  !*** ./src/components/Textfield/Textfield.jsx ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.regexp.to-string.js */ "./node_modules/core-js/modules/es.regexp.to-string.js");
+/* harmony import */ var core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.object.assign.js */ "./node_modules/core-js/modules/es.object.assign.js");
+/* harmony import */ var core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es_array_index_of_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.index-of.js */ "./node_modules/core-js/modules/es.array.index-of.js");
+/* harmony import */ var core_js_modules_es_array_index_of_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_index_of_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.symbol.js */ "./node_modules/core-js/modules/es.symbol.js");
+/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.symbol.description.js */ "./node_modules/core-js/modules/es.symbol.description.js");
+/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.array.iterator.js */ "./node_modules/core-js/modules/es.array.iterator.js");
+/* harmony import */ var core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
+/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.array.slice.js */ "./node_modules/core-js/modules/es.array.slice.js");
+/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.array.from.js */ "./node_modules/core-js/modules/es.array.from.js");
+/* harmony import */ var core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var core_js_modules_es_array_filter_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/es.array.filter.js */ "./node_modules/core-js/modules/es.array.filter.js");
+/* harmony import */ var core_js_modules_es_array_filter_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_filter_js__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptors_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! core-js/modules/es.object.get-own-property-descriptors.js */ "./node_modules/core-js/modules/es.object.get-own-property-descriptors.js");
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptors_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_own_property_descriptors_js__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var react_number_format__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react-number-format */ "./node_modules/react-number-format/dist/react-number-format.es.js");
+/* harmony import */ var _Text_Text__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Text/Text */ "./src/components/Text/Text.jsx");
+/* harmony import */ var _defaultTheme__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../defaultTheme */ "./src/defaultTheme.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+/* eslint-disable react/jsx-props-no-spreading */
+
+
+
+
+
+
+var StyledTextField = styled_components__WEBPACK_IMPORTED_MODULE_18__.default.div.withConfig({
+  displayName: "Textfield__StyledTextField",
+  componentId: "sc-1txybd0-0"
+})(["z-index:1;> label{font-family:", ";font-size:0.875rem;color:", ";}> .container{margin:0 auto;padding:0 1rem;width:100%;background:white;border-radius:0.625rem;border:1px solid ", ";display:flex;align-items:center;overflow:hidden;background:#ffffff 0% 0% no-repeat padding-box;box-shadow:", ";flex-direction:", ";", ";&:hover{", ";}&.focused{border:1px solid #6da7fd;}> .icon{height:1rem;width:1rem;padding:0;margin:", ";}> .input{flex:1;width:100%;height:", ";margin:", ";resize:none;border:0;background:#ffffff00;color:#000;font-family:", ";font-size:1rem;letter-spacing:-0.02em;::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-thumb{background-color:", ";}::-webkit-scrollbar-track{background-color:#f5f5f5;}:focus{outline:none;}}}"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.font.main.light;
+}, function (_ref2) {
+  var disabled = _ref2.disabled;
+  return disabled ? '#b6b6b6' : '#000';
+}, function (_ref3) {
+  var elevated = _ref3.elevated,
+      disabled = _ref3.disabled;
+  if (elevated) return '#ffffff00';
+  if (disabled) return '#e6e6e6';
+  return '#d3d3d3';
+}, function (_ref4) {
+  var elevated = _ref4.elevated;
+  return elevated ? '0px 3px 4px #0000001C' : '#ffffff00';
+}, function (_ref5) {
+  var iconPos = _ref5.iconPos;
+  return iconPos === 'right' ? 'row-reverse' : 'row';
+}, function (_ref6) {
+  var multiline = _ref6.multiline;
+  return multiline ? '' : 'height: 2.75rem';
+}, function (_ref7) {
+  var disabled = _ref7.disabled;
+  return disabled ? '' : 'background: #f9f9f9 0% 0% no-repeat padding-box;';
+}, function (_ref8) {
+  var iconPos = _ref8.iconPos;
+  return iconPos === 'left' ? '0 0.5rem 0 0' : '0 0 0 0.5rem';
+}, function (_ref9) {
+  var multiline = _ref9.multiline;
+  return multiline ? 'fit-content' : '3rem';
+}, function (_ref10) {
+  var multiline = _ref10.multiline;
+  return multiline ? '1rem 0' : '0';
+}, function (_ref11) {
+  var theme = _ref11.theme;
+  return theme.font.main.regular;
+}, function (_ref12) {
+  var theme = _ref12.theme;
+  return theme.color.primary.main;
+});
+
+var TextField = function TextField(_ref13) {
+  var placeholder = _ref13.placeholder,
+      value = _ref13.value,
+      onChange = _ref13.onChange,
+      icon = _ref13.icon,
+      type = _ref13.type,
+      iconPos = _ref13.iconPos,
+      label = _ref13.label,
+      required = _ref13.required,
+      minLength = _ref13.minLength,
+      maxLength = _ref13.maxLength,
+      rows = _ref13.rows,
+      _onFocus = _ref13.onFocus,
+      _onBlur = _ref13.onBlur,
+      disabled = _ref13.disabled,
+      name = _ref13.name,
+      autoComplete = _ref13.autoComplete,
+      inputTag = _ref13.inputTag,
+      error = _ref13.error,
+      helperText = _ref13.helperText,
+      elevated = _ref13.elevated,
+      props = _objectWithoutProperties(_ref13, ["placeholder", "value", "onChange", "icon", "type", "iconPos", "label", "required", "minLength", "maxLength", "rows", "onFocus", "onBlur", "disabled", "name", "autoComplete", "inputTag", "error", "helperText", "elevated"]);
+
+  var getInputTag = function getInputTag() {
+    switch (inputTag) {
+      case 'number':
+        return react_number_format__WEBPACK_IMPORTED_MODULE_15__.default;
+
+      case 'textarea':
+        return 'textarea';
+
+      default:
+        return 'input';
+    }
+  };
+
+  var InputTag = getInputTag();
+  var uniqueId = Math.random();
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_13__.useState)(),
+      _useState2 = _slicedToArray(_useState, 2),
+      isFocus = _useState2[0],
+      setIsFocus = _useState2[1];
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement(StyledTextField, {
+    className: "cui-textfield",
+    iconPos: iconPos,
+    multiline: inputTag === 'textarea',
+    rows: rows,
+    disabled: disabled,
+    error: error,
+    elevated: elevated
+  }, label && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement("label", {
+    htmlFor: uniqueId
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement(_Text_Text__WEBPACK_IMPORTED_MODULE_16__.default, {
+    tag: "span",
+    size: 2
+  }, label)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement("span", {
+    className: "container ".concat(isFocus ? 'focused' : '')
+  }, icon && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement("span", {
+    className: "icon"
+  }, icon), disabled ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement(_Text_Text__WEBPACK_IMPORTED_MODULE_16__.default, {
+    color: "#b6b6b6"
+  }, placeholder) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement(InputTag, Object.assign({
+    onFocus: function onFocus() {
+      setIsFocus(true);
+
+      _onFocus();
+    },
+    onBlur: function onBlur() {
+      setIsFocus(false);
+
+      _onBlur();
+    },
+    className: "input",
+    id: uniqueId,
+    name: name,
+    type: type,
+    value: value,
+    placeholder: placeholder,
+    onChange: onChange,
+    required: required,
+    minLength: minLength,
+    maxLength: maxLength,
+    rows: rows,
+    autoComplete: autoComplete === null || autoComplete === void 0 ? void 0 : autoComplete.toString()
+  }, props))), helperText && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement(_Text_Text__WEBPACK_IMPORTED_MODULE_16__.default, {
+    tag: "span",
+    size: 2,
+    color: function () {
+      if (error) return 'red';
+      if (disabled) return '#b6b6b6';
+      return '#000';
+    }()
+  }, helperText));
+};
+
+StyledTextField.defaultProps = {
+  theme: _defaultTheme__WEBPACK_IMPORTED_MODULE_17__.default
+};
+TextField.propTypes = _objectSpread(_objectSpread({}, react_number_format__WEBPACK_IMPORTED_MODULE_15__.default.propTypes), {}, {
+  type: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
+  iconPos: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOf(['right', 'left']),
+  placeholder: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
+  value: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func),
+  icon: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().element),
+  label: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
+  elevated: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
+  required: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
+  minLength: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().number),
+  maxLength: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().number),
+  rows: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().number),
+  onFocus: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func),
+  onBlur: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func),
+  name: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
+  autoComplete: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
+  inputTag: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOf(['textarea', 'number', 'input'])
+});
+TextField.defaultProps = {
+  onFocus: function onFocus() {
+    return null;
+  },
+  onBlur: function onBlur() {
+    return null;
+  },
+  value: undefined,
+  name: '',
+  autoComplete: false,
+  placeholder: '',
+  rows: 2,
+  icon: null,
+  onChange: null,
+  elevated: false,
+  type: 'text',
+  iconPos: 'left',
+  label: null,
+  required: false,
+  minLength: 1,
+  maxLength: 250,
+  inputTag: 'input'
+};
+/* harmony default export */ __webpack_exports__["default"] = (TextField);
+
+/***/ }),
+
 /***/ "./src/defaultTheme.js":
 /*!*****************************!*\
   !*** ./src/defaultTheme.js ***!
@@ -1364,6 +1639,29 @@ module.exports = function (it) {
     throw TypeError(String(it) + ' is not an object');
   } return it;
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/array-for-each.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/internals/array-for-each.js ***!
+  \**********************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+var $forEach = __webpack_require__(/*! ../internals/array-iteration */ "./node_modules/core-js/internals/array-iteration.js").forEach;
+var arrayMethodIsStrict = __webpack_require__(/*! ../internals/array-method-is-strict */ "./node_modules/core-js/internals/array-method-is-strict.js");
+
+var STRICT_METHOD = arrayMethodIsStrict('forEach');
+
+// `Array.prototype.forEach` method implementation
+// https://tc39.es/ecma262/#sec-array.prototype.foreach
+module.exports = !STRICT_METHOD ? function forEach(callbackfn /* , thisArg */) {
+  return $forEach(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+// eslint-disable-next-line es/no-array-prototype-foreach -- safe
+} : [].forEach;
 
 
 /***/ }),
@@ -1567,6 +1865,27 @@ module.exports = function (METHOD_NAME) {
       return { foo: 1 };
     };
     return array[METHOD_NAME](Boolean).foo !== 1;
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/array-method-is-strict.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/internals/array-method-is-strict.js ***!
+  \******************************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
+
+module.exports = function (METHOD_NAME, argument) {
+  var method = [][METHOD_NAME];
+  return !!method && fails(function () {
+    // eslint-disable-next-line no-useless-call,no-throw-literal -- required for testing
+    method.call(null, argument || function () { throw 1; }, 1);
   });
 };
 
@@ -2710,6 +3029,71 @@ module.exports = typeof WeakMap === 'function' && /native code/.test(inspectSour
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/object-assign.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/internals/object-assign.js ***!
+  \*********************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
+var objectKeys = __webpack_require__(/*! ../internals/object-keys */ "./node_modules/core-js/internals/object-keys.js");
+var getOwnPropertySymbolsModule = __webpack_require__(/*! ../internals/object-get-own-property-symbols */ "./node_modules/core-js/internals/object-get-own-property-symbols.js");
+var propertyIsEnumerableModule = __webpack_require__(/*! ../internals/object-property-is-enumerable */ "./node_modules/core-js/internals/object-property-is-enumerable.js");
+var toObject = __webpack_require__(/*! ../internals/to-object */ "./node_modules/core-js/internals/to-object.js");
+var IndexedObject = __webpack_require__(/*! ../internals/indexed-object */ "./node_modules/core-js/internals/indexed-object.js");
+
+// eslint-disable-next-line es/no-object-assign -- safe
+var $assign = Object.assign;
+// eslint-disable-next-line es/no-object-defineproperty -- required for testing
+var defineProperty = Object.defineProperty;
+
+// `Object.assign` method
+// https://tc39.es/ecma262/#sec-object.assign
+module.exports = !$assign || fails(function () {
+  // should have correct order of operations (Edge bug)
+  if (DESCRIPTORS && $assign({ b: 1 }, $assign(defineProperty({}, 'a', {
+    enumerable: true,
+    get: function () {
+      defineProperty(this, 'b', {
+        value: 3,
+        enumerable: false
+      });
+    }
+  }), { b: 2 })).b !== 1) return true;
+  // should work with symbols and should have deterministic property order (V8 bug)
+  var A = {};
+  var B = {};
+  // eslint-disable-next-line es/no-symbol -- safe
+  var symbol = Symbol();
+  var alphabet = 'abcdefghijklmnopqrst';
+  A[symbol] = 7;
+  alphabet.split('').forEach(function (chr) { B[chr] = chr; });
+  return $assign({}, A)[symbol] != 7 || objectKeys($assign({}, B)).join('') != alphabet;
+}) ? function assign(target, source) { // eslint-disable-line no-unused-vars -- required for `.length`
+  var T = toObject(target);
+  var argumentsLength = arguments.length;
+  var index = 1;
+  var getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
+  var propertyIsEnumerable = propertyIsEnumerableModule.f;
+  while (argumentsLength > index) {
+    var S = IndexedObject(arguments[index++]);
+    var keys = getOwnPropertySymbols ? objectKeys(S).concat(getOwnPropertySymbols(S)) : objectKeys(S);
+    var length = keys.length;
+    var j = 0;
+    var key;
+    while (length > j) {
+      key = keys[j++];
+      if (!DESCRIPTORS || propertyIsEnumerable.call(S, key)) T[key] = S[key];
+    }
+  } return T;
+} : $assign;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/object-create.js":
 /*!*********************************************************!*\
   !*** ./node_modules/core-js/internals/object-create.js ***!
@@ -3192,6 +3576,33 @@ var TEMPLATE = String(String).split('String');
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/regexp-flags.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/internals/regexp-flags.js ***!
+  \********************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
+
+// `RegExp.prototype.flags` getter implementation
+// https://tc39.es/ecma262/#sec-get-regexp.prototype.flags
+module.exports = function () {
+  var that = anObject(this);
+  var result = '';
+  if (that.global) result += 'g';
+  if (that.ignoreCase) result += 'i';
+  if (that.multiline) result += 'm';
+  if (that.dotAll) result += 's';
+  if (that.unicode) result += 'u';
+  if (that.sticky) result += 'y';
+  return result;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/require-object-coercible.js":
 /*!********************************************************************!*\
   !*** ./node_modules/core-js/internals/require-object-coercible.js ***!
@@ -3586,6 +3997,32 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es.array.filter.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.filter.js ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var $filter = __webpack_require__(/*! ../internals/array-iteration */ "./node_modules/core-js/internals/array-iteration.js").filter;
+var arrayMethodHasSpeciesSupport = __webpack_require__(/*! ../internals/array-method-has-species-support */ "./node_modules/core-js/internals/array-method-has-species-support.js");
+
+var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('filter');
+
+// `Array.prototype.filter` method
+// https://tc39.es/ecma262/#sec-array.prototype.filter
+// with adding support of @@species
+$({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
+  filter: function filter(callbackfn /* , thisArg */) {
+    return $filter(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.array.from.js":
 /*!*******************************************************!*\
   !*** ./node_modules/core-js/modules/es.array.from.js ***!
@@ -3632,6 +4069,38 @@ $({ target: 'Array', proto: true }, {
 
 // https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
 addToUnscopables('includes');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.array.index-of.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.index-of.js ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+/* eslint-disable es/no-array-prototype-indexof -- required for testing */
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var $indexOf = __webpack_require__(/*! ../internals/array-includes */ "./node_modules/core-js/internals/array-includes.js").indexOf;
+var arrayMethodIsStrict = __webpack_require__(/*! ../internals/array-method-is-strict */ "./node_modules/core-js/internals/array-method-is-strict.js");
+
+var nativeIndexOf = [].indexOf;
+
+var NEGATIVE_ZERO = !!nativeIndexOf && 1 / [1].indexOf(1, -0) < 0;
+var STRICT_METHOD = arrayMethodIsStrict('indexOf');
+
+// `Array.prototype.indexOf` method
+// https://tc39.es/ecma262/#sec-array.prototype.indexof
+$({ target: 'Array', proto: true, forced: NEGATIVE_ZERO || !STRICT_METHOD }, {
+  indexOf: function indexOf(searchElement /* , fromIndex = 0 */) {
+    return NEGATIVE_ZERO
+      // convert -0 to +0
+      ? nativeIndexOf.apply(this, arguments) || 0
+      : $indexOf(this, searchElement, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
 
 
 /***/ }),
@@ -3758,6 +4227,59 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es.object.assign.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.object.assign.js ***!
+  \**********************************************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var assign = __webpack_require__(/*! ../internals/object-assign */ "./node_modules/core-js/internals/object-assign.js");
+
+// `Object.assign` method
+// https://tc39.es/ecma262/#sec-object.assign
+// eslint-disable-next-line es/no-object-assign -- required for testing
+$({ target: 'Object', stat: true, forced: Object.assign !== assign }, {
+  assign: assign
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.object.get-own-property-descriptors.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.object.get-own-property-descriptors.js ***!
+  \********************************************************************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
+var ownKeys = __webpack_require__(/*! ../internals/own-keys */ "./node_modules/core-js/internals/own-keys.js");
+var toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ "./node_modules/core-js/internals/to-indexed-object.js");
+var getOwnPropertyDescriptorModule = __webpack_require__(/*! ../internals/object-get-own-property-descriptor */ "./node_modules/core-js/internals/object-get-own-property-descriptor.js");
+var createProperty = __webpack_require__(/*! ../internals/create-property */ "./node_modules/core-js/internals/create-property.js");
+
+// `Object.getOwnPropertyDescriptors` method
+// https://tc39.es/ecma262/#sec-object.getownpropertydescriptors
+$({ target: 'Object', stat: true, sham: !DESCRIPTORS }, {
+  getOwnPropertyDescriptors: function getOwnPropertyDescriptors(object) {
+    var O = toIndexedObject(object);
+    var getOwnPropertyDescriptor = getOwnPropertyDescriptorModule.f;
+    var keys = ownKeys(O);
+    var result = {};
+    var index = 0;
+    var key, descriptor;
+    while (keys.length > index) {
+      descriptor = getOwnPropertyDescriptor(O, key = keys[index++]);
+      if (descriptor !== undefined) createProperty(result, key, descriptor);
+    }
+    return result;
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.object.to-string.js":
 /*!*************************************************************!*\
   !*** ./node_modules/core-js/modules/es.object.to-string.js ***!
@@ -3772,6 +4294,42 @@ var toString = __webpack_require__(/*! ../internals/object-to-string */ "./node_
 // https://tc39.es/ecma262/#sec-object.prototype.tostring
 if (!TO_STRING_TAG_SUPPORT) {
   redefine(Object.prototype, 'toString', toString, { unsafe: true });
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.regexp.to-string.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.regexp.to-string.js ***!
+  \*************************************************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+var redefine = __webpack_require__(/*! ../internals/redefine */ "./node_modules/core-js/internals/redefine.js");
+var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
+var flags = __webpack_require__(/*! ../internals/regexp-flags */ "./node_modules/core-js/internals/regexp-flags.js");
+
+var TO_STRING = 'toString';
+var RegExpPrototype = RegExp.prototype;
+var nativeToString = RegExpPrototype[TO_STRING];
+
+var NOT_GENERIC = fails(function () { return nativeToString.call({ source: 'a', flags: 'b' }) != '/a/b'; });
+// FF44- RegExp#toString has a wrong name
+var INCORRECT_NAME = nativeToString.name != TO_STRING;
+
+// `RegExp.prototype.toString` method
+// https://tc39.es/ecma262/#sec-regexp.prototype.tostring
+if (NOT_GENERIC || INCORRECT_NAME) {
+  redefine(RegExp.prototype, TO_STRING, function toString() {
+    var R = anObject(this);
+    var p = String(R.source);
+    var rf = R.flags;
+    var f = String(rf === undefined && R instanceof RegExp && !('flags' in RegExpPrototype) ? flags.call(R) : rf);
+    return '/' + p + '/' + f;
+  }, { unsafe: true });
 }
 
 
@@ -4156,6 +4714,31 @@ if (!$Symbol[PROTOTYPE][TO_PRIMITIVE]) {
 setToStringTag($Symbol, SYMBOL);
 
 hiddenKeys[HIDDEN] = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/web.dom-collections.for-each.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/core-js/modules/web.dom-collections.for-each.js ***!
+  \**********************************************************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
+var DOMIterables = __webpack_require__(/*! ../internals/dom-iterables */ "./node_modules/core-js/internals/dom-iterables.js");
+var forEach = __webpack_require__(/*! ../internals/array-for-each */ "./node_modules/core-js/internals/array-for-each.js");
+var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
+
+for (var COLLECTION_NAME in DOMIterables) {
+  var Collection = global[COLLECTION_NAME];
+  var CollectionPrototype = Collection && Collection.prototype;
+  // some Chrome versions have non-configurable methods on DOMTokenList
+  if (CollectionPrototype && CollectionPrototype.forEach !== forEach) try {
+    createNonEnumerableProperty(CollectionPrototype, 'forEach', forEach);
+  } catch (error) {
+    CollectionPrototype.forEach = forEach;
+  }
+}
 
 
 /***/ }),
@@ -4719,6 +5302,1400 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-number-format/dist/react-number-format.es.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/react-number-format/dist/react-number-format.es.js ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/**
+ * react-number-format - 4.5.5
+ * Author : Sudhanshu Yadav
+ * Copyright (c) 2016, 2021 to Sudhanshu Yadav, released under the MIT license.
+ * https://github.com/s-yadav/react-number-format
+ */
+
+
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+var ReactPropTypesSecret_1 = ReactPropTypesSecret;
+
+function emptyFunction() {}
+function emptyFunctionWithReset() {}
+emptyFunctionWithReset.resetWarningCache = emptyFunction;
+
+var factoryWithThrowingShims = function() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret_1) {
+      // It is still safe when called from React.
+      return;
+    }
+    var err = new Error(
+      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+      'Use PropTypes.checkPropTypes() to call them. ' +
+      'Read more at http://fb.me/use-check-prop-types'
+    );
+    err.name = 'Invariant Violation';
+    throw err;
+  }  shim.isRequired = shim;
+  function getShim() {
+    return shim;
+  }  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+  var ReactPropTypes = {
+    array: shim,
+    bool: shim,
+    func: shim,
+    number: shim,
+    object: shim,
+    string: shim,
+    symbol: shim,
+
+    any: shim,
+    arrayOf: getShim,
+    element: shim,
+    elementType: shim,
+    instanceOf: getShim,
+    node: shim,
+    objectOf: getShim,
+    oneOf: getShim,
+    oneOfType: getShim,
+    shape: getShim,
+    exact: getShim,
+
+    checkPropTypes: emptyFunctionWithReset,
+    resetWarningCache: emptyFunction
+  };
+
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+var propTypes = createCommonjsModule(function (module) {
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+{
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = factoryWithThrowingShims();
+}
+});
+
+//     
+
+                                                               
+
+// basic noop function
+function noop() {}
+function returnTrue() {
+  return true;
+}
+
+function charIsNumber(char         ) {
+  return !!(char || '').match(/\d/);
+}
+
+function isNil(val     ) {
+  return val === null || val === undefined;
+}
+
+function escapeRegExp(str        ) {
+  return str.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&');
+}
+
+function getThousandsGroupRegex(thousandsGroupStyle        ) {
+  switch (thousandsGroupStyle) {
+    case 'lakh':
+      return /(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/g;
+    case 'wan':
+      return /(\d)(?=(\d{4})+(?!\d))/g;
+    case 'thousand':
+    default:
+      return /(\d)(?=(\d{3})+(?!\d))/g;
+  }
+}
+
+function applyThousandSeparator(
+  str        ,
+  thousandSeparator        ,
+  thousandsGroupStyle        
+) {
+  var thousandsGroupRegex = getThousandsGroupRegex(thousandsGroupStyle);
+  var index = str.search(/[1-9]/);
+  index = index === -1 ? str.length : index;
+  return (
+    str.substring(0, index) +
+    str.substring(index, str.length).replace(thousandsGroupRegex, '$1' + thousandSeparator)
+  );
+}
+
+//spilt a float number into different parts beforeDecimal, afterDecimal, and negation
+function splitDecimal(numStr        , allowNegative) {
+  if ( allowNegative === void 0 ) allowNegative          = true;
+
+  var hasNagation = numStr[0] === '-';
+  var addNegation = hasNagation && allowNegative;
+  numStr = numStr.replace('-', '');
+
+  var parts = numStr.split('.');
+  var beforeDecimal = parts[0];
+  var afterDecimal = parts[1] || '';
+
+  return {
+    beforeDecimal: beforeDecimal,
+    afterDecimal: afterDecimal,
+    hasNagation: hasNagation,
+    addNegation: addNegation,
+  };
+}
+
+function fixLeadingZero(numStr         ) {
+  if (!numStr) { return numStr; }
+  var isNegative = numStr[0] === '-';
+  if (isNegative) { numStr = numStr.substring(1, numStr.length); }
+  var parts = numStr.split('.');
+  var beforeDecimal = parts[0].replace(/^0+/, '') || '0';
+  var afterDecimal = parts[1] || '';
+
+  return ("" + (isNegative ? '-' : '') + beforeDecimal + (afterDecimal ? ("." + afterDecimal) : ''));
+}
+
+/**
+ * limit decimal numbers to given scale
+ * Not used .fixedTo because that will break with big numbers
+ */
+function limitToScale(numStr        , scale        , fixedDecimalScale         ) {
+  var str = '';
+  var filler = fixedDecimalScale ? '0' : '';
+  for (var i = 0; i <= scale - 1; i++) {
+    str += numStr[i] || filler;
+  }
+  return str;
+}
+
+function repeat(str, count) {
+  return Array(count + 1).join(str)
+}
+
+function toNumericString(num) {  
+  num += ''; // typecast number to string
+
+  // store the sign and remove it from the number.
+  var sign = num[0] === '-' ? '-' : '';
+  if (sign) { num = num.substring(1); }
+
+  // split the number into cofficient and exponent
+  var ref = num.split(/[eE]/g);
+  var coefficient = ref[0];
+  var exponent = ref[1];
+
+  // covert exponent to number;
+  exponent = Number(exponent);
+
+  // if there is no exponent part or its 0, return the coffiecient with sign
+  if (!exponent) { return sign + coefficient; }
+
+  coefficient = coefficient.replace('.', '');
+
+  /**
+   * for scientific notation the current decimal index will be after first number (index 0)
+   * So effective decimal index will always be 1 + exponent value
+   */
+  var decimalIndex = 1 + exponent;
+
+  var coffiecientLn = coefficient.length;
+
+  if (decimalIndex < 0) {
+    // if decimal index is less then 0 add preceding 0s
+    // add 1 as join will have 
+    coefficient = '0.' + repeat('0', Math.abs(decimalIndex)) + coefficient;
+  } else if (decimalIndex >= coffiecientLn) {
+    // if decimal index is less then 0 add leading 0s
+    coefficient = coefficient + repeat('0', decimalIndex - coffiecientLn);
+  } else {
+    // else add decimal point at proper index
+    coefficient = (coefficient.substring(0, decimalIndex) || '0') + '.' + coefficient.substring(decimalIndex);
+  }
+
+  return sign + coefficient;
+}
+
+/**
+ * This method is required to round prop value to given scale.
+ * Not used .round or .fixedTo because that will break with big numbers
+ */
+function roundToPrecision(numStr        , scale        , fixedDecimalScale         ) {
+  //if number is empty don't do anything return empty string
+  if (['', '-'].indexOf(numStr) !== -1) { return numStr; }
+
+  var shoudHaveDecimalSeparator = numStr.indexOf('.') !== -1 && scale;
+  var ref = splitDecimal(numStr);
+  var beforeDecimal = ref.beforeDecimal;
+  var afterDecimal = ref.afterDecimal;
+  var hasNagation = ref.hasNagation;
+  var floatValue = parseFloat(("0." + (afterDecimal || '0')));
+  var floatValueStr =
+    afterDecimal.length <= scale ? toNumericString(floatValue) : floatValue.toFixed(scale);
+  var roundedDecimalParts = floatValueStr.split('.');
+  var intPart = beforeDecimal
+    .split('')
+    .reverse()
+    .reduce(function (roundedStr, current, idx) {
+      if (roundedStr.length > idx) {
+        return (
+          (Number(roundedStr[0]) + Number(current)).toString() +
+          roundedStr.substring(1, roundedStr.length)
+        );
+      }
+      return current + roundedStr;
+    }, roundedDecimalParts[0]);
+
+  var decimalPart = limitToScale(
+    roundedDecimalParts[1] || '',
+    Math.min(scale, afterDecimal.length),
+    fixedDecimalScale
+  );
+  var negation = hasNagation ? '-' : '';
+  var decimalSeparator = shoudHaveDecimalSeparator ? '.' : '';
+  return ("" + negation + intPart + decimalSeparator + decimalPart);
+}
+
+function omit(obj        , keyMaps        ) {
+  var filteredObj = {};
+  Object.keys(obj).forEach(function (key) {
+    if (!keyMaps[key]) { filteredObj[key] = obj[key]; }
+  });
+  return filteredObj;
+}
+
+/** set the caret positon in an input field **/
+function setCaretPosition(el                  , caretPos        ) {
+  el.value = el.value;
+  // ^ this is used to not only get 'focus', but
+  // to make sure we don't have it everything -selected-
+  // (it causes an issue in chrome, and having it doesn't hurt any other browser)
+  if (el !== null) {
+    if (el.createTextRange) {
+      var range = el.createTextRange();
+      range.move('character', caretPos);
+      range.select();
+      return true;
+    }
+    // (el.selectionStart === 0 added for Firefox bug)
+    if (el.selectionStart || el.selectionStart === 0) {
+      el.focus();
+      el.setSelectionRange(caretPos, caretPos);
+      return true;
+    }
+
+    // fail city, fortunately this never happens (as far as I've tested) :)
+    el.focus();
+    return false;
+  }
+}
+
+/**
+  Given previous value and newValue it returns the index
+  start - end to which values have changed.
+  This function makes assumption about only consecutive
+  characters are changed which is correct assumption for caret input.
+*/
+function findChangedIndex(prevValue        , newValue        ) {
+  var i = 0,
+    j = 0;
+  var prevLength = prevValue.length;
+  var newLength = newValue.length;
+  while (prevValue[i] === newValue[i] && i < prevLength) { i++; }
+
+  //check what has been changed from last
+  while (
+    prevValue[prevLength - 1 - j] === newValue[newLength - 1 - j] &&
+    newLength - j > i &&
+    prevLength - j > i
+  ) {
+    j++;
+  }
+
+  return { start: i, end: prevLength - j };
+}
+
+/*
+  Returns a number whose value is limited to the given range
+*/
+function clamp(num        , min        , max        ) {
+  return Math.min(Math.max(num, min), max);
+}
+
+function getCurrentCaretPosition(el                  ) {
+  /*Max of selectionStart and selectionEnd is taken for the patch of pixel and other mobile device caret bug*/
+  return Math.max(el.selectionStart, el.selectionEnd);
+}
+
+function addInputMode(format                                   ) {
+  return format || !(navigator.platform && /iPhone|iPod/.test(navigator.platform));
+}
+
+//     
+
+
+var propTypes$1 = {
+  thousandSeparator: propTypes.oneOfType([propTypes.string, propTypes.oneOf([true])]),
+  decimalSeparator: propTypes.string,
+  allowedDecimalSeparators: propTypes.arrayOf(propTypes.string),
+  thousandsGroupStyle: propTypes.oneOf(['thousand', 'lakh', 'wan']),
+  decimalScale: propTypes.number,
+  fixedDecimalScale: propTypes.bool,
+  displayType: propTypes.oneOf(['input', 'text']),
+  prefix: propTypes.string,
+  suffix: propTypes.string,
+  format: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.func
+  ]),
+  removeFormatting: propTypes.func,
+  mask: propTypes.oneOfType([propTypes.string, propTypes.arrayOf(propTypes.string)]),
+  value: propTypes.oneOfType([
+    propTypes.number,
+    propTypes.string
+  ]),
+  defaultValue: propTypes.oneOfType([
+    propTypes.number,
+    propTypes.string
+  ]),
+  isNumericString: propTypes.bool,
+  customInput: propTypes.elementType,
+  allowNegative: propTypes.bool,
+  allowEmptyFormatting: propTypes.bool,
+  allowLeadingZeros: propTypes.bool,
+  onValueChange: propTypes.func,
+  onKeyDown: propTypes.func,
+  onMouseUp: propTypes.func,
+  onChange: propTypes.func,
+  onFocus: propTypes.func,
+  onBlur: propTypes.func,
+  type: propTypes.oneOf(['text', 'tel', 'password']),
+  isAllowed: propTypes.func,
+  renderText: propTypes.func,
+  getInputRef: propTypes.oneOfType([
+    propTypes.func, // for legacy refs
+    propTypes.shape({ current: propTypes.any })
+  ])
+};
+
+var defaultProps = {
+  displayType: 'input',
+  decimalSeparator: '.',
+  thousandsGroupStyle: 'thousand',
+  fixedDecimalScale: false,
+  prefix: '',
+  suffix: '',
+  allowNegative: true,
+  allowEmptyFormatting: false,
+  allowLeadingZeros: false,
+  isNumericString: false,
+  type: 'text',
+  onValueChange: noop,
+  onChange: noop,
+  onKeyDown: noop,
+  onMouseUp: noop,
+  onFocus: noop,
+  onBlur: noop,
+  isAllowed: returnTrue
+};
+var NumberFormat = /*@__PURE__*/(function (superclass) {
+  function NumberFormat(props        ) {
+    superclass.call(this, props);
+
+    var defaultValue = props.defaultValue;
+
+    //validate props
+    this.validateProps();
+
+    var formattedValue = this.formatValueProp(defaultValue);
+
+    this.state = {
+      value: formattedValue,
+      numAsString: this.removeFormatting(formattedValue),
+      mounted: false,
+    };
+
+    this.selectionBeforeInput = {
+      selectionStart: 0,
+      selectionEnd: 0
+    };
+
+    this.onChange = this.onChange.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
+    this.onMouseUp = this.onMouseUp.bind(this);
+    this.onFocus = this.onFocus.bind(this);
+    this.onBlur = this.onBlur.bind(this);
+  }
+
+  if ( superclass ) NumberFormat.__proto__ = superclass;
+  NumberFormat.prototype = Object.create( superclass && superclass.prototype );
+  NumberFormat.prototype.constructor = NumberFormat;
+
+  NumberFormat.prototype.componentDidMount = function componentDidMount () {
+    // set mounted state
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState({
+      mounted: true
+    });
+  };
+
+  NumberFormat.prototype.componentDidUpdate = function componentDidUpdate (prevProps        ) {
+    this.updateValueIfRequired(prevProps);
+  };
+
+  NumberFormat.prototype.componentWillUnmount = function componentWillUnmount () {
+    clearTimeout(this.focusTimeout);
+  };
+
+  NumberFormat.prototype.updateValueIfRequired = function updateValueIfRequired (prevProps        ) {
+    var ref = this;
+    var props = ref.props;
+    var state = ref.state;
+    var focusedElm = ref.focusedElm;
+    var stateValue = state.value;
+    var lastNumStr = state.numAsString; if ( lastNumStr === void 0 ) lastNumStr = '';
+
+    // If only state changed no need to do any thing
+    if(prevProps !== props) {
+      //validate props
+      this.validateProps();
+
+      var lastValueWithNewFormat = this.formatNumString(lastNumStr);
+
+      var formattedValue = isNil(props.value) ? lastValueWithNewFormat : this.formatValueProp();
+      var numAsString = this.removeFormatting(formattedValue);
+
+      var floatValue = parseFloat(numAsString);
+      var lastFloatValue = parseFloat(lastNumStr);
+
+      if (
+        //while typing set state only when float value changes
+        ((!isNaN(floatValue) || !isNaN(lastFloatValue)) && floatValue !== lastFloatValue) ||
+        //can also set state when float value is same and the format props changes
+        lastValueWithNewFormat !== stateValue ||
+        //set state always when not in focus and formatted value is changed
+        (focusedElm === null && formattedValue !== stateValue)
+      ) {
+        this.updateValue({ formattedValue: formattedValue, numAsString: numAsString, input: focusedElm });
+      }
+    }
+  };
+
+  /** Misc methods **/
+  NumberFormat.prototype.getFloatString = function getFloatString (num) {
+    if ( num === void 0 ) num         = '';
+
+    var ref = this.props;
+    var decimalScale = ref.decimalScale;
+    var ref$1 = this.getSeparators();
+    var decimalSeparator = ref$1.decimalSeparator;
+    var numRegex = this.getNumberRegex(true);
+
+    //remove negation for regex check
+    var hasNegation = num[0] === '-';
+    if(hasNegation) { num = num.replace('-', ''); }
+
+    //if decimal scale is zero remove decimal and number after decimalSeparator
+    if (decimalSeparator && decimalScale === 0) {
+      num = num.split(decimalSeparator)[0];
+    }
+
+    num  = (num.match(numRegex) || []).join('').replace(decimalSeparator, '.');
+
+    //remove extra decimals
+    var firstDecimalIndex = num.indexOf('.');
+
+    if (firstDecimalIndex !== -1) {
+      num = (num.substring(0, firstDecimalIndex)) + "." + (num.substring(firstDecimalIndex + 1, num.length).replace(new RegExp(escapeRegExp(decimalSeparator), 'g'), ''));
+    }
+
+    //add negation back
+    if(hasNegation) { num = '-' + num; }
+
+    return num;
+  };
+
+  //returned regex assumes decimalSeparator is as per prop
+  NumberFormat.prototype.getNumberRegex = function getNumberRegex (g         , ignoreDecimalSeparator          ) {
+    var ref = this.props;
+    var format = ref.format;
+    var decimalScale = ref.decimalScale;
+    var ref$1 = this.getSeparators();
+    var decimalSeparator = ref$1.decimalSeparator;
+    return new RegExp('\\d' + (decimalSeparator && decimalScale !== 0 && !ignoreDecimalSeparator && !format ? '|' + escapeRegExp(decimalSeparator) : ''), g ? 'g' : undefined);
+  };
+
+  NumberFormat.prototype.getSeparators = function getSeparators () {
+    var ref = this.props;
+    var decimalSeparator = ref.decimalSeparator;
+    var ref$1 = this.props;
+    var thousandSeparator = ref$1.thousandSeparator;
+    var allowedDecimalSeparators = ref$1.allowedDecimalSeparators;
+
+    if (thousandSeparator === true) {
+      thousandSeparator = ',';
+    }
+    if (!allowedDecimalSeparators) {
+      allowedDecimalSeparators = [decimalSeparator, '.'];
+    }
+
+    return {
+      decimalSeparator: decimalSeparator,
+      thousandSeparator: thousandSeparator,
+      allowedDecimalSeparators: allowedDecimalSeparators,
+    }
+  };
+
+  NumberFormat.prototype.getMaskAtIndex = function getMaskAtIndex (index        ) {
+    var ref = this.props;
+    var mask = ref.mask; if ( mask === void 0 ) mask = ' ';
+    if (typeof mask === 'string') {
+      return mask;
+    }
+
+    return mask[index] || ' ';
+  };
+
+  NumberFormat.prototype.getValueObject = function getValueObject (formattedValue        , numAsString        ) {
+    var floatValue = parseFloat(numAsString);
+
+    return {
+      formattedValue: formattedValue,
+      value: numAsString,
+      floatValue: isNaN(floatValue) ? undefined : floatValue
+    };
+
+  };
+
+  NumberFormat.prototype.validateProps = function validateProps () {
+    var ref = this.props;
+    var mask = ref.mask;
+
+    //validate decimalSeparator and thousandSeparator
+    var ref$1 = this.getSeparators();
+    var decimalSeparator = ref$1.decimalSeparator;
+    var thousandSeparator = ref$1.thousandSeparator;
+
+    if (decimalSeparator === thousandSeparator) {
+      throw new Error(("\n          Decimal separator can't be same as thousand separator.\n          thousandSeparator: " + thousandSeparator + " (thousandSeparator = {true} is same as thousandSeparator = \",\")\n          decimalSeparator: " + decimalSeparator + " (default value for decimalSeparator is .)\n       "));
+    }
+
+    //validate mask
+    if (mask) {
+      var maskAsStr = mask === 'string' ? mask : mask.toString();
+      if (maskAsStr.match(/\d/g)) {
+        throw new Error(("\n          Mask " + mask + " should not contain numeric character;\n        "))
+      }
+    }
+
+  };
+  /** Misc methods end **/
+
+  /** caret specific methods **/
+  NumberFormat.prototype.setPatchedCaretPosition = function setPatchedCaretPosition (el                  , caretPos        , currentValue        ) {
+    /* setting caret position within timeout of 0ms is required for mobile chrome,
+    otherwise browser resets the caret position after we set it
+    We are also setting it without timeout so that in normal browser we don't see the flickering */
+    setCaretPosition(el, caretPos);
+    setTimeout(function () {
+      if(el.value === currentValue) { setCaretPosition(el, caretPos); }
+    }, 0);
+  };
+
+  /* This keeps the caret within typing area so people can't type in between prefix or suffix */
+  NumberFormat.prototype.correctCaretPosition = function correctCaretPosition (value        , caretPos        , direction         ) {
+    var ref = this.props;
+    var prefix = ref.prefix;
+    var suffix = ref.suffix;
+    var format = ref.format;
+
+    //if value is empty return 0
+    if (value === '') { return 0; }
+
+    //caret position should be between 0 and value length
+    caretPos = clamp(caretPos, 0, value.length);
+
+    //in case of format as number limit between prefix and suffix
+    if (!format) {
+      var hasNegation = value[0] === '-';
+      return clamp(caretPos, prefix.length + (hasNegation ? 1 : 0), value.length - suffix.length);
+    }
+
+    //in case if custom format method don't do anything
+    if (typeof format === 'function') { return caretPos; }
+
+    /* in case format is string find the closest # position from the caret position */
+
+    //in case the caretPos have input value on it don't do anything
+    if (format[caretPos] === '#' && charIsNumber(value[caretPos])) { return caretPos; }
+
+    //if caretPos is just after input value don't do anything
+    if (format[caretPos - 1] === '#' && charIsNumber(value[caretPos - 1])) { return caretPos; }
+
+    //find the nearest caret position
+    var firstHashPosition = format.indexOf('#');
+    var lastHashPosition = format.lastIndexOf('#');
+
+    //limit the cursor between the first # position and the last # position
+    caretPos = clamp(caretPos, firstHashPosition, lastHashPosition + 1);
+
+    var nextPos = format.substring(caretPos, format.length).indexOf('#');
+    var caretLeftBound = caretPos;
+    var caretRightBound = caretPos + (nextPos === -1 ? 0 : nextPos);
+
+    //get the position where the last number is present
+    while (caretLeftBound > firstHashPosition && (format[caretLeftBound] !== '#' || !charIsNumber(value[caretLeftBound]))) {
+      caretLeftBound -= 1;
+    }
+
+    var goToLeft = !charIsNumber(value[caretRightBound])
+    || (direction === 'left' && caretPos !== firstHashPosition)
+    || (caretPos - caretLeftBound < caretRightBound - caretPos);
+
+    if (goToLeft) {
+      //check if number should be taken after the bound or after it
+      //if number preceding a valid number keep it after
+      return charIsNumber(value[caretLeftBound]) ? caretLeftBound + 1 : caretLeftBound;
+    }
+
+    return caretRightBound;
+  };
+
+  NumberFormat.prototype.getCaretPosition = function getCaretPosition (inputValue        , formattedValue        , caretPos        ) {
+    var ref = this.props;
+    var format = ref.format;
+    var stateValue = this.state.value;
+    var numRegex = this.getNumberRegex(true);
+    var inputNumber = (inputValue.match(numRegex) || []).join('');
+    var formattedNumber = (formattedValue.match(numRegex) || []).join('');
+    var j, i;
+
+    j = 0;
+
+    for(i=0; i<caretPos; i++){
+      var currentInputChar = inputValue[i] || '';
+      var currentFormatChar = formattedValue[j] || '';
+      //no need to increase new cursor position if formatted value does not have those characters
+      //case inputValue = 1a23 and formattedValue =  123
+      if(!currentInputChar.match(numRegex) && currentInputChar !== currentFormatChar) { continue; }
+
+      //When we are striping out leading zeros maintain the new cursor position
+      //Case inputValue = 00023 and formattedValue = 23;
+      if (currentInputChar === '0' && currentFormatChar.match(numRegex) && currentFormatChar !== '0' && inputNumber.length !== formattedNumber.length) { continue; }
+
+      //we are not using currentFormatChar because j can change here
+      while(currentInputChar !== formattedValue[j] && j < formattedValue.length) { j++; }
+      j++;
+    }
+
+    if ((typeof format === 'string' && !stateValue)) {
+      //set it to the maximum value so it goes after the last number
+      j = formattedValue.length;
+    }
+
+    //correct caret position if its outside of editable area
+    j = this.correctCaretPosition(formattedValue, j);
+
+    return j;
+  };
+  /** caret specific methods ends **/
+
+
+  /** methods to remove formattting **/
+  NumberFormat.prototype.removePrefixAndSuffix = function removePrefixAndSuffix (val        ) {
+    var ref = this.props;
+    var format = ref.format;
+    var prefix = ref.prefix;
+    var suffix = ref.suffix;
+
+    //remove prefix and suffix
+    if (!format && val) {
+      var isNegative = val[0] === '-';
+
+      //remove negation sign
+      if (isNegative) { val = val.substring(1, val.length); }
+
+      //remove prefix
+      val = prefix && val.indexOf(prefix) === 0 ? val.substring(prefix.length, val.length) : val;
+
+      //remove suffix
+      var suffixLastIndex = val.lastIndexOf(suffix);
+      val = suffix && suffixLastIndex !== -1 && suffixLastIndex === val.length - suffix.length ? val.substring(0, suffixLastIndex) : val;
+
+      //add negation sign back
+      if (isNegative) { val = '-' + val; }
+    }
+
+    return val;
+  };
+
+  NumberFormat.prototype.removePatternFormatting = function removePatternFormatting (val        ) {
+    var ref = this.props;
+    var format = ref.format;
+    var formatArray = format.split('#').filter(function (str) { return str !== ''; });
+    var start = 0;
+    var numStr = '';
+
+    for (var i=0, ln=formatArray.length; i <= ln; i++) {
+      var part = formatArray[i] || '';
+
+      //if i is the last fragment take the index of end of the value
+      //For case like +1 (911) 911 91 91 having pattern +1 (###) ### ## ##
+      var index = i === ln ? val.length : val.indexOf(part, start);
+
+      /* in any case if we don't find the pattern part in the value assume the val as numeric string
+      This will be also in case if user has started typing, in any other case it will not be -1
+      unless wrong prop value is provided */
+      if (index === -1) {
+        numStr = val;
+        break;
+      } else {
+        numStr += val.substring(start, index);
+        start = index + part.length;
+      }
+    }
+
+    return (numStr.match(/\d/g) || []).join('');
+  };
+
+  NumberFormat.prototype.removeFormatting = function removeFormatting (val        ) {
+    var ref = this.props;
+    var format = ref.format;
+    var removeFormatting = ref.removeFormatting;
+    if (!val) { return val; }
+
+    if (!format) {
+      val = this.removePrefixAndSuffix(val);
+      val = this.getFloatString(val);
+    } else if (typeof format === 'string') {
+      val = this.removePatternFormatting(val);
+    } else if (typeof removeFormatting === 'function') { //condition need to be handled if format method is provide,
+      val = removeFormatting(val);
+    } else {
+      val = (val.match(/\d/g) || []).join('');
+    }
+    return val;
+  };
+  /** methods to remove formattting end **/
+
+
+  /*** format specific methods start ***/
+  /**
+   * Format when # based string is provided
+   * @param  {string} numStr Numeric String
+   * @return {string}        formatted Value
+   */
+  NumberFormat.prototype.formatWithPattern = function formatWithPattern (numStr        ) {
+    var ref = this.props;
+    var format = ref.format;
+    var hashCount = 0;
+    var formattedNumberAry = format.split('');
+    for (var i = 0, ln = format.length; i < ln; i++) {
+      if (format[i] === '#') {
+        formattedNumberAry[i] = numStr[hashCount] || this.getMaskAtIndex(hashCount);
+        hashCount += 1;
+      }
+    }
+    return formattedNumberAry.join('');
+  };
+  /**
+   * @param  {string} numStr Numeric string/floatString] It always have decimalSeparator as .
+   * @return {string} formatted Value
+   */
+  NumberFormat.prototype.formatAsNumber = function formatAsNumber (numStr        ) {
+    var ref = this.props;
+    var decimalScale = ref.decimalScale;
+    var fixedDecimalScale = ref.fixedDecimalScale;
+    var prefix = ref.prefix;
+    var suffix = ref.suffix;
+    var allowNegative = ref.allowNegative;
+    var thousandsGroupStyle = ref.thousandsGroupStyle;
+    var ref$1 = this.getSeparators();
+    var thousandSeparator = ref$1.thousandSeparator;
+    var decimalSeparator = ref$1.decimalSeparator;
+
+    var hasDecimalSeparator = numStr.indexOf('.') !== -1 || (decimalScale && fixedDecimalScale);
+    var ref$2 = splitDecimal(numStr, allowNegative);
+    var beforeDecimal = ref$2.beforeDecimal;
+    var afterDecimal = ref$2.afterDecimal;
+    var addNegation = ref$2.addNegation; // eslint-disable-line prefer-const
+
+    //apply decimal precision if its defined
+    if (decimalScale !== undefined) { afterDecimal = limitToScale(afterDecimal, decimalScale, fixedDecimalScale); }
+
+    if(thousandSeparator) {
+      beforeDecimal = applyThousandSeparator(beforeDecimal, thousandSeparator, thousandsGroupStyle);
+    }
+
+    //add prefix and suffix
+    if(prefix) { beforeDecimal = prefix + beforeDecimal; }
+    if(suffix) { afterDecimal = afterDecimal + suffix; }
+
+    //restore negation sign
+    if (addNegation) { beforeDecimal = '-' + beforeDecimal; }
+
+    numStr = beforeDecimal + (hasDecimalSeparator && decimalSeparator ||  '') + afterDecimal;
+
+    return numStr;
+  };
+
+  NumberFormat.prototype.formatNumString = function formatNumString (numStr) {
+    if ( numStr === void 0 ) numStr         = '';
+
+    var ref = this.props;
+    var format = ref.format;
+    var allowEmptyFormatting = ref.allowEmptyFormatting;
+    var formattedValue = numStr;
+
+    if (numStr === '' && !allowEmptyFormatting) {
+      formattedValue = '';
+    } else if (numStr === '-' && !format) {
+      formattedValue = '-';
+    } else if (typeof format === 'string') {
+      formattedValue = this.formatWithPattern(formattedValue);
+    } else if (typeof format === 'function') {
+      formattedValue = format(formattedValue);
+    } else {
+      formattedValue = this.formatAsNumber(formattedValue);
+    }
+
+    return formattedValue;
+  };
+
+  NumberFormat.prototype.formatValueProp = function formatValueProp (defaultValue               ) {
+    var ref = this.props;
+    var format = ref.format;
+    var decimalScale = ref.decimalScale;
+    var fixedDecimalScale = ref.fixedDecimalScale;
+    var allowEmptyFormatting = ref.allowEmptyFormatting;
+    var ref$1 = this.props;
+    var value = ref$1.value;
+    var isNumericString = ref$1.isNumericString;
+
+    // if value is undefined or null, use defaultValue instead
+    value = isNil(value) ? defaultValue : value;
+
+    var isNonNumericFalsy = !value && value !== 0;
+
+    if (isNonNumericFalsy && allowEmptyFormatting) {
+      value = '';
+    }
+
+    // if value is not defined return empty string
+    if (isNonNumericFalsy && !allowEmptyFormatting) { return ''; }
+
+    if (typeof value === 'number') {
+      value = toNumericString(value);
+      isNumericString = true;
+    }
+
+    //change infinity value to empty string
+    if (value === 'Infinity' && isNumericString) {
+      value = '';
+    }
+
+    //round the number based on decimalScale
+    //format only if non formatted value is provided
+    if (isNumericString && !format && typeof decimalScale === 'number') {
+      value = roundToPrecision(value, decimalScale, fixedDecimalScale);
+    }
+
+    var formattedValue = isNumericString ? this.formatNumString(value) : this.formatInput(value);
+
+    return formattedValue;
+  };
+
+  NumberFormat.prototype.formatNegation = function formatNegation (value) {
+    if ( value === void 0 ) value         = '';
+
+    var ref = this.props;
+    var allowNegative = ref.allowNegative;
+    var negationRegex = new RegExp('(-)');
+    var doubleNegationRegex = new RegExp('(-)(.)*(-)');
+
+    // Check number has '-' value
+    var hasNegation = negationRegex.test(value);
+
+    // Check number has 2 or more '-' values
+    var removeNegation = doubleNegationRegex.test(value);
+
+    //remove negation
+    value = value.replace(/-/g, '');
+
+    if (hasNegation && !removeNegation && allowNegative) {
+      value = '-' + value;
+    }
+
+    return value;
+  };
+
+  NumberFormat.prototype.formatInput = function formatInput (value) {
+    if ( value === void 0 ) value         = '';
+
+    var ref = this.props;
+    var format = ref.format;
+
+    //format negation only if we are formatting as number
+    if (!format) {
+      value = this.removePrefixAndSuffix(value);
+      value = this.formatNegation(value);
+    }
+
+    //remove formatting from number
+    value = this.removeFormatting(value);
+
+    return this.formatNumString(value);
+  };
+
+  /*** format specific methods end ***/
+  NumberFormat.prototype.isCharacterAFormat = function isCharacterAFormat (caretPos        , value        ) {
+    var ref = this.props;
+    var format = ref.format;
+    var prefix = ref.prefix;
+    var suffix = ref.suffix;
+    var decimalScale = ref.decimalScale;
+    var fixedDecimalScale = ref.fixedDecimalScale;
+    var ref$1 = this.getSeparators();
+    var decimalSeparator = ref$1.decimalSeparator;
+
+    //check within format pattern
+    if (typeof format === 'string' && format[caretPos] !== '#') { return true; }
+
+    //check in number format
+    if (!format && (caretPos < prefix.length
+      || caretPos >= value.length - suffix.length
+      || (decimalScale && fixedDecimalScale && value[caretPos] === decimalSeparator))
+    ) {
+      return true;
+    }
+
+    return false;
+  };
+
+  NumberFormat.prototype.checkIfFormatGotDeleted = function checkIfFormatGotDeleted (start        , end        , value        ) {
+    for (var i = start; i < end; i++) {
+      if (this.isCharacterAFormat(i, value)) { return true; }
+    }
+    return false;
+  };
+
+  /**
+   * This will check if any formatting got removed by the delete or backspace and reset the value
+   * It will also work as fallback if android chome keyDown handler does not work
+   **/
+  NumberFormat.prototype.correctInputValue = function correctInputValue (caretPos        , lastValue        , value        ) {
+    var ref = this.props;
+    var format = ref.format;
+    var allowNegative = ref.allowNegative;
+    var prefix = ref.prefix;
+    var suffix = ref.suffix;
+    var decimalScale = ref.decimalScale;
+    var ref$1 = this.getSeparators();
+    var allowedDecimalSeparators = ref$1.allowedDecimalSeparators;
+    var decimalSeparator = ref$1.decimalSeparator;
+    var lastNumStr = this.state.numAsString || '';
+    var ref$2 = this.selectionBeforeInput;
+    var selectionStart = ref$2.selectionStart;
+    var selectionEnd = ref$2.selectionEnd;
+    var ref$3 = findChangedIndex(lastValue, value);
+    var start = ref$3.start;
+    var end = ref$3.end;
+
+    /** Check for any allowed decimal separator is added in the numeric format and replace it with decimal separator */
+    if (!format && start === end && allowedDecimalSeparators.indexOf(value[selectionStart]) !== -1  ) {
+      var separator = decimalScale === 0 ? '' : decimalSeparator;
+      return value.substr(0, selectionStart) + separator + value.substr(selectionStart + 1, value.length);
+    }
+
+
+    var leftBound = !!format ? 0 : prefix.length;
+    var rightBound = lastValue.length - (!!format ? 0 : suffix.length);
+
+    if (
+      // don't do anything if something got added
+      value.length > lastValue.length ||
+      // or if the new value is an empty string 
+      !value.length ||
+      // or if nothing has changed, in which case start will be same as end
+      start === end ||
+      // or in case if whole input is selected and new value is typed
+      (selectionStart === 0 && selectionEnd === lastValue.length) ||
+      // or in case if the whole content is replaced by browser, example (autocomplete)
+      (start === 0 && end === lastValue.length) ||
+      // or if charcters between prefix and suffix is selected. 
+      // For numeric inputs we apply the format so, prefix and suffix can be ignored
+      (selectionStart === leftBound && selectionEnd === rightBound)
+    ) {
+      return value;
+    }
+
+    //if format got deleted reset the value to last value
+    if (this.checkIfFormatGotDeleted(start, end, lastValue)) {
+      value = lastValue;
+    }
+
+    //for numbers check if beforeDecimal got deleted and there is nothing after decimal,
+    //clear all numbers in such case while keeping the - sign
+    if (!format) {
+      var numericString = this.removeFormatting(value);
+      var ref$4 = splitDecimal(numericString, allowNegative);
+      var beforeDecimal = ref$4.beforeDecimal;
+      var afterDecimal = ref$4.afterDecimal;
+      var addNegation = ref$4.addNegation; // eslint-disable-line prefer-const
+
+      //clear only if something got deleted
+      var isBeforeDecimalPoint = caretPos < value.indexOf(decimalSeparator) + 1;
+      if (numericString.length < lastNumStr.length && isBeforeDecimalPoint && beforeDecimal === '' && !parseFloat(afterDecimal)) {
+        return addNegation ? '-' : '';
+      }
+    }
+
+    return value;
+  };
+
+  /** Update value and caret position */
+  NumberFormat.prototype.updateValue = function updateValue (params   
+                             
+                          
+                         
+                              
+                       
+                                
+     
+  ) {
+    var formattedValue = params.formattedValue;
+    var input = params.input;
+    var setCaretPosition = params.setCaretPosition; if ( setCaretPosition === void 0 ) setCaretPosition = true;
+    var numAsString = params.numAsString;
+    var caretPos = params.caretPos;
+    var ref = this.props;
+    var onValueChange = ref.onValueChange;
+    var ref$1 = this.state;
+    var lastValue = ref$1.value;
+
+    if (input) {
+      //set caret position, and value imperatively when element is provided
+      if (setCaretPosition) {
+
+        //calculate caret position if not defined
+        if (!caretPos) {
+          var inputValue = params.inputValue || input.value;
+
+          var currentCaretPosition = getCurrentCaretPosition(input);
+
+          /**
+           * set the value imperatively, this is required for IE fix
+           * This is also required as if new caret position is beyond the previous value.
+           * Caret position will not be set correctly
+           */
+          input.value = formattedValue;
+
+          //get the caret position
+          caretPos = this.getCaretPosition(inputValue, formattedValue, currentCaretPosition);
+        }
+
+        //set caret position
+        this.setPatchedCaretPosition(input, caretPos, formattedValue);
+      } else {
+        /**
+         * if we are not setting caret position set the value imperatively.
+         * This is required on onBlur method
+         */
+        input.value = formattedValue;
+      }
+    }
+
+
+    //calculate numeric string if not passed
+    if (numAsString === undefined) {
+      numAsString = this.removeFormatting(formattedValue);
+    }
+
+    //update state if value is changed
+    if (formattedValue !== lastValue) {
+      this.setState({ value : formattedValue, numAsString: numAsString });
+
+      // trigger onValueChange synchronously, so parent is updated along with the number format. Fix for #277, #287
+      onValueChange(this.getValueObject(formattedValue, numAsString));
+    }
+  };
+
+  NumberFormat.prototype.onChange = function onChange (e                     ) {
+    var el = e.target;
+    var inputValue = el.value;
+    var ref = this;
+    var state = ref.state;
+    var props = ref.props;
+    var isAllowed = props.isAllowed;
+    var lastValue = state.value || '';
+
+    var currentCaretPosition = getCurrentCaretPosition(el);
+
+    inputValue =  this.correctInputValue(currentCaretPosition, lastValue, inputValue);
+
+    var formattedValue = this.formatInput(inputValue) || '';
+    var numAsString = this.removeFormatting(formattedValue);
+
+    var valueObj = this.getValueObject(formattedValue, numAsString);
+    var isChangeAllowed = isAllowed(valueObj);
+
+    if (!isChangeAllowed) {
+      formattedValue = lastValue;
+    }
+
+    this.updateValue({ formattedValue: formattedValue, numAsString: numAsString, inputValue: inputValue, input: el });
+
+    if(isChangeAllowed) {
+      props.onChange(e);
+    }
+  };
+
+  NumberFormat.prototype.onBlur = function onBlur (e                     ) {
+    var ref = this;
+    var props = ref.props;
+    var state = ref.state;
+    var format = props.format;
+    var onBlur = props.onBlur;
+    var allowLeadingZeros = props.allowLeadingZeros;
+    var numAsString = state.numAsString;
+    var lastValue = state.value;
+    this.focusedElm = null;
+
+    clearTimeout(this.focusTimeout);
+
+
+    if (!format) {
+      // if the numAsString is not a valid number reset it to empty
+      if (isNaN(parseFloat(numAsString))) {
+        numAsString = '';
+      }
+
+      if (!allowLeadingZeros) {
+        numAsString = fixLeadingZero(numAsString);
+      }
+
+      var formattedValue = this.formatNumString(numAsString);
+
+      //change the state
+      if (formattedValue !== lastValue) {
+        // the event needs to be persisted because its properties can be accessed in an asynchronous way
+        this.updateValue({ formattedValue: formattedValue, numAsString: numAsString, input: e.target, setCaretPosition: false });
+        onBlur(e);
+        return;
+      }
+    }
+    onBlur(e);
+  };
+
+  NumberFormat.prototype.onKeyDown = function onKeyDown (e                             ) {
+    var el = e.target;
+    var key = e.key;
+    var selectionStart = el.selectionStart;
+    var selectionEnd = el.selectionEnd;
+    var value = el.value; if ( value === void 0 ) value = '';
+    var expectedCaretPosition;
+    var ref = this.props;
+    var decimalScale = ref.decimalScale;
+    var fixedDecimalScale = ref.fixedDecimalScale;
+    var prefix = ref.prefix;
+    var suffix = ref.suffix;
+    var format = ref.format;
+    var onKeyDown = ref.onKeyDown;
+    var ignoreDecimalSeparator = decimalScale !== undefined && fixedDecimalScale;
+    var numRegex = this.getNumberRegex(false, ignoreDecimalSeparator);
+    var negativeRegex = new RegExp('-');
+    var isPatternFormat = typeof format === 'string';
+
+    this.selectionBeforeInput = {
+      selectionStart: selectionStart,
+      selectionEnd: selectionEnd
+    };
+
+    //Handle backspace and delete against non numerical/decimal characters or arrow keys
+    if (key === 'ArrowLeft' || key === 'Backspace') {
+      expectedCaretPosition = selectionStart - 1;
+    } else if (key === 'ArrowRight') {
+      expectedCaretPosition = selectionStart + 1;
+    } else if (key === 'Delete') {
+      expectedCaretPosition = selectionStart;
+    }
+
+    //if expectedCaretPosition is not set it means we don't want to Handle keyDown
+    //also if multiple characters are selected don't handle
+    if (expectedCaretPosition === undefined || selectionStart !== selectionEnd) {
+      onKeyDown(e);
+      return;
+    }
+
+    var newCaretPosition = expectedCaretPosition;
+    var leftBound = isPatternFormat ? format.indexOf('#') : prefix.length;
+    var rightBound = isPatternFormat ? format.lastIndexOf('#') + 1 : value.length - suffix.length;
+
+    if (key === 'ArrowLeft' || key === 'ArrowRight') {
+      var direction = key === 'ArrowLeft' ? 'left' : 'right';
+      newCaretPosition = this.correctCaretPosition(value, expectedCaretPosition, direction);
+    } else if (key === 'Delete' && !numRegex.test(value[expectedCaretPosition]) && !negativeRegex.test(value[expectedCaretPosition])) {
+      while (!numRegex.test(value[newCaretPosition]) && newCaretPosition < rightBound) { newCaretPosition++; }
+    } else if (key === 'Backspace' && !numRegex.test(value[expectedCaretPosition])) {
+      /* NOTE: This is special case when backspace is pressed on a
+      negative value while the cursor position is after prefix. We can't handle it on onChange because
+      we will not have any information of keyPress
+      */
+      if (selectionStart <= leftBound + 1 && value[0] === '-' && typeof format === 'undefined') {
+        var newValue = value.substring(1);
+        this.updateValue({formattedValue: newValue, caretPos: newCaretPosition, input: el});
+      } else if (!negativeRegex.test(value[expectedCaretPosition])) {
+        while (!numRegex.test(value[newCaretPosition - 1]) && newCaretPosition > leftBound){ newCaretPosition--; }
+        newCaretPosition = this.correctCaretPosition(value, newCaretPosition, 'left');
+      }
+    }
+
+
+    if (newCaretPosition !== expectedCaretPosition || expectedCaretPosition < leftBound || expectedCaretPosition > rightBound) {
+      e.preventDefault();
+      this.setPatchedCaretPosition(el, newCaretPosition, value);
+    }
+
+    /* NOTE: this is just required for unit test as we need to get the newCaretPosition,
+            Remove this when you find different solution */
+    if (e.isUnitTestRun) {
+      this.setPatchedCaretPosition(el, newCaretPosition, value);
+    }
+
+
+    onKeyDown(e);
+
+  };
+
+  /** required to handle the caret position when click anywhere within the input **/
+  NumberFormat.prototype.onMouseUp = function onMouseUp (e                          ) {
+    var el = e.target;
+
+    /**
+     * NOTE: we have to give default value for value as in case when custom input is provided
+     * value can come as undefined when nothing is provided on value prop.
+    */
+    var selectionStart = el.selectionStart;
+    var selectionEnd = el.selectionEnd;
+    var value = el.value; if ( value === void 0 ) value = '';
+
+    if (selectionStart === selectionEnd) {
+      var caretPosition = this.correctCaretPosition(value, selectionStart);
+      if (caretPosition !== selectionStart) {
+        this.setPatchedCaretPosition(el, caretPosition, value);
+      }
+    }
+
+    this.props.onMouseUp(e);
+  };
+
+  NumberFormat.prototype.onFocus = function onFocus (e                     ) {
+    var this$1 = this;
+
+    // Workaround Chrome and Safari bug https://bugs.chromium.org/p/chromium/issues/detail?id=779328
+    // (onFocus event target selectionStart is always 0 before setTimeout)
+    e.persist();
+
+    this.focusedElm = e.target;
+    this.focusTimeout = setTimeout(function () {
+      var el = e.target;
+      var selectionStart = el.selectionStart;
+      var selectionEnd = el.selectionEnd;
+      var value = el.value; if ( value === void 0 ) value = '';
+
+      var caretPosition = this$1.correctCaretPosition(value, selectionStart);
+
+      //setPatchedCaretPosition only when everything is not selected on focus (while tabbing into the field)
+      if (caretPosition !== selectionStart && !(selectionStart === 0 && selectionEnd === value.length)) {
+        this$1.setPatchedCaretPosition(el, caretPosition, value);
+      }
+
+      this$1.props.onFocus(e);
+    }, 0);
+  };
+
+  NumberFormat.prototype.render = function render () {
+    var ref = this.props;
+    var type = ref.type;
+    var displayType = ref.displayType;
+    var customInput = ref.customInput;
+    var renderText = ref.renderText;
+    var getInputRef = ref.getInputRef;
+    var format = ref.format;
+    var ref$1 = this.state;
+    var value = ref$1.value;
+    var mounted = ref$1.mounted;
+
+    var otherProps = omit(this.props, propTypes$1);
+
+    // add input mode on element based on format prop and device once the component is mounted 
+    var inputMode = mounted && addInputMode(format) ? 'numeric' : undefined;
+
+    var inputProps = Object.assign({ inputMode: inputMode }, otherProps, {
+      type: type,
+      value: value,
+      onChange: this.onChange,
+      onKeyDown: this.onKeyDown,
+      onMouseUp: this.onMouseUp,
+      onFocus: this.onFocus,
+      onBlur: this.onBlur
+    });
+
+    if( displayType === 'text'){
+      return renderText ? (renderText(value, otherProps) || null) : react__WEBPACK_IMPORTED_MODULE_0___default().createElement( 'span', Object.assign({}, otherProps, { ref: getInputRef }), value);
+    }
+
+    else if (customInput) {
+      var CustomInput = customInput;
+      return (
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement( CustomInput, Object.assign({},
+          inputProps, { ref: getInputRef }))
+      )
+    }
+
+    return (
+      react__WEBPACK_IMPORTED_MODULE_0___default().createElement( 'input', Object.assign({},
+        inputProps, { ref: getInputRef }))
+    )
+  };
+
+  return NumberFormat;
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component)));
+
+NumberFormat.propTypes = propTypes$1;
+NumberFormat.defaultProps = defaultProps;
+
+/* harmony default export */ __webpack_exports__["default"] = (NumberFormat);
+
+
+/***/ }),
+
 /***/ "./node_modules/shallowequal/index.js":
 /*!********************************************!*\
   !*** ./node_modules/shallowequal/index.js ***!
@@ -4931,17 +6908,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Avatar": function() { return /* reexport safe */ _components_Avatar_Avatar__WEBPACK_IMPORTED_MODULE_0__.default; },
 /* harmony export */   "Button": function() { return /* reexport safe */ _components_Button_Button__WEBPACK_IMPORTED_MODULE_1__.default; },
 /* harmony export */   "Divider": function() { return /* reexport safe */ _components_Divider_Divider__WEBPACK_IMPORTED_MODULE_2__.default; },
-/* harmony export */   "Text": function() { return /* reexport safe */ _components_Text_Text__WEBPACK_IMPORTED_MODULE_3__.default; }
+/* harmony export */   "Text": function() { return /* reexport safe */ _components_Text_Text__WEBPACK_IMPORTED_MODULE_3__.default; },
+/* harmony export */   "Textfield": function() { return /* reexport safe */ _components_Textfield_Textfield__WEBPACK_IMPORTED_MODULE_4__.default; }
 /* harmony export */ });
 /* harmony import */ var _components_Avatar_Avatar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Avatar/Avatar */ "./src/components/Avatar/Avatar.jsx");
 /* harmony import */ var _components_Button_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Button/Button */ "./src/components/Button/Button.jsx");
 /* harmony import */ var _components_Divider_Divider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Divider/Divider */ "./src/components/Divider/Divider.jsx");
 /* harmony import */ var _components_Text_Text__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Text/Text */ "./src/components/Text/Text.jsx");
+/* harmony import */ var _components_Textfield_Textfield__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Textfield/Textfield */ "./src/components/Textfield/Textfield.jsx");
 
 
 
- // export { default as Textfield } from './components/Textfield/Textfield';
-// export { default as CssBaseline } from './components/CssBaseline/CssBaseline';
+
+ // export { default as CssBaseline } from './components/CssBaseline/CssBaseline';
 }();
 /******/ 	return __webpack_exports__;
 /******/ })()

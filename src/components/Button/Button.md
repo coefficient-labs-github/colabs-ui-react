@@ -84,14 +84,14 @@ import LeftArrow from '../../../assets/LeftArrowIcon';
 </span>;
 ```
 
-The button compontent can have either text, an icon, or both.
+The button compontent can either have a text, an icon, or both.
 
 ```jsx
 import LeftArrow from '../../../assets/LeftArrowIcon';
 <span
   style={{
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr',
     gridGap: '1rem',
     justifyItems: 'center',
     alignItems: 'center',
@@ -115,6 +115,25 @@ import LeftArrow from '../../../assets/LeftArrowIcon';
     variant="primary"
     onClick={() => false}
     icon={<LeftArrow fill="white" />}
+  />
+  <Button
+    size="md"
+    variant="secondary"
+    iconPos="right"
+    onClick={() => false}
+    icon={<LeftArrow />}
+  />
+  <Button
+    size="lg"
+    variant="primary"
+    onClick={() => false}
+    icon={<LeftArrow fill="white" />}
+  />
+  <Button
+    size="sm"
+    variant="tertiary"
+    onClick={() => false}
+    icon={<LeftArrow />}
   />
 </span>;
 ```

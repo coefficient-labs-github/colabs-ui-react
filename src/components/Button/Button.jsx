@@ -48,9 +48,9 @@ const StyledButton = styled.button`
   // need to fix:
   &.iconOnly {
     padding: ${({ size }) => {
-      if (size === 'lg') return '1rem 3rem';
-      if (size === 'md') return '1rem 2.5rem';
-      return '0.5rem 1.5rem';
+      if (size === 'lg') return '1rem';
+      if (size === 'md') return '0.75rem';
+      return '0.5rem';
     }};
   }
   &.disabled {
@@ -129,6 +129,7 @@ const StyledButton = styled.button`
         }};
     }
   }
+  // need to refactor from here
   &.right {
     flex-direction: row-reverse;
     > .icon {
@@ -153,6 +154,12 @@ const StyledButton = styled.button`
         iconPos === 'left' ? '0 0.25rem 0 0' : '0 0 0 0.25rem'};
     }
   }
+  &.iconOnly {
+    > .icon {
+      margin: 0;
+    }
+  }
+  // to here
   > .icon {
     display: flex;
     align-items: center;
@@ -196,11 +203,9 @@ const Button = ({
       size={size}
       elevated={elevated}
       className={`
-        cui-button 
-        ${disabled ? 'disabled' : ''}
-        ${text ? '' : 'iconOnly'}
-        ${iconPos === 'right' ? 'right' : 'left'}
-        ${elevated ? 'elevated' : ''}
+        cui-button ${disabled ? 'disabled' : ''} ${text ? '' : 'iconOnly'} ${
+        iconPos === 'right' ? 'right' : 'left'
+      } ${elevated ? 'elevated' : ''}
       `}
       type={type}
     >
