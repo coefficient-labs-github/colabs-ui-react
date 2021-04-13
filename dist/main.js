@@ -968,12 +968,9 @@ var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.button
 }, function (_ref13) {
   var variant = _ref13.variant,
       elevated = _ref13.elevated;
-
-  if (['primary', 'secondary'].includes(variant)) {
-    if (elevated) return '0px 4px 6px #00000029;';
-    return '0px 3px 4px #00000016;';
-  }
-
+  if (variant === 'tertiary') return '0';
+  if (elevated) return '0px 4px 6px #00000029';
+  if (variant === 'primary') return '0px 3px 4px #00000016;';
   return '0';
 }, function (_ref14) {
   var variant = _ref14.variant,
@@ -1177,7 +1174,7 @@ __webpack_require__.r(__webpack_exports__);
 var StyledText = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div.withConfig({
   displayName: "Text__StyledText",
   componentId: "sc-1fx9qng-0"
-})(["font-size:", ";margin:0;padding:0;margin-bottom:", ";font-family:", ";text-align:", ";"], function (_ref) {
+})(["font-size:", ";margin:0;padding:0;margin-bottom:", ";font-family:", ";color:", ";text-align:", ";"], function (_ref) {
   var size = _ref.size;
   if (size === 1) return '0.75rem';
   if (size === 2) return '0.875rem';
@@ -1197,24 +1194,29 @@ var StyledText = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div.with
       weight = _ref3.weight;
   return theme.font.main[weight];
 }, function (_ref4) {
-  var align = _ref4.align;
+  var color = _ref4.color;
+  return color;
+}, function (_ref5) {
+  var align = _ref5.align;
   return align;
 });
 
-var Text = function Text(_ref5) {
-  var tag = _ref5.tag,
-      size = _ref5.size,
-      weight = _ref5.weight,
-      children = _ref5.children,
-      align = _ref5.align,
-      gutterBottom = _ref5.gutterBottom;
+var Text = function Text(_ref6) {
+  var tag = _ref6.tag,
+      size = _ref6.size,
+      weight = _ref6.weight,
+      children = _ref6.children,
+      align = _ref6.align,
+      gutterBottom = _ref6.gutterBottom,
+      color = _ref6.color;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StyledText, {
     size: size,
     weight: weight,
     as: tag,
     align: align,
     gutterBottom: gutterBottom,
-    className: "cui-text"
+    className: "cui-text",
+    color: color
   }, children);
 };
 
@@ -1227,10 +1229,12 @@ Text.propTypes = {
   weight: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOf(['light', 'regular', 'medium', 'bold']),
   align: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOf(['inherit', 'left', 'center', 'right', 'justify']),
   gutterBottom: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),
-  children: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string.isRequired)
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string.isRequired),
+  color: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string)
 };
 Text.defaultProps = {
   gutterBottom: false,
+  color: '',
   tag: 'p',
   size: 3,
   weight: 'regular',

@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import NumberFormat from 'react-number-format';
@@ -6,41 +7,59 @@ import Text from '../Text/Text';
 import defaultTheme from '../../defaultTheme';
 
 const StyledTextField = styled.div`
+  z-index: 1;
   > label {
-    color: #626262;
-    line-height: normal;
-    letter-spacing: 0.01px;
+    font-family: ${({ theme }) => theme.font.main.light};
+    font-size: 0.875rem;
+    color: ${({ disabled }) => (disabled ? '#b6b6b6' : '#000')};
   }
   > .container {
     margin: 0 auto;
-    margin-left: 0;
-    background: #ffffff 0% 0% no-repeat padding-box;
-    border: 1px solid #d3d3d3;
-    border-radius: 8px;
-    opacity: 1;
-    width: ${({ size }) => (size === 'sm' ? '261px' : '100%')};
-    height: ${({ multiline }) => (!multiline ? '50px !important' : '100%')};
-    overflow: hidden;
+    padding: 0 1rem;
+    width: 100%;
+    background: white;
+    border-radius: 0.625rem;
+    border: 1px solid
+      ${({ elevated, disabled }) => {
+        if (elevated) return '#ffffff00';
+        if (disabled) return '#e6e6e6';
+        return '#d3d3d3';
+      }};
     display: flex;
-    flex-direction: ${({ iconPos }) =>
-      iconPos === 'left' ? 'row' : 'row-reverse'};
-    ${({ multiline }) => (multiline ? '' : 'height: 3rem')};
     align-items: center;
-    > :nth-child(1) {
-      height: 1.25rem;
+    overflow: hidden;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: ${({ elevated }) =>
+      elevated ? '0px 3px 4px #0000001C' : '#ffffff00'};
+    flex-direction: ${({ iconPos }) =>
+      iconPos === 'right' ? 'row-reverse' : 'row'};
+    ${({ multiline }) => (multiline ? '' : 'height: 2.75rem')};
+    &:hover {
+      ${({ disabled }) =>
+        disabled ? '' : 'background: #f9f9f9 0% 0% no-repeat padding-box;'};
+    }
+    &.focused {
+      border: 1px solid #6da7fd;
+    }
+    > .icon {
+      height: 1rem;
+      width: 1rem;
       padding: 0;
+      margin: ${({ iconPos }) =>
+        iconPos === 'left' ? '0 0.5rem 0 0' : '0 0 0 0.5rem'};
     }
     > .input {
       flex: 1;
       width: 100%;
-      ${({ multiline }) => (multiline ? 'height: 200px; ' : 'height: 3rem')};
+      height: ${({ multiline }) => (multiline ? 'fit-content' : '3rem')};
+      margin: ${({ multiline }) => (multiline ? '1rem 0' : '0')};
       resize: none;
       border: 0;
+      background: #ffffff00;
       color: #000;
-      font-family: ${({ theme }) => theme.font.main.medium};
+      font-family: ${({ theme }) => theme.font.main.regular};
       font-size: 1rem;
       letter-spacing: -0.02em;
-      padding: 0 1rem;
       ::-webkit-scrollbar {
         width: 6px;
       }
@@ -52,22 +71,13 @@ const StyledTextField = styled.div`
       }
       :focus {
         outline: none;
-        border: 1.5px solid #6da7fd;
-        border-radius: 8px;
       }
     }
   }
-  > .helperText {
-    color: ${({ error }) => (error ? 'red' : 'gray')};
-    margin-left: 1rem;
-  }
 `;
-
-StyledTextField.defaultProps = { theme: defaultTheme };
 
 const TextField = ({
   placeholder,
-  size,
   value,
   onChange,
   icon,
@@ -79,13 +89,15 @@ const TextField = ({
   maxLength,
   rows,
   onFocus,
+  onBlur,
+  disabled,
   name,
   autoComplete,
   inputTag,
   error,
   helperText,
   elevated,
-  // ...props
+  ...props
 }) => {
   const getInputTag = () => {
     switch (inputTag) {
@@ -100,14 +112,16 @@ const TextField = ({
 
   const InputTag = getInputTag();
   const uniqueId = Math.random();
+  const [isFocus, setIsFocus] = useState();
+
   return (
     <StyledTextField
       className="cui-textfield"
       iconPos={iconPos}
       multiline={inputTag === 'textarea'}
       rows={rows}
+      disabled={disabled}
       error={error}
-      size={size}
       elevated={elevated}
     >
       {label && (
@@ -117,29 +131,54 @@ const TextField = ({
           </Text>
         </label>
       )}
-      <span className="container">
-        {icon}
-        <InputTag
-          className="input"
-          id={uniqueId}
-          name={name}
-          type={type}
-          value={value}
-          placeholder={placeholder}
-          onChange={onChange}
-          required={required}
-          minLength={minLength}
-          maxLength={maxLength}
-          rows={rows}
-          onFocus={onFocus}
-          autoComplete={autoComplete?.toString()}
-          // {...props}
-        />
+      <span className={`container ${isFocus ? 'focused' : ''}`}>
+        {icon && <span className="icon">{icon}</span>}
+        {disabled ? (
+          <Text color="#b6b6b6">{placeholder}</Text>
+        ) : (
+          <InputTag
+            onFocus={() => {
+              setIsFocus(true);
+              onFocus();
+            }}
+            onBlur={() => {
+              setIsFocus(false);
+              onBlur();
+            }}
+            className="input"
+            id={uniqueId}
+            name={name}
+            type={type}
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+            required={required}
+            minLength={minLength}
+            maxLength={maxLength}
+            rows={rows}
+            autoComplete={autoComplete?.toString()}
+            {...props}
+          />
+        )}
       </span>
-      {helperText && <span className="helperText">{helperText}</span>}
+      {helperText && (
+        <Text
+          tag="span"
+          size={2}
+          color={(() => {
+            if (error) return 'red';
+            if (disabled) return '#b6b6b6';
+            return '#000';
+          })()}
+        >
+          {helperText}
+        </Text>
+      )}
     </StyledTextField>
   );
 };
+
+StyledTextField.defaultProps = { theme: defaultTheme };
 
 TextField.propTypes = {
   ...NumberFormat.propTypes,
@@ -156,13 +195,15 @@ TextField.propTypes = {
   maxLength: PropTypes.number,
   rows: PropTypes.number,
   onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
   name: PropTypes.string,
   autoComplete: PropTypes.bool,
   inputTag: PropTypes.oneOf(['textarea', 'number', 'input']),
 };
 
 TextField.defaultProps = {
-  onFocus: null,
+  onFocus: () => null,
+  onBlur: () => null,
   value: undefined,
   name: '',
   autoComplete: false,

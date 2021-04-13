@@ -21,10 +21,11 @@ const StyledText = styled.div`
   margin-bottom: ${({ gutterBottom, size }) =>
     gutterBottom ? `${size * 0.3}rem` : '0'};
   font-family: ${({ theme, weight }) => theme.font.main[weight]};
+  color: ${({ color }) => color};
   text-align: ${({ align }) => align};
 `;
 
-const Text = ({ tag, size, weight, children, align, gutterBottom }) => {
+const Text = ({ tag, size, weight, children, align, gutterBottom, color }) => {
   return (
     <StyledText
       size={size}
@@ -33,6 +34,7 @@ const Text = ({ tag, size, weight, children, align, gutterBottom }) => {
       align={align}
       gutterBottom={gutterBottom}
       className="cui-text"
+      color={color}
     >
       {children}
     </StyledText>
@@ -48,10 +50,12 @@ Text.propTypes = {
   align: PropTypes.oneOf(['inherit', 'left', 'center', 'right', 'justify']),
   gutterBottom: PropTypes.bool,
   children: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
 
 Text.defaultProps = {
   gutterBottom: false,
+  color: '',
   tag: 'p',
   size: 3,
   weight: 'regular',

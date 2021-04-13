@@ -81,10 +81,9 @@ const StyledButton = styled.button`
           return '#ffffff00';
         }};
       box-shadow: ${({ variant, elevated }) => {
-        if (['primary', 'secondary'].includes(variant)) {
-          if (elevated) return '0px 4px 6px #00000029;';
-          return '0px 3px 4px #00000016;';
-        }
+        if (variant === 'tertiary') return '0';
+        if (elevated) return '0px 4px 6px #00000029';
+        if (variant === 'primary') return '0px 3px 4px #00000016;';
         return '0';
       }};
     }
