@@ -40,8 +40,9 @@ const StyledButton = styled.button`
   height: fit-content;
   &:not(.iconOnly) {
     padding: ${({ size }) => {
-      if (size === 'lg') return '1rem 3rem';
-      if (size === 'md') return '0.75rem 2.5rem';
+      if (size === 'lg') return '1rem 1.5rem';
+      if (size === 'md') return '0.75rem 1.125rem';
+      if (size === 'sm') return '0.5rem 1rem';
       return '0.5rem 1.5rem';
     }};
   }
@@ -50,6 +51,7 @@ const StyledButton = styled.button`
     padding: ${({ size }) => {
       if (size === 'lg') return '1rem';
       if (size === 'md') return '0.75rem';
+      if (size === 'sm') return '0.5rem';
       return '0.5rem';
     }};
   }
