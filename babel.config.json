@@ -3,5 +3,10 @@
     ["@babel/preset-env", { "corejs": 3, "useBuiltIns": "usage" }],
     ["@babel/preset-react", { "useBuiltIns": true }]
   ],
-  "plugins": ["babel-plugin-styled-components"]
+  "env": {
+    "test": {
+      "plugins": ["transform-export-extensions"],
+      "only": ["./**/*.js", "./**/*.jsx", "node_modules/jest-runtime"]
+    }
+  }
 }
