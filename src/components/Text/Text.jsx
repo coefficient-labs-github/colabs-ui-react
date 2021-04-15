@@ -44,7 +44,7 @@ const Text = ({ tag, size, weight, children, align, gutterBottom, color }) => {
 StyledText.defaultProps = { theme: defaultTheme };
 
 Text.propTypes = {
-  tag: PropTypes.oneOf(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+  tag: PropTypes.oneOf(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span']),
   size: PropTypes.number,
   weight: PropTypes.oneOf(['light', 'regular', 'medium', 'bold']),
   align: PropTypes.oneOf(['inherit', 'left', 'center', 'right', 'justify']),
