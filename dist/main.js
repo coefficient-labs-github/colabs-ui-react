@@ -940,7 +940,9 @@ var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_6__.default.button
   if (variant === 'secondary') return 'black';
   return 'white';
 }, function (_ref6) {
-  var variant = _ref6.variant;
+  var variant = _ref6.variant,
+      elevated = _ref6.elevated;
+  if (elevated) return '#ffffff00';
   if (variant === 'tertiary') return '#ffffff00';
   if (variant === 'secondary') return '#d3d3d3';
   return '#ffffff00';
@@ -970,7 +972,9 @@ var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_6__.default.button
   if (['tertiary', 'secondary'].includes(variant)) return '#f9f9f9';
   return '-webkit-linear-gradient(90deg, #1E84FA, #41B5FC)';
 }, function (_ref12) {
-  var variant = _ref12.variant;
+  var variant = _ref12.variant,
+      elevated = _ref12.elevated;
+  if (elevated) return '#ffffff00';
   if (variant === 'tertiary') return '#ffffff00';
   if (variant === 'secondary') return '#d3d3d3';
   return '#ffffff00';
@@ -998,7 +1002,9 @@ var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_6__.default.button
   if (['tertiary', 'secondary'].includes(variant)) return '#f9f9f9';
   return '-webkit-linear-gradient(90deg, #1E84FA, #41B5FC)';
 }, function (_ref16) {
-  var variant = _ref16.variant;
+  var variant = _ref16.variant,
+      elevated = _ref16.elevated;
+  if (elevated) return '#ffffff00';
   if (variant === 'tertiary') return '#ffffff00';
   if (variant === 'secondary') return '#b1b1b1';
   return '#0B6EFF';
@@ -1014,7 +1020,9 @@ var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_6__.default.button
   if (['tertiary', 'secondary'].includes(variant)) return '#f1f1f1';
   return '-webkit-linear-gradient(90deg, #1E84FA, #41B5FC)';
 }, function (_ref19) {
-  var variant = _ref19.variant;
+  var variant = _ref19.variant,
+      elevated = _ref19.elevated;
+  if (elevated) return '#ffffff00';
   if (variant === 'secondary') return '#d3d3d3';
   return '#ffffff00';
 }, function (_ref20) {
