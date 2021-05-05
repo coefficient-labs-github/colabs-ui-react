@@ -17,6 +17,7 @@ const StyledText = styled.div`
   }};
   margin: 0;
   padding: 0;
+  white-space: ${({ noWrap }) => (noWrap ? 'nowrap' : 'initial')};
   /* line-height: ${({ size }) => `${size * 0.5}rem`}; */
   margin-bottom: ${({ gutterBottom, size }) =>
     gutterBottom ? `${size * 0.3}rem` : '0'};
@@ -25,13 +26,23 @@ const StyledText = styled.div`
   text-align: ${({ align }) => align};
 `;
 
-const Text = ({ tag, size, weight, children, align, gutterBottom, color }) => {
+const Text = ({
+  noWrap,
+  tag,
+  size,
+  weight,
+  children,
+  align,
+  gutterBottom,
+  color,
+}) => {
   return (
     <StyledText
       size={size}
       weight={weight}
       as={tag}
       align={align}
+      noWrap={noWrap}
       gutterBottom={gutterBottom}
       className="cui-text"
       color={color}
@@ -44,6 +55,7 @@ const Text = ({ tag, size, weight, children, align, gutterBottom, color }) => {
 StyledText.defaultProps = { theme: defaultTheme };
 
 Text.propTypes = {
+  noWrap: PropTypes.bool,
   tag: PropTypes.oneOf(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span']),
   size: PropTypes.number,
   weight: PropTypes.oneOf([
@@ -60,6 +72,7 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
+  noWrap: false,
   gutterBottom: false,
   color: '',
   tag: 'p',
