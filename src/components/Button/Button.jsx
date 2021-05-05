@@ -32,7 +32,8 @@ const StyledButton = styled.button`
     return 'white';
   }};
   border: 1px solid
-    ${({ variant }) => {
+    ${({ variant, elevated }) => {
+      if (elevated) return '#ffffff00';
       if (variant === 'tertiary') return '#ffffff00';
       if (variant === 'secondary') return '#d3d3d3';
       return '#ffffff00';
@@ -77,7 +78,8 @@ const StyledButton = styled.button`
         return '-webkit-linear-gradient(90deg, #1E84FA, #41B5FC)';
       }};
       border: 1px solid
-        ${({ variant }) => {
+        ${({ variant, elevated }) => {
+          if (elevated) return '#ffffff00';
           if (variant === 'tertiary') return '#ffffff00';
           if (variant === 'secondary') return '#d3d3d3';
           return '#ffffff00';
@@ -105,7 +107,8 @@ const StyledButton = styled.button`
         return '-webkit-linear-gradient(90deg, #1E84FA, #41B5FC)';
       }};
       border: 1px solid
-        ${({ variant }) => {
+        ${({ variant, elevated }) => {
+          if (elevated) return '#ffffff00';
           if (variant === 'tertiary') return '#ffffff00';
           if (variant === 'secondary') return '#b1b1b1';
           return '#0B6EFF';
@@ -125,7 +128,8 @@ const StyledButton = styled.button`
         return '-webkit-linear-gradient(90deg, #1E84FA, #41B5FC)';
       }};
       border: 1px solid
-        ${({ variant }) => {
+        ${({ variant, elevated }) => {
+          if (elevated) return '#ffffff00';
           if (variant === 'secondary') return '#d3d3d3';
           return '#ffffff00';
         }};
