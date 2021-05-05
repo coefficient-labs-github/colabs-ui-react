@@ -46,7 +46,13 @@ StyledText.defaultProps = { theme: defaultTheme };
 Text.propTypes = {
   tag: PropTypes.oneOf(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span']),
   size: PropTypes.number,
-  weight: PropTypes.oneOf(['light', 'regular', 'medium', 'bold']),
+  weight: PropTypes.oneOf([
+    'light',
+    'regular',
+    'medium',
+    'bold',
+    'italicMedium',
+  ]),
   align: PropTypes.oneOf(['inherit', 'left', 'center', 'right', 'justify']),
   gutterBottom: PropTypes.bool,
   children: PropTypes.string.isRequired,
