@@ -39,7 +39,9 @@ const StyledDropdown = styled.div`
     position: absolute;
     z-index: 9000000;
     border: 1px solid #d3d3d3;
-    top: 1.5rem;
+    margin: 0;
+    top: 100%;
+    min-width: fit-content;
     border-radius: 0.625rem;
     left: 0;
     width: 100%;
