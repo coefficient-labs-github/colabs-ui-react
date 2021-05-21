@@ -5,11 +5,12 @@ import defaultTheme from '../../defaultTheme';
 
 const StyledDropdown = styled.div`
   height: fit-content;
-  width: fit-content;
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'fit-content')};
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
-  z-index: 1000000;
+  z-index: 99998;
   :hover {
     cursor: pointer;
     > .toggle {
@@ -25,6 +26,7 @@ const StyledDropdown = styled.div`
   > .toggle {
     display: flex;
     align-items: center;
+    justify-content: center;
     border: 1px solid #d3d3d3;
     padding: 0.5rem 1rem;
     background-color: white;
@@ -37,7 +39,7 @@ const StyledDropdown = styled.div`
   }
   > .select {
     position: absolute;
-    z-index: 9000000;
+    z-index: 99999;
     border: 1px solid #d3d3d3;
     margin: 0;
     top: 100%;
@@ -93,9 +95,9 @@ const StyledDropdown = styled.div`
   }
 `;
 
-const Dropdown = ({ items, toggle, chevronShown }) => {
+const Dropdown = ({ items, toggle, chevronShown, fullWidth }) => {
   return (
-    <StyledDropdown className="cui-dropdown">
+    <StyledDropdown className="cui-dropdown" fullWidth={fullWidth}>
       <div className="toggle">
         {toggle}
         {chevronShown && (
@@ -130,10 +132,12 @@ Dropdown.propTypes = {
   chevronShown: PropTypes.bool,
   items: PropTypes.arrayOf(PropTypes.element).isRequired,
   toggle: PropTypes.element.isRequired,
+  fullWidth: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
   chevronShown: false,
+  fullWidth: false,
 };
 
 export default Dropdown;
