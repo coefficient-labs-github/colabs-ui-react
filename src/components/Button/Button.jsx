@@ -208,15 +208,15 @@ const Button = ({
       fullWidth={fullWidth}
       size={size}
       elevated={elevated}
-      className={`
-        cui-button ${disabled ? 'disabled' : ''} ${text ? '' : 'iconOnly'} ${
-        iconPos === 'right' ? 'right' : 'left'
-      } ${elevated ? 'elevated' : ''}
-      `}
+      className={`cui-button ${disabled ? 'disabled' : ''} ${
+        icon && !text ? 'iconOnly' : ''
+      } ${iconPos === 'right' ? 'right' : 'left'} ${
+        elevated ? 'elevated' : ''
+      }`}
       type={type}
     >
-      <span className="icon">{icon}</span>
-      <span className="text">{text}</span>
+      {icon && <span className="icon">{icon}</span>}
+      {text && <span className="text">{text}</span>}
     </StyledButton>
   );
 };

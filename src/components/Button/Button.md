@@ -7,7 +7,7 @@
     justifyItems: 'center',
   }}
 >
-  <Button text="Test Button" handleClick={() => false} />
+  <Button text="Test Button" onClick={() => false} />
 </span>
 ```
 
