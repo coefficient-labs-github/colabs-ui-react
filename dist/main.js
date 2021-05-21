@@ -1070,11 +1070,11 @@ var Button = function Button(_ref26) {
     fullWidth: fullWidth,
     size: size,
     elevated: elevated,
-    className: "\n        cui-button ".concat(disabled ? 'disabled' : '', " ").concat(text ? '' : 'iconOnly', " ").concat(iconPos === 'right' ? 'right' : 'left', " ").concat(elevated ? 'elevated' : '', "\n      "),
+    className: "cui-button ".concat(disabled ? 'disabled' : '', " ").concat(icon && !text ? 'iconOnly' : '', " ").concat(iconPos === 'right' ? 'right' : 'left', " ").concat(elevated ? 'elevated' : ''),
     type: type
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", {
+  }, icon && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", {
     className: "icon"
-  }, icon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", {
+  }, icon), text && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", {
     className: "text"
   }, text));
 };
@@ -1206,17 +1206,22 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledDropdown = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  height: fit-content;\n  width: fit-content;\n  display: flex;\n  align-items: center;\n  position: relative;\n  z-index: 1000000;\n  :hover {\n    cursor: pointer;\n    > .toggle {\n      background-color: #efefef;\n    }\n    > .select {\n      display: block;\n      > .option {\n        display: block;\n      }\n    }\n  }\n  > .toggle {\n    display: flex;\n    align-items: center;\n    border: 1px solid #d3d3d3;\n    padding: 0.5rem 1rem;\n    background-color: white;\n    border-radius: 0.625rem;\n    width: 100%;\n    > * {\n      margin: 0 0.25rem;\n      white-space: nowrap;\n    }\n  }\n  > .select {\n    position: absolute;\n    z-index: 9000000;\n    border: 1px solid #d3d3d3;\n    margin: 0;\n    top: 100%;\n    min-width: fit-content;\n    border-radius: 0.625rem;\n    left: 0;\n    width: 100%;\n    z-index: -1;\n    overflow: hidden;\n    animation: growOut 300ms ease-in forwards;\n    transform-origin: top center;\n    display: none;\n    padding: 0;\n    &:hover {\n      animation: growOut 300ms ease-in forwards;\n    }\n    > .option {\n      display: none;\n      width: 100%;\n      padding: 0.75rem 1rem;\n      margin: 0;\n      background-color: #fffffffc;\n      color: black;\n      text-decoration: none;\n      backdrop-filter: blur(30px);\n      -webkit-backdrop-filter: blur(30px);\n      font-size: 16px;\n      opacity: 0;\n      display: block;\n      opacity: 1;\n      &:hover {\n        background-color: ", ";\n        * {\n          color: white;\n          stroke: white;\n        }\n      }\n    }\n  }\n\n  @keyframes growOut {\n    0% {\n      transform: scale(1, 0.5);\n      opacity: 0;\n    }\n    80% {\n      opacity: 0.5;\n    }\n    100% {\n      transform: scale(1, 1);\n      opacity: 1;\n    }\n  }\n"])), function (_ref) {
-  var theme = _ref.theme;
+var StyledDropdown = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  height: fit-content;\n  width: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  z-index: 99998;\n  :hover {\n    cursor: pointer;\n    > .toggle {\n      background-color: #efefef;\n    }\n    > .select {\n      display: block;\n      > .option {\n        display: block;\n      }\n    }\n  }\n  > .toggle {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border: 1px solid #d3d3d3;\n    padding: 0.5rem 1rem;\n    background-color: white;\n    border-radius: 0.625rem;\n    width: 100%;\n    > * {\n      margin: 0 0.25rem;\n      white-space: nowrap;\n    }\n  }\n  > .select {\n    position: absolute;\n    z-index: 99999;\n    border: 1px solid #d3d3d3;\n    margin: 0;\n    top: 100%;\n    min-width: fit-content;\n    border-radius: 0.625rem;\n    left: 0;\n    width: 100%;\n    z-index: -1;\n    overflow: hidden;\n    animation: growOut 300ms ease-in forwards;\n    transform-origin: top center;\n    display: none;\n    padding: 0;\n    &:hover {\n      animation: growOut 300ms ease-in forwards;\n    }\n    > .option {\n      display: none;\n      width: 100%;\n      padding: 0.75rem 1rem;\n      margin: 0;\n      background-color: #fffffffc;\n      color: black;\n      text-decoration: none;\n      backdrop-filter: blur(30px);\n      -webkit-backdrop-filter: blur(30px);\n      font-size: 16px;\n      opacity: 0;\n      display: block;\n      opacity: 1;\n      &:hover {\n        background-color: ", ";\n        * {\n          color: white;\n          stroke: white;\n        }\n      }\n    }\n  }\n\n  @keyframes growOut {\n    0% {\n      transform: scale(1, 0.5);\n      opacity: 0;\n    }\n    80% {\n      opacity: 0.5;\n    }\n    100% {\n      transform: scale(1, 1);\n      opacity: 1;\n    }\n  }\n"])), function (_ref) {
+  var fullWidth = _ref.fullWidth;
+  return fullWidth ? '100%' : 'fit-content';
+}, function (_ref2) {
+  var theme = _ref2.theme;
   return theme.color.primary.main;
 });
 
-var Dropdown = function Dropdown(_ref2) {
-  var items = _ref2.items,
-      toggle = _ref2.toggle,
-      chevronShown = _ref2.chevronShown;
+var Dropdown = function Dropdown(_ref3) {
+  var items = _ref3.items,
+      toggle = _ref3.toggle,
+      chevronShown = _ref3.chevronShown,
+      fullWidth = _ref3.fullWidth;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(StyledDropdown, {
-    className: "cui-dropdown"
+    className: "cui-dropdown",
+    fullWidth: fullWidth
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("div", {
     className: "toggle"
   }, toggle, chevronShown && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("svg", {
@@ -1247,10 +1252,12 @@ StyledDropdown.defaultProps = {
 Dropdown.propTypes = {
   chevronShown: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
   items: prop_types__WEBPACK_IMPORTED_MODULE_3___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_3___default().element)).isRequired,
-  toggle: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().element.isRequired)
+  toggle: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().element.isRequired),
+  fullWidth: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool)
 };
 Dropdown.defaultProps = {
-  chevronShown: false
+  chevronShown: false,
+  fullWidth: false
 };
 /* harmony default export */ __webpack_exports__["default"] = (Dropdown);
 
