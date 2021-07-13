@@ -837,7 +837,8 @@ var StyledAvatar = styled_components__WEBPACK_IMPORTED_MODULE_9__.default.div(_t
 
 var Avatar = function Avatar(_ref6) {
   var picture = _ref6.picture,
-      size = _ref6.size;
+      size = _ref6.size,
+      className = _ref6.className;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_7__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -846,7 +847,7 @@ var Avatar = function Avatar(_ref6) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement(StyledAvatar, {
     size: size,
-    className: "cui-avatar"
+    className: "cui-avatar ".concat(className)
   }, picture && !error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("img", {
     alt: "avatar",
     src: picture,
@@ -874,11 +875,13 @@ var Avatar = function Avatar(_ref6) {
 
 Avatar.propTypes = {
   picture: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().string),
-  size: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOf(['sm', 'md', 'lg'])
+  size: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOf(['sm', 'md', 'lg']),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().string)
 };
 Avatar.defaultProps = {
   picture: null,
-  size: 'md'
+  size: 'md',
+  className: ''
 };
 /* harmony default export */ __webpack_exports__["default"] = (Avatar);
 
@@ -1063,14 +1066,15 @@ var Button = function Button(_ref26) {
       disabled = _ref26.disabled,
       size = _ref26.size,
       type = _ref26.type,
-      elevated = _ref26.elevated;
+      elevated = _ref26.elevated,
+      className = _ref26.className;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement(StyledButton, {
     onClick: disabled ? null : onClick,
     variant: variant,
     fullWidth: fullWidth,
     size: size,
     elevated: elevated,
-    className: "cui-button ".concat(disabled ? 'disabled' : '', " ").concat(icon && !text ? 'iconOnly' : '', " ").concat(iconPos === 'right' ? 'right' : 'left', " ").concat(elevated ? 'elevated' : ''),
+    className: "cui-button ".concat(disabled ? 'disabled' : '', " ").concat(icon && !text ? 'iconOnly' : '', " ").concat(iconPos === 'right' ? 'right' : 'left', " ").concat(elevated ? 'elevated' : '').concat(className),
     type: type
   }, icon && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default().createElement("span", {
     className: "icon"
@@ -1092,7 +1096,8 @@ Button.propTypes = {
   fullWidth: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
   elevated: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
   disabled: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
-  type: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().string)
+  type: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().string),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().string)
 };
 Button.defaultProps = {
   onClick: null,
@@ -1104,7 +1109,8 @@ Button.defaultProps = {
   text: null,
   icon: null,
   iconPos: 'left',
-  fullWidth: false
+  fullWidth: false,
+  className: ''
 };
 /* harmony default export */ __webpack_exports__["default"] = (Button);
 
@@ -1154,10 +1160,11 @@ var StyledDivider = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.span(
 
 var Divider = function Divider(_ref4) {
   var orOn = _ref4.orOn,
-      variant = _ref4.variant;
+      variant = _ref4.variant,
+      className = _ref4.className;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(StyledDivider, {
     variant: variant,
-    className: "cui-divider"
+    className: "cui-divider ".concat(className)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("hr", null), orOn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement((react__WEBPACK_IMPORTED_MODULE_2___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("span", null, "Or"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("hr", null)) : null);
 };
 
@@ -1166,11 +1173,13 @@ StyledDivider.defaultProps = {
 };
 Divider.propTypes = {
   orOn: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
-  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['primary', 'secondary'])
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['primary', 'secondary']),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string)
 };
 Divider.defaultProps = {
   orOn: null,
-  variant: 'secondary'
+  variant: 'secondary',
+  className: ''
 };
 /* harmony default export */ __webpack_exports__["default"] = (Divider);
 
@@ -1247,9 +1256,10 @@ var Dropdown = function Dropdown(_ref8) {
       fullWidth = _ref8.fullWidth,
       align = _ref8.align,
       variant = _ref8.variant,
-      size = _ref8.size;
+      size = _ref8.size,
+      className = _ref8.className;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(StyledDropdown, {
-    className: "cui-dropdown",
+    className: "cui-dropdown ".concat(className),
     fullWidth: fullWidth,
     align: align,
     variant: variant,
@@ -1288,14 +1298,16 @@ Dropdown.propTypes = {
   fullWidth: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
   align: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['left', 'right', 'center']),
   variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['primary', 'secondary']),
-  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['sm', 'md', 'lg'])
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['sm', 'md', 'lg']),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string)
 };
 Dropdown.defaultProps = {
   size: 'sm',
   variant: 'secondary',
   align: 'center',
   chevronShown: false,
-  fullWidth: false
+  fullWidth: false,
+  className: ''
 };
 /* harmony default export */ __webpack_exports__["default"] = (Dropdown);
 
@@ -1368,7 +1380,8 @@ var Text = function Text(_ref8) {
       children = _ref8.children,
       align = _ref8.align,
       gutterBottom = _ref8.gutterBottom,
-      color = _ref8.color;
+      color = _ref8.color,
+      className = _ref8.className;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(StyledText, {
     size: size,
     weight: weight,
@@ -1376,7 +1389,7 @@ var Text = function Text(_ref8) {
     align: align,
     noWrap: noWrap,
     gutterBottom: gutterBottom,
-    className: "cui-text",
+    className: "cui-text ".concat(className),
     color: color
   }, children);
 };
@@ -1392,7 +1405,8 @@ Text.propTypes = {
   align: prop_types__WEBPACK_IMPORTED_MODULE_2___default().oneOf(['inherit', 'left', 'center', 'right', 'justify']),
   gutterBottom: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().bool),
   children: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string.isRequired),
-  color: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string)
+  color: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string)
 };
 Text.defaultProps = {
   noWrap: false,
@@ -1401,7 +1415,8 @@ Text.defaultProps = {
   tag: 'p',
   size: 3,
   weight: 'regular',
-  align: 'inherit'
+  align: 'inherit',
+  className: ''
 };
 /* harmony default export */ __webpack_exports__["default"] = (Text);
 
@@ -1559,7 +1574,8 @@ var TextField = function TextField(_ref13) {
       error = _ref13.error,
       helperText = _ref13.helperText,
       elevated = _ref13.elevated,
-      props = _objectWithoutProperties(_ref13, ["placeholder", "value", "onChange", "icon", "type", "iconPos", "label", "required", "minLength", "maxLength", "rows", "onFocus", "onBlur", "disabled", "name", "autoComplete", "inputTag", "error", "helperText", "elevated"]);
+      className = _ref13.className,
+      props = _objectWithoutProperties(_ref13, ["placeholder", "value", "onChange", "icon", "type", "iconPos", "label", "required", "minLength", "maxLength", "rows", "onFocus", "onBlur", "disabled", "name", "autoComplete", "inputTag", "error", "helperText", "elevated", "className"]);
 
   var getInputTag = function getInputTag() {
     switch (inputTag) {
@@ -1583,7 +1599,7 @@ var TextField = function TextField(_ref13) {
       setIsFocus = _useState2[1];
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement(StyledTextField, {
-    className: "cui-textfield",
+    className: "cui-textfield ".concat(className),
     iconPos: iconPos,
     multiline: inputTag === 'textarea',
     rows: rows,
@@ -1655,7 +1671,8 @@ TextField.propTypes = _objectSpread(_objectSpread({}, react_number_format__WEBPA
   onBlur: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func),
   name: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
   autoComplete: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
-  inputTag: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOf(['textarea', 'number', 'input'])
+  inputTag: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOf(['textarea', 'number', 'input']),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string)
 });
 TextField.defaultProps = {
   onFocus: function onFocus() {
@@ -1678,7 +1695,8 @@ TextField.defaultProps = {
   required: false,
   minLength: 1,
   maxLength: 250,
-  inputTag: 'input'
+  inputTag: 'input',
+  className: ''
 };
 /* harmony default export */ __webpack_exports__["default"] = (TextField);
 

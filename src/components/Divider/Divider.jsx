@@ -27,9 +27,9 @@ const StyledDivider = styled.span`
   }
 `;
 
-const Divider = ({ orOn, variant }) => {
+const Divider = ({ orOn, variant, className }) => {
   return (
-    <StyledDivider variant={variant} className="cui-divider">
+    <StyledDivider variant={variant} className={`cui-divider ${className}`}>
       <hr />
       {orOn ? (
         <>
@@ -46,11 +46,13 @@ StyledDivider.defaultProps = { theme: defaultTheme };
 Divider.propTypes = {
   orOn: PropTypes.bool,
   variant: PropTypes.oneOf(['primary', 'secondary']),
+  className: PropTypes.string,
 };
 
 Divider.defaultProps = {
   orOn: null,
   variant: 'secondary',
+  className: '',
 };
 
 export default Divider;

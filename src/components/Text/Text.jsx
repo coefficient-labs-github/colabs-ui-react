@@ -35,6 +35,7 @@ const Text = ({
   align,
   gutterBottom,
   color,
+  className,
 }) => {
   return (
     <StyledText
@@ -44,7 +45,7 @@ const Text = ({
       align={align}
       noWrap={noWrap}
       gutterBottom={gutterBottom}
-      className="cui-text"
+      className={`cui-text ${className}`}
       color={color}
     >
       {children}
@@ -69,6 +70,7 @@ Text.propTypes = {
   gutterBottom: PropTypes.bool,
   children: PropTypes.string.isRequired,
   color: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Text.defaultProps = {
@@ -79,6 +81,7 @@ Text.defaultProps = {
   size: 3,
   weight: 'regular',
   align: 'inherit',
+  className: '',
 };
 
 export default Text;

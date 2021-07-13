@@ -132,10 +132,11 @@ const Dropdown = ({
   align,
   variant,
   size,
+  className,
 }) => {
   return (
     <StyledDropdown
-      className="cui-dropdown"
+      className={`cui-dropdown ${className}`}
       fullWidth={fullWidth}
       align={align}
       variant={variant}
@@ -179,6 +180,7 @@ Dropdown.propTypes = {
   align: PropTypes.oneOf(['left', 'right', 'center']),
   variant: PropTypes.oneOf(['primary', 'secondary']),
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  className: PropTypes.string,
 };
 
 Dropdown.defaultProps = {
@@ -187,6 +189,7 @@ Dropdown.defaultProps = {
   align: 'center',
   chevronShown: false,
   fullWidth: false,
+  className: '',
 };
 
 export default Dropdown;

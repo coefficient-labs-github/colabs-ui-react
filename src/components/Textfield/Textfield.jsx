@@ -97,6 +97,7 @@ const TextField = ({
   error,
   helperText,
   elevated,
+  className,
   ...props
 }) => {
   const getInputTag = () => {
@@ -116,7 +117,7 @@ const TextField = ({
 
   return (
     <StyledTextField
-      className="cui-textfield"
+      className={`cui-textfield ${className}`}
       iconPos={iconPos}
       multiline={inputTag === 'textarea'}
       rows={rows}
@@ -199,6 +200,7 @@ TextField.propTypes = {
   name: PropTypes.string,
   autoComplete: PropTypes.bool,
   inputTag: PropTypes.oneOf(['textarea', 'number', 'input']),
+  className: PropTypes.string,
 };
 
 TextField.defaultProps = {
@@ -219,6 +221,7 @@ TextField.defaultProps = {
   minLength: 1,
   maxLength: 250,
   inputTag: 'input',
+  className: '',
 };
 
 export default TextField;
