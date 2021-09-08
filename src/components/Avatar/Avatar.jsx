@@ -53,10 +53,10 @@ const StyledAvatar = styled.div`
   }
 `;
 
-const Avatar = ({ picture, size, className }) => {
+const Avatar = ({ picture, size, className, ...props }) => {
   const [error, setError] = useState(false);
   return (
-    <StyledAvatar size={size} className={`cui-avatar ${className}`}>
+    <StyledAvatar size={size} className={`cui-avatar ${className}`} {...props}>
       {picture && !error ? (
         <img alt="avatar" src={picture} onError={() => setError(true)} />
       ) : (

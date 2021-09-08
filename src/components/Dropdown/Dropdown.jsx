@@ -133,6 +133,7 @@ const Dropdown = ({
   variant,
   size,
   className,
+  ...props
 }) => {
   return (
     <StyledDropdown
@@ -141,6 +142,7 @@ const Dropdown = ({
       align={align}
       variant={variant}
       size={size}
+      {...props}
     >
       <div className="toggle">
         {toggle}

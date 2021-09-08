@@ -198,9 +198,9 @@ const Button = ({
   fullWidth,
   disabled,
   size,
-  type,
   elevated,
   className,
+  ...props
 }) => {
   return (
     <StyledButton
@@ -214,7 +214,7 @@ const Button = ({
       } ${iconPos === 'right' ? 'right' : 'left'} ${
         elevated ? 'elevated' : ''
       }${className}`}
-      type={type}
+      {...props}
     >
       {icon && <span className="icon">{icon}</span>}
       {text && <span className="text">{text}</span>}
@@ -234,13 +234,11 @@ Button.propTypes = {
   fullWidth: PropTypes.bool,
   elevated: PropTypes.bool,
   disabled: PropTypes.bool,
-  type: PropTypes.string,
   className: PropTypes.string,
 };
 
 Button.defaultProps = {
   onClick: null,
-  type: null,
   disabled: false,
   elevated: false,
   variant: 'primary',

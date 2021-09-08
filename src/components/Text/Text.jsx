@@ -36,6 +36,7 @@ const Text = ({
   gutterBottom,
   color,
   className,
+  ...props
 }) => {
   return (
     <StyledText
@@ -47,6 +48,7 @@ const Text = ({
       gutterBottom={gutterBottom}
       className={`cui-text ${className}`}
       color={color}
+      {...props}
     >
       {children}
     </StyledText>

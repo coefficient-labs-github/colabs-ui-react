@@ -27,9 +27,13 @@ const StyledDivider = styled.span`
   }
 `;
 
-const Divider = ({ orOn, variant, className }) => {
+const Divider = ({ orOn, variant, className, ...props }) => {
   return (
-    <StyledDivider variant={variant} className={`cui-divider ${className}`}>
+    <StyledDivider
+      variant={variant}
+      className={`cui-divider ${className}`}
+      {...props}
+    >
       <hr />
       {orOn ? (
         <>
