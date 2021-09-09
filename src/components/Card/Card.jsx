@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import defaultTheme from '../../defaultTheme';
 
 const StyledCard = styled.div`
-  width: 100%;
   border-radius: 0.625rem;
   background: ${({ color }) => color || 'white'};
   box-shadow: ${({ elevation, color }) =>

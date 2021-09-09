@@ -1,18 +1,17 @@
-It comes in three variants
+It comes in two variants
 
 ```jsx
 import LeftArrow from '../../../assets/LeftArrowIcon';
 <span
   style={{
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+    gridTemplateColumns: '1fr 1fr',
     gridGap: '1rem',
     justifyItems: 'center',
   }}
 >
   <Chip label="Primary" size="md" variant="primary" />
-  <Chip label="Secondary" size="md" variant="secondary" icon={<LeftArrow />} />
-  <Chip label="Primary" size="md" variant="primary" icon={<LeftArrow />} />
+  <Chip label="Secondary" size="md" variant="secondary" />
 </span>;
 ```
 
