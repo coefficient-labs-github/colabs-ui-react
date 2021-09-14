@@ -7,11 +7,16 @@ const StyledChip = styled.span`
   border-radius: 100px;
   border: 1px solid
     ${({ variant }) => (variant === 'primary' ? '#FB4D9D' : '#CCCCCC')};
-  padding: ${({ size }) =>
-    size === 'sm' ? '0.2rem 0.6rem' : '0.25rem 0.75rem'};
+  padding: ${({ size }) => {
+    if (size === 'lg') return '0.25rem 0.75rem';
+    if (size === 'md') return '0.2rem 0.6rem';
+    return '0.15rem 0.5rem';
+  }};
   width: min-content;
+  height: min-content;
   display: inline-flex;
   flex-direction: row;
+  align-items: center;
   > .icon {
     display: flex;
     align-items: center;
@@ -19,8 +24,9 @@ const StyledChip = styled.span`
     margin: 0 0.5rem 0 0;
     > * {
       ${({ size }) => {
-        if (size === 'md') return 'height: 1.25rem; width: 1.25;';
-        return 'height: 1.125rem; width: 1.125;';
+        if (size === 'lg') return 'height: 1.125rem; width: 1.125;';
+        if (size === 'md') return 'height: 1rem; width: 1;';
+        return 'height: 0.875rem; width: 0.875;';
       }};
     }
   }
@@ -41,7 +47,15 @@ const Chip = ({ label, icon, iconPos, variant, size, ...props }) => {
       {...props}
     >
       {icon && <span className="icon">{icon}</span>}
-      <Text noWrap tag="span" size={size === 'sm' ? 2 : 3}>
+      <Text
+        noWrap
+        tag="span"
+        size={(() => {
+          if (size === 'lg') return 3;
+          if (size === 'md') return 2;
+          return 1;
+        })()}
+      >
         {label}
       </Text>
     </StyledChip>
@@ -50,7 +64,7 @@ const Chip = ({ label, icon, iconPos, variant, size, ...props }) => {
 
 Chip.propTypes = {
   variant: PropTypes.oneOf(['primary', 'secondary']),
-  size: PropTypes.oneOf(['md', 'sm']),
+  size: PropTypes.oneOf(['lg', 'md', 'sm']),
   label: PropTypes.string.isRequired,
   icon: PropTypes.element,
   iconPos: PropTypes.oneOf(['right', 'left']),

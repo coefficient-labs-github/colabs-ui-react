@@ -1276,16 +1276,19 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledChip = styled_components__WEBPACK_IMPORTED_MODULE_7__.default.span(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  border-radius: 100px;\n  border: 1px solid\n    ", ";\n  padding: ", ";\n  width: min-content;\n  display: inline-flex;\n  flex-direction: row;\n  > .icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin: 0 0.5rem 0 0;\n    > * {\n      ", ";\n    }\n  }\n  &.right {\n    flex-direction: row-reverse;\n    > .icon {\n      margin: 0 0 0 0.5rem;\n    }\n  }\n"])), function (_ref) {
+var StyledChip = styled_components__WEBPACK_IMPORTED_MODULE_7__.default.span(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  border-radius: 100px;\n  border: 1px solid\n    ", ";\n  padding: ", ";\n  width: min-content;\n  height: min-content;\n  display: inline-flex;\n  flex-direction: row;\n  align-items: center;\n  > .icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin: 0 0.5rem 0 0;\n    > * {\n      ", ";\n    }\n  }\n  &.right {\n    flex-direction: row-reverse;\n    > .icon {\n      margin: 0 0 0 0.5rem;\n    }\n  }\n"])), function (_ref) {
   var variant = _ref.variant;
   return variant === 'primary' ? '#FB4D9D' : '#CCCCCC';
 }, function (_ref2) {
   var size = _ref2.size;
-  return size === 'sm' ? '0.2rem 0.6rem' : '0.25rem 0.75rem';
+  if (size === 'lg') return '0.25rem 0.75rem';
+  if (size === 'md') return '0.2rem 0.6rem';
+  return '0.15rem 0.5rem';
 }, function (_ref3) {
   var size = _ref3.size;
-  if (size === 'md') return 'height: 1.25rem; width: 1.25;';
-  return 'height: 1.125rem; width: 1.125;';
+  if (size === 'lg') return 'height: 1.125rem; width: 1.125;';
+  if (size === 'md') return 'height: 1rem; width: 1;';
+  return 'height: 0.875rem; width: 0.875;';
 });
 
 var Chip = function Chip(_ref4) {
@@ -1305,13 +1308,17 @@ var Chip = function Chip(_ref4) {
   }, icon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_Text_Text__WEBPACK_IMPORTED_MODULE_6__.default, {
     noWrap: true,
     tag: "span",
-    size: size === 'sm' ? 2 : 3
+    size: function () {
+      if (size === 'lg') return 3;
+      if (size === 'md') return 2;
+      return 1;
+    }()
   }, label));
 };
 
 Chip.propTypes = {
   variant: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['primary', 'secondary']),
-  size: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['md', 'sm']),
+  size: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['lg', 'md', 'sm']),
   label: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string.isRequired),
   icon: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().element),
   iconPos: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['right', 'left'])
