@@ -1182,7 +1182,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledCard = styled_components__WEBPACK_IMPORTED_MODULE_8__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  width: 100%;\n  border-radius: 0.625rem;\n  background: ", ";\n  box-shadow: ", ";\n"])), function (_ref) {
+var StyledCard = styled_components__WEBPACK_IMPORTED_MODULE_8__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  border-radius: 0.625rem;\n  background: ", ";\n  box-shadow: ", ";\n"])), function (_ref) {
   var color = _ref.color;
   return color || 'white';
 }, function (_ref2) {
@@ -1276,23 +1276,25 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledChip = styled_components__WEBPACK_IMPORTED_MODULE_7__.default.span(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  border-radius: 100px;\n  border: 1px solid\n    ", ";\n  padding: 0.25rem 0.75rem;\n  width: min-content;\n  display: flex;\n  flex-direction: row;\n  > .icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin: 0 0.5rem 0 0;\n    > * {\n      ", ";\n    }\n  }\n  &.right {\n    flex-direction: row-reverse;\n    > .icon {\n      margin: 0 0 0 0.5rem;\n    }\n  }\n"])), function (_ref) {
+var StyledChip = styled_components__WEBPACK_IMPORTED_MODULE_7__.default.span(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  border-radius: 100px;\n  border: 1px solid\n    ", ";\n  padding: ", ";\n  width: min-content;\n  display: inline-flex;\n  flex-direction: row;\n  > .icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin: 0 0.5rem 0 0;\n    > * {\n      ", ";\n    }\n  }\n  &.right {\n    flex-direction: row-reverse;\n    > .icon {\n      margin: 0 0 0 0.5rem;\n    }\n  }\n"])), function (_ref) {
   var variant = _ref.variant;
   return variant === 'primary' ? '#FB4D9D' : '#CCCCCC';
 }, function (_ref2) {
   var size = _ref2.size;
-  if (size === 'lg') return 'height: 1.5rem; width: 1.5;';
+  return size === 'sm' ? '0.2rem 0.6rem' : '0.25rem 0.75rem';
+}, function (_ref3) {
+  var size = _ref3.size;
   if (size === 'md') return 'height: 1.25rem; width: 1.25;';
   return 'height: 1.125rem; width: 1.125;';
 });
 
-var Chip = function Chip(_ref3) {
-  var label = _ref3.label,
-      icon = _ref3.icon,
-      iconPos = _ref3.iconPos,
-      variant = _ref3.variant,
-      size = _ref3.size,
-      props = _objectWithoutProperties(_ref3, ["label", "icon", "iconPos", "variant", "size"]);
+var Chip = function Chip(_ref4) {
+  var label = _ref4.label,
+      icon = _ref4.icon,
+      iconPos = _ref4.iconPos,
+      variant = _ref4.variant,
+      size = _ref4.size,
+      props = _objectWithoutProperties(_ref4, ["label", "icon", "iconPos", "variant", "size"]);
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(StyledChip, Object.assign({
     className: "cui-chip ".concat(iconPos === 'right' ? 'right' : 'left'),
@@ -1302,13 +1304,14 @@ var Chip = function Chip(_ref3) {
     className: "icon"
   }, icon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_Text_Text__WEBPACK_IMPORTED_MODULE_6__.default, {
     noWrap: true,
-    tag: "span"
+    tag: "span",
+    size: size === 'sm' ? 2 : 3
   }, label));
 };
 
 Chip.propTypes = {
   variant: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['primary', 'secondary']),
-  size: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['lg', 'md', 'sm']),
+  size: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['md', 'sm']),
   label: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string.isRequired),
   icon: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().element),
   iconPos: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['right', 'left'])
