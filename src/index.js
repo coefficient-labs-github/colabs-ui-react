@@ -6,4 +6,5 @@ export { default as Divider } from './components/Divider/Divider';
 export { default as Text } from './components/Text/Text';
 export { default as Textfield } from './components/Textfield/Textfield';
 export { default as Dropdown } from './components/Dropdown/Dropdown';
+export { default as Stepper } from './components/Stepper/Stepper';
 // export { default as CssBaseline } from './components/CssBaseline/CssBaseline';
