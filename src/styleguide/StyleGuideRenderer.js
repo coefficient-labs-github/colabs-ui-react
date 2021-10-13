@@ -64,7 +64,7 @@ const StyleGuideRenderer = ({
       <div className="content">
         {children}
         {components}
-        <footer className="footer">Created by the CoLabs Team</footer>
+        <footer className="footer">Created by the CoEfficient Labs Team</footer>
       </div>
     </main>
   </StyledStyleGuideRenderer>

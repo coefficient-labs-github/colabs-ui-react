@@ -5,6 +5,7 @@
     justifyItems: 'center',
     alignItems: 'center',
     gridTemplateColumns: '1fr 1fr 1fr',
+    gridGap: '1rem',
   }}
 >
   <Textfield />
@@ -18,6 +19,8 @@ It has three elements, the top label, the input container and the bottom helper 
   style={{
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
+    gridGap: '1rem',
+
     justifyItems: 'center',
     alignItems: 'center',
   }}
@@ -37,6 +40,7 @@ import LeftArrow from '../../../assets/LeftArrowIcon';
   style={{
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
+    gridGap: '1rem',
     justifyItems: 'center',
     alignItems: 'center',
   }}
@@ -97,6 +101,7 @@ It can also be disabled
   style={{
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
+    gridGap: '1rem',
     justifyItems: 'center',
     alignItems: 'center',
   }}
@@ -109,4 +114,30 @@ It can also be disabled
     elevated
   />
 </span>
+```
+
+It can also be disabled
+
+```jsx
+import Button from '../Button/Button';
+<span
+  style={{
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr',
+    gridGap: '1rem',
+
+    justifyItems: 'center',
+    alignItems: 'center',
+  }}
+>
+  <Textfield
+    placeholder="Placeholder"
+    label="This is a label"
+    inputTag="textarea"
+    rows={5}
+    backgroundColor="#F7F8FA"
+    bottomActions={<Button text="Send" />}
+  />
+  <Textfield placeholder="Placeholder" label="This is a label" elevated />
+</span>;
 ```

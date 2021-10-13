@@ -8,6 +8,7 @@ import defaultTheme from '../../defaultTheme';
 
 const StyledTextField = styled.div`
   z-index: 1;
+  width: 100%;
   > label {
     font-family: ${({ theme }) => theme.font.main.light};
     font-size: 0.875rem;
@@ -16,8 +17,7 @@ const StyledTextField = styled.div`
   > .container {
     margin: 0 auto;
     padding: 0 1rem;
-    width: 100%;
-    background: white;
+    /* width: 100%; */
     border-radius: 0.625rem;
     border: 1px solid
       ${({ elevated, disabled }) => {
@@ -25,14 +25,13 @@ const StyledTextField = styled.div`
         if (disabled) return '#e6e6e6';
         return '#d3d3d3';
       }};
-    display: flex;
+    display: grid;
+    grid-template-columns: min-content 1fr min-content;
     align-items: center;
     overflow: hidden;
     background: #ffffff 0% 0% no-repeat padding-box;
     box-shadow: ${({ elevated }) =>
       elevated ? '0px 3px 4px #0000001C' : '#ffffff00'};
-    flex-direction: ${({ iconPos }) =>
-      iconPos === 'right' ? 'row-reverse' : 'row'};
     ${({ multiline }) => (multiline ? '' : 'height: 2.75rem')};
     &:hover {
       ${({ disabled }) =>
@@ -44,14 +43,21 @@ const StyledTextField = styled.div`
     > .icon {
       height: 1rem;
       width: 1rem;
+      grid-column: 3 / 4;
       padding: 0;
-      margin: ${({ iconPos }) =>
-        iconPos === 'left' ? '0 0.5rem 0 0' : '0 0 0 0.5rem'};
+      margin: 0 0 0 0.5rem;
+      grid-row: 1 / 2;
+      & .left {
+        grid-column: 1 / 2;
+        margin: 0 0.5rem 0 0;
+      }
     }
     > .input {
       flex: 1;
       width: 100%;
-      height: ${({ multiline }) => (multiline ? 'fit-content' : '3rem')};
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      height: ${({ multiline }) => (multiline ? 'fit-content' : '100%')};
       margin: ${({ multiline }) => (multiline ? '1rem 0' : '0')};
       resize: none;
       border: 0;
@@ -73,57 +79,49 @@ const StyledTextField = styled.div`
         outline: none;
       }
     }
+    > .bottomActions {
+      display: flex;
+      justify-content: right;
+      margin-bottom: 1rem;
+      grid-row: 2 / 3;
+      grid-column: 1 / 4;
+    }
   }
 `;
 
 const TextField = ({
   placeholder,
-  value,
-  onChange,
+  backgroundColor,
   icon,
-  type,
   iconPos,
   label,
-  required,
-  minLength,
-  maxLength,
   rows,
   onFocus,
   onBlur,
   disabled,
-  name,
   autoComplete,
   inputTag,
   error,
   helperText,
   elevated,
   className,
+  bottomActions,
+  style,
   ...props
 }) => {
-  const getInputTag = () => {
-    switch (inputTag) {
-      case 'number':
-        return NumberFormat;
-      case 'textarea':
-        return 'textarea';
-      default:
-        return 'input';
-    }
-  };
-
-  const InputTag = getInputTag();
+  const InputTag = inputTag === 'number' ? NumberFormat : inputTag;
   const uniqueId = Math.random();
   const [isFocus, setIsFocus] = useState();
 
   return (
     <StyledTextField
       className={`cui-textfield ${className}`}
-      iconPos={iconPos}
       multiline={inputTag === 'textarea'}
       rows={rows}
       disabled={disabled}
       error={error}
       elevated={elevated}
+      style={style}
     >
       {label && (
         <label htmlFor={uniqueId}>
@@ -132,8 +130,15 @@ const TextField = ({
           </Text>
         </label>
       )}
-      <span className={`container ${isFocus ? 'focused' : ''}`}>
-        {icon && <span className="icon">{icon}</span>}
+      <span
+        className={`container ${isFocus ? 'focused' : ''}`}
+        style={{ backgroundColor }}
+      >
+        {icon && (
+          <span className={`icon ${iconPos}`} iconPos={iconPos}>
+            {icon}
+          </span>
+        )}
         {disabled ? (
           <Text color="#b6b6b6">{placeholder}</Text>
         ) : (
@@ -148,19 +153,13 @@ const TextField = ({
             }}
             className="input"
             id={uniqueId}
-            name={name}
-            type={type}
-            value={value}
             placeholder={placeholder}
-            onChange={onChange}
-            required={required}
-            minLength={minLength}
-            maxLength={maxLength}
             rows={rows}
             autoComplete={autoComplete?.toString()}
             {...props}
           />
         )}
+        {bottomActions && <div className="bottomActions">{bottomActions}</div>}
       </span>
       {helperText && (
         <Text
@@ -183,45 +182,37 @@ StyledTextField.defaultProps = { theme: defaultTheme };
 
 TextField.propTypes = {
   ...NumberFormat.propTypes,
-  type: PropTypes.string,
   iconPos: PropTypes.oneOf(['right', 'left']),
   placeholder: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
   icon: PropTypes.element,
   label: PropTypes.string,
   elevated: PropTypes.bool,
-  required: PropTypes.bool,
-  minLength: PropTypes.number,
-  maxLength: PropTypes.number,
   rows: PropTypes.number,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  name: PropTypes.string,
   autoComplete: PropTypes.bool,
-  inputTag: PropTypes.oneOf(['textarea', 'number', 'input']),
+  inputTag: PropTypes.string,
+  style: PropTypes.shape(),
+  backgroundColor: PropTypes.string,
   className: PropTypes.string,
+  bottomActions: PropTypes.element,
 };
 
 TextField.defaultProps = {
   onFocus: () => null,
   onBlur: () => null,
-  value: undefined,
-  name: '',
+  backgroundColor: 'white',
+  style: {},
   autoComplete: false,
   placeholder: '',
   rows: 2,
   icon: null,
-  onChange: null,
   elevated: false,
-  type: 'text',
   iconPos: 'left',
   label: null,
-  required: false,
-  minLength: 1,
-  maxLength: 250,
   inputTag: 'input',
   className: '',
+  bottomActions: null,
 };
 
 export default TextField;

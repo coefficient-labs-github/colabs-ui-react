@@ -1898,7 +1898,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledTextField = styled_components__WEBPACK_IMPORTED_MODULE_18__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  z-index: 1;\n  > label {\n    font-family: ", ";\n    font-size: 0.875rem;\n    color: ", ";\n  }\n  > .container {\n    margin: 0 auto;\n    padding: 0 1rem;\n    width: 100%;\n    background: white;\n    border-radius: 0.625rem;\n    border: 1px solid\n      ", ";\n    display: flex;\n    align-items: center;\n    overflow: hidden;\n    background: #ffffff 0% 0% no-repeat padding-box;\n    box-shadow: ", ";\n    flex-direction: ", ";\n    ", ";\n    &:hover {\n      ", ";\n    }\n    &.focused {\n      border: 1px solid #6da7fd;\n    }\n    > .icon {\n      height: 1rem;\n      width: 1rem;\n      padding: 0;\n      margin: ", ";\n    }\n    > .input {\n      flex: 1;\n      width: 100%;\n      height: ", ";\n      margin: ", ";\n      resize: none;\n      border: 0;\n      background: #ffffff00;\n      color: #000;\n      font-family: ", ";\n      font-size: 1rem;\n      letter-spacing: -0.02em;\n      ::-webkit-scrollbar {\n        width: 6px;\n      }\n      ::-webkit-scrollbar-thumb {\n        background-color: ", ";\n      }\n      ::-webkit-scrollbar-track {\n        background-color: #f5f5f5;\n      }\n      :focus {\n        outline: none;\n      }\n    }\n  }\n"])), function (_ref) {
+var StyledTextField = styled_components__WEBPACK_IMPORTED_MODULE_18__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  z-index: 1;\n  width: 100%;\n  > label {\n    font-family: ", ";\n    font-size: 0.875rem;\n    color: ", ";\n  }\n  > .container {\n    margin: 0 auto;\n    padding: 0 1rem;\n    /* width: 100%; */\n    border-radius: 0.625rem;\n    border: 1px solid\n      ", ";\n    display: grid;\n    grid-template-columns: min-content 1fr min-content;\n    align-items: center;\n    overflow: hidden;\n    background: #ffffff 0% 0% no-repeat padding-box;\n    box-shadow: ", ";\n    ", ";\n    &:hover {\n      ", ";\n    }\n    &.focused {\n      border: 1px solid #6da7fd;\n    }\n    > .icon {\n      height: 1rem;\n      width: 1rem;\n      grid-column: 3 / 4;\n      padding: 0;\n      margin: 0 0 0 0.5rem;\n      grid-row: 1 / 2;\n      & .left {\n        grid-column: 1 / 2;\n        margin: 0 0.5rem 0 0;\n      }\n    }\n    > .input {\n      flex: 1;\n      width: 100%;\n      grid-column: 2 / 3;\n      grid-row: 1 / 2;\n      height: ", ";\n      margin: ", ";\n      resize: none;\n      border: 0;\n      background: #ffffff00;\n      color: #000;\n      font-family: ", ";\n      font-size: 1rem;\n      letter-spacing: -0.02em;\n      ::-webkit-scrollbar {\n        width: 6px;\n      }\n      ::-webkit-scrollbar-thumb {\n        background-color: ", ";\n      }\n      ::-webkit-scrollbar-track {\n        background-color: #f5f5f5;\n      }\n      :focus {\n        outline: none;\n      }\n    }\n    > .bottomActions {\n      display: flex;\n      justify-content: right;\n      margin-bottom: 1rem;\n      grid-row: 2 / 3;\n      grid-column: 1 / 4;\n    }\n  }\n"])), function (_ref) {
   var theme = _ref.theme;
   return theme.font.main.light;
 }, function (_ref2) {
@@ -1914,69 +1914,46 @@ var StyledTextField = styled_components__WEBPACK_IMPORTED_MODULE_18__.default.di
   var elevated = _ref4.elevated;
   return elevated ? '0px 3px 4px #0000001C' : '#ffffff00';
 }, function (_ref5) {
-  var iconPos = _ref5.iconPos;
-  return iconPos === 'right' ? 'row-reverse' : 'row';
-}, function (_ref6) {
-  var multiline = _ref6.multiline;
+  var multiline = _ref5.multiline;
   return multiline ? '' : 'height: 2.75rem';
-}, function (_ref7) {
-  var disabled = _ref7.disabled;
+}, function (_ref6) {
+  var disabled = _ref6.disabled;
   return disabled ? '' : 'background: #f9f9f9 0% 0% no-repeat padding-box;';
+}, function (_ref7) {
+  var multiline = _ref7.multiline;
+  return multiline ? 'fit-content' : '100%';
 }, function (_ref8) {
-  var iconPos = _ref8.iconPos;
-  return iconPos === 'left' ? '0 0.5rem 0 0' : '0 0 0 0.5rem';
-}, function (_ref9) {
-  var multiline = _ref9.multiline;
-  return multiline ? 'fit-content' : '3rem';
-}, function (_ref10) {
-  var multiline = _ref10.multiline;
+  var multiline = _ref8.multiline;
   return multiline ? '1rem 0' : '0';
-}, function (_ref11) {
-  var theme = _ref11.theme;
+}, function (_ref9) {
+  var theme = _ref9.theme;
   return theme.font.main.regular;
-}, function (_ref12) {
-  var theme = _ref12.theme;
+}, function (_ref10) {
+  var theme = _ref10.theme;
   return theme.color.primary.main;
 });
 
-var TextField = function TextField(_ref13) {
-  var placeholder = _ref13.placeholder,
-      value = _ref13.value,
-      onChange = _ref13.onChange,
-      icon = _ref13.icon,
-      type = _ref13.type,
-      iconPos = _ref13.iconPos,
-      label = _ref13.label,
-      required = _ref13.required,
-      minLength = _ref13.minLength,
-      maxLength = _ref13.maxLength,
-      rows = _ref13.rows,
-      _onFocus = _ref13.onFocus,
-      _onBlur = _ref13.onBlur,
-      disabled = _ref13.disabled,
-      name = _ref13.name,
-      autoComplete = _ref13.autoComplete,
-      inputTag = _ref13.inputTag,
-      error = _ref13.error,
-      helperText = _ref13.helperText,
-      elevated = _ref13.elevated,
-      className = _ref13.className,
-      props = _objectWithoutProperties(_ref13, ["placeholder", "value", "onChange", "icon", "type", "iconPos", "label", "required", "minLength", "maxLength", "rows", "onFocus", "onBlur", "disabled", "name", "autoComplete", "inputTag", "error", "helperText", "elevated", "className"]);
+var TextField = function TextField(_ref11) {
+  var placeholder = _ref11.placeholder,
+      backgroundColor = _ref11.backgroundColor,
+      icon = _ref11.icon,
+      iconPos = _ref11.iconPos,
+      label = _ref11.label,
+      rows = _ref11.rows,
+      _onFocus = _ref11.onFocus,
+      _onBlur = _ref11.onBlur,
+      disabled = _ref11.disabled,
+      autoComplete = _ref11.autoComplete,
+      inputTag = _ref11.inputTag,
+      error = _ref11.error,
+      helperText = _ref11.helperText,
+      elevated = _ref11.elevated,
+      className = _ref11.className,
+      bottomActions = _ref11.bottomActions,
+      style = _ref11.style,
+      props = _objectWithoutProperties(_ref11, ["placeholder", "backgroundColor", "icon", "iconPos", "label", "rows", "onFocus", "onBlur", "disabled", "autoComplete", "inputTag", "error", "helperText", "elevated", "className", "bottomActions", "style"]);
 
-  var getInputTag = function getInputTag() {
-    switch (inputTag) {
-      case 'number':
-        return react_number_format__WEBPACK_IMPORTED_MODULE_15__.default;
-
-      case 'textarea':
-        return 'textarea';
-
-      default:
-        return 'input';
-    }
-  };
-
-  var InputTag = getInputTag();
+  var InputTag = inputTag === 'number' ? react_number_format__WEBPACK_IMPORTED_MODULE_15__.default : inputTag;
   var uniqueId = Math.random();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_13__.useState)(),
@@ -1986,21 +1963,25 @@ var TextField = function TextField(_ref13) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement(StyledTextField, {
     className: "cui-textfield ".concat(className),
-    iconPos: iconPos,
     multiline: inputTag === 'textarea',
     rows: rows,
     disabled: disabled,
     error: error,
-    elevated: elevated
+    elevated: elevated,
+    style: style
   }, label && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement("label", {
     htmlFor: uniqueId
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement(_Text_Text__WEBPACK_IMPORTED_MODULE_16__.default, {
     tag: "span",
     size: 2
   }, label)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement("span", {
-    className: "container ".concat(isFocus ? 'focused' : '')
+    className: "container ".concat(isFocus ? 'focused' : ''),
+    style: {
+      backgroundColor
+    }
   }, icon && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement("span", {
-    className: "icon"
+    className: "icon ".concat(iconPos),
+    iconPos: iconPos
   }, icon), disabled ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement(_Text_Text__WEBPACK_IMPORTED_MODULE_16__.default, {
     color: "#b6b6b6"
   }, placeholder) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement(InputTag, Object.assign({
@@ -2016,17 +1997,12 @@ var TextField = function TextField(_ref13) {
     },
     className: "input",
     id: uniqueId,
-    name: name,
-    type: type,
-    value: value,
     placeholder: placeholder,
-    onChange: onChange,
-    required: required,
-    minLength: minLength,
-    maxLength: maxLength,
     rows: rows,
     autoComplete: autoComplete === null || autoComplete === void 0 ? void 0 : autoComplete.toString()
-  }, props))), helperText && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement(_Text_Text__WEBPACK_IMPORTED_MODULE_16__.default, {
+  }, props)), bottomActions && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement("div", {
+    className: "bottomActions"
+  }, bottomActions)), helperText && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement(_Text_Text__WEBPACK_IMPORTED_MODULE_16__.default, {
     tag: "span",
     size: 2,
     color: function () {
@@ -2041,24 +2017,20 @@ StyledTextField.defaultProps = {
   theme: _defaultTheme__WEBPACK_IMPORTED_MODULE_17__.default
 };
 TextField.propTypes = _objectSpread(_objectSpread({}, react_number_format__WEBPACK_IMPORTED_MODULE_15__.default.propTypes), {}, {
-  type: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
   iconPos: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOf(['right', 'left']),
   placeholder: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
-  value: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
-  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func),
   icon: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().element),
   label: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
   elevated: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
-  required: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
-  minLength: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().number),
-  maxLength: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().number),
   rows: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().number),
   onFocus: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func),
   onBlur: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func),
-  name: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
   autoComplete: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
-  inputTag: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOf(['textarea', 'number', 'input']),
-  className: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string)
+  inputTag: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
+  style: prop_types__WEBPACK_IMPORTED_MODULE_14___default().shape(),
+  backgroundColor: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
+  bottomActions: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().element)
 });
 TextField.defaultProps = {
   onFocus: function onFocus() {
@@ -2067,22 +2039,18 @@ TextField.defaultProps = {
   onBlur: function onBlur() {
     return null;
   },
-  value: undefined,
-  name: '',
+  backgroundColor: 'white',
+  style: {},
   autoComplete: false,
   placeholder: '',
   rows: 2,
   icon: null,
-  onChange: null,
   elevated: false,
-  type: 'text',
   iconPos: 'left',
   label: null,
-  required: false,
-  minLength: 1,
-  maxLength: 250,
   inputTag: 'input',
-  className: ''
+  className: '',
+  bottomActions: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (TextField);
 
