@@ -35,8 +35,14 @@ const StyledStepper = styled.div`
     }
     &.lines {
       width: 100%;
-      margin: 0 0.75rem;
       height: 0.5rem;
+      margin: 0 0.4rem !important;
+      &:nth-child(1) {
+        margin-left: 0 !important;
+      }
+      &:nth-last-child() {
+        margin-right: 0 !important;
+      }
     }
     &.dots {
       height: 0.5rem;
@@ -45,6 +51,7 @@ const StyledStepper = styled.div`
     &.seen {
       background: ${({ theme }) => theme.color.primary.main};
       color: white;
+      border-color: #1171fa;
     }
   }
 `;
