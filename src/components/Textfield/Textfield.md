@@ -116,6 +116,25 @@ It can also be disabled
 </span>
 ```
 
+It can be set to have fullWidth
+
+```jsx
+import Button from '../Button/Button';
+<span
+  style={{
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr',
+    gridGap: '1rem',
+
+    justifyItems: 'center',
+    alignItems: 'center',
+  }}
+>
+  <Textfield placeholder="Placeholder" fullWidth />
+  <Textfield placeholder="Placeholder" />
+</span>;
+```
+
 It can also be disabled
 
 ```jsx

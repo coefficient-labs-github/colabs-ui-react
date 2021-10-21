@@ -8,7 +8,8 @@ import defaultTheme from '../../defaultTheme';
 
 const StyledTextField = styled.div`
   z-index: 1;
-  width: 100%;
+  width: auto;
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'fit-content')};
   > label {
     font-family: ${({ theme }) => theme.font.main.light};
     font-size: 0.875rem;
@@ -91,6 +92,7 @@ const StyledTextField = styled.div`
 
 const TextField = ({
   placeholder,
+  fullWidth,
   backgroundColor,
   icon,
   iconPos,
@@ -121,6 +123,7 @@ const TextField = ({
       disabled={disabled}
       error={error}
       elevated={elevated}
+      fullWidth={fullWidth}
       style={style}
     >
       {label && (
@@ -196,6 +199,7 @@ TextField.propTypes = {
   backgroundColor: PropTypes.string,
   className: PropTypes.string,
   bottomActions: PropTypes.element,
+  fullWidth: PropTypes.bool,
 };
 
 TextField.defaultProps = {
@@ -213,6 +217,7 @@ TextField.defaultProps = {
   inputTag: 'input',
   className: '',
   bottomActions: null,
+  fullWidth: false,
 };
 
 export default TextField;

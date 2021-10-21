@@ -1898,60 +1898,64 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledTextField = styled_components__WEBPACK_IMPORTED_MODULE_18__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  z-index: 1;\n  width: 100%;\n  > label {\n    font-family: ", ";\n    font-size: 0.875rem;\n    color: ", ";\n  }\n  > .container {\n    margin: 0 auto;\n    padding: 0 1rem;\n    /* width: 100%; */\n    border-radius: 0.625rem;\n    border: 1px solid\n      ", ";\n    display: grid;\n    grid-template-columns: min-content 1fr min-content;\n    align-items: center;\n    overflow: hidden;\n    background: #ffffff 0% 0% no-repeat padding-box;\n    box-shadow: ", ";\n    ", ";\n    &:hover {\n      ", ";\n    }\n    &.focused {\n      border: 1px solid #6da7fd;\n    }\n    > .icon {\n      height: 1rem;\n      width: 1rem;\n      grid-column: 3 / 4;\n      padding: 0;\n      margin: 0 0 0 0.5rem;\n      grid-row: 1 / 2;\n      & .left {\n        grid-column: 1 / 2;\n        margin: 0 0.5rem 0 0;\n      }\n    }\n    > .input {\n      flex: 1;\n      width: 100%;\n      grid-column: 2 / 3;\n      grid-row: 1 / 2;\n      height: ", ";\n      margin: ", ";\n      resize: none;\n      border: 0;\n      background: #ffffff00;\n      color: #000;\n      font-family: ", ";\n      font-size: 1rem;\n      letter-spacing: -0.02em;\n      ::-webkit-scrollbar {\n        width: 6px;\n      }\n      ::-webkit-scrollbar-thumb {\n        background-color: ", ";\n      }\n      ::-webkit-scrollbar-track {\n        background-color: #f5f5f5;\n      }\n      :focus {\n        outline: none;\n      }\n    }\n    > .bottomActions {\n      display: flex;\n      justify-content: right;\n      margin-bottom: 1rem;\n      grid-row: 2 / 3;\n      grid-column: 1 / 4;\n    }\n  }\n"])), function (_ref) {
-  var theme = _ref.theme;
-  return theme.font.main.light;
+var StyledTextField = styled_components__WEBPACK_IMPORTED_MODULE_18__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  z-index: 1;\n  width: auto;\n  width: ", ";\n  > label {\n    font-family: ", ";\n    font-size: 0.875rem;\n    color: ", ";\n  }\n  > .container {\n    margin: 0 auto;\n    padding: 0 1rem;\n    /* width: 100%; */\n    border-radius: 0.625rem;\n    border: 1px solid\n      ", ";\n    display: grid;\n    grid-template-columns: min-content 1fr min-content;\n    align-items: center;\n    overflow: hidden;\n    background: #ffffff 0% 0% no-repeat padding-box;\n    box-shadow: ", ";\n    ", ";\n    &:hover {\n      ", ";\n    }\n    &.focused {\n      border: 1px solid #6da7fd;\n    }\n    > .icon {\n      height: 1rem;\n      width: 1rem;\n      grid-column: 3 / 4;\n      padding: 0;\n      margin: 0 0 0 0.5rem;\n      grid-row: 1 / 2;\n      & .left {\n        grid-column: 1 / 2;\n        margin: 0 0.5rem 0 0;\n      }\n    }\n    > .input {\n      flex: 1;\n      width: 100%;\n      grid-column: 2 / 3;\n      grid-row: 1 / 2;\n      height: ", ";\n      margin: ", ";\n      resize: none;\n      border: 0;\n      background: #ffffff00;\n      color: #000;\n      font-family: ", ";\n      font-size: 1rem;\n      letter-spacing: -0.02em;\n      ::-webkit-scrollbar {\n        width: 6px;\n      }\n      ::-webkit-scrollbar-thumb {\n        background-color: ", ";\n      }\n      ::-webkit-scrollbar-track {\n        background-color: #f5f5f5;\n      }\n      :focus {\n        outline: none;\n      }\n    }\n    > .bottomActions {\n      display: flex;\n      justify-content: right;\n      margin-bottom: 1rem;\n      grid-row: 2 / 3;\n      grid-column: 1 / 4;\n    }\n  }\n"])), function (_ref) {
+  var fullWidth = _ref.fullWidth;
+  return fullWidth ? '100%' : 'fit-content';
 }, function (_ref2) {
-  var disabled = _ref2.disabled;
-  return disabled ? '#b6b6b6' : '#000';
+  var theme = _ref2.theme;
+  return theme.font.main.light;
 }, function (_ref3) {
-  var elevated = _ref3.elevated,
-      disabled = _ref3.disabled;
+  var disabled = _ref3.disabled;
+  return disabled ? '#b6b6b6' : '#000';
+}, function (_ref4) {
+  var elevated = _ref4.elevated,
+      disabled = _ref4.disabled;
   if (elevated) return '#ffffff00';
   if (disabled) return '#e6e6e6';
   return '#d3d3d3';
-}, function (_ref4) {
-  var elevated = _ref4.elevated;
-  return elevated ? '0px 3px 4px #0000001C' : '#ffffff00';
 }, function (_ref5) {
-  var multiline = _ref5.multiline;
-  return multiline ? '' : 'height: 2.75rem';
+  var elevated = _ref5.elevated;
+  return elevated ? '0px 3px 4px #0000001C' : '#ffffff00';
 }, function (_ref6) {
-  var disabled = _ref6.disabled;
-  return disabled ? '' : 'background: #f9f9f9 0% 0% no-repeat padding-box;';
+  var multiline = _ref6.multiline;
+  return multiline ? '' : 'height: 2.75rem';
 }, function (_ref7) {
-  var multiline = _ref7.multiline;
-  return multiline ? 'fit-content' : '100%';
+  var disabled = _ref7.disabled;
+  return disabled ? '' : 'background: #f9f9f9 0% 0% no-repeat padding-box;';
 }, function (_ref8) {
   var multiline = _ref8.multiline;
-  return multiline ? '1rem 0' : '0';
+  return multiline ? 'fit-content' : '100%';
 }, function (_ref9) {
-  var theme = _ref9.theme;
-  return theme.font.main.regular;
+  var multiline = _ref9.multiline;
+  return multiline ? '1rem 0' : '0';
 }, function (_ref10) {
   var theme = _ref10.theme;
+  return theme.font.main.regular;
+}, function (_ref11) {
+  var theme = _ref11.theme;
   return theme.color.primary.main;
 });
 
-var TextField = function TextField(_ref11) {
-  var placeholder = _ref11.placeholder,
-      backgroundColor = _ref11.backgroundColor,
-      icon = _ref11.icon,
-      iconPos = _ref11.iconPos,
-      label = _ref11.label,
-      rows = _ref11.rows,
-      _onFocus = _ref11.onFocus,
-      _onBlur = _ref11.onBlur,
-      disabled = _ref11.disabled,
-      autoComplete = _ref11.autoComplete,
-      inputTag = _ref11.inputTag,
-      error = _ref11.error,
-      helperText = _ref11.helperText,
-      elevated = _ref11.elevated,
-      className = _ref11.className,
-      bottomActions = _ref11.bottomActions,
-      style = _ref11.style,
-      props = _objectWithoutProperties(_ref11, ["placeholder", "backgroundColor", "icon", "iconPos", "label", "rows", "onFocus", "onBlur", "disabled", "autoComplete", "inputTag", "error", "helperText", "elevated", "className", "bottomActions", "style"]);
+var TextField = function TextField(_ref12) {
+  var placeholder = _ref12.placeholder,
+      fullWidth = _ref12.fullWidth,
+      backgroundColor = _ref12.backgroundColor,
+      icon = _ref12.icon,
+      iconPos = _ref12.iconPos,
+      label = _ref12.label,
+      rows = _ref12.rows,
+      _onFocus = _ref12.onFocus,
+      _onBlur = _ref12.onBlur,
+      disabled = _ref12.disabled,
+      autoComplete = _ref12.autoComplete,
+      inputTag = _ref12.inputTag,
+      error = _ref12.error,
+      helperText = _ref12.helperText,
+      elevated = _ref12.elevated,
+      className = _ref12.className,
+      bottomActions = _ref12.bottomActions,
+      style = _ref12.style,
+      props = _objectWithoutProperties(_ref12, ["placeholder", "fullWidth", "backgroundColor", "icon", "iconPos", "label", "rows", "onFocus", "onBlur", "disabled", "autoComplete", "inputTag", "error", "helperText", "elevated", "className", "bottomActions", "style"]);
 
   var InputTag = inputTag === 'number' ? react_number_format__WEBPACK_IMPORTED_MODULE_15__.default : inputTag;
   var uniqueId = Math.random();
@@ -1968,6 +1972,7 @@ var TextField = function TextField(_ref11) {
     disabled: disabled,
     error: error,
     elevated: elevated,
+    fullWidth: fullWidth,
     style: style
   }, label && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_13___default().createElement("label", {
     htmlFor: uniqueId
@@ -2030,7 +2035,8 @@ TextField.propTypes = _objectSpread(_objectSpread({}, react_number_format__WEBPA
   style: prop_types__WEBPACK_IMPORTED_MODULE_14___default().shape(),
   backgroundColor: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
   className: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
-  bottomActions: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().element)
+  bottomActions: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().element),
+  fullWidth: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool)
 });
 TextField.defaultProps = {
   onFocus: function onFocus() {
@@ -2050,7 +2056,8 @@ TextField.defaultProps = {
   label: null,
   inputTag: 'input',
   className: '',
-  bottomActions: null
+  bottomActions: null,
+  fullWidth: false
 };
 /* harmony default export */ __webpack_exports__["default"] = (TextField);
 
