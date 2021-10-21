@@ -8,8 +8,7 @@ import defaultTheme from '../../defaultTheme';
 
 const StyledTextField = styled.div`
   z-index: 1;
-  width: auto;
-  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'fit-content')};
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   > label {
     font-family: ${({ theme }) => theme.font.main.light};
     font-size: 0.875rem;
