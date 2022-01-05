@@ -7,6 +7,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.png/,
+        type: 'asset/resource',
+      },
+      {
         test: /\.js|jsx$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
