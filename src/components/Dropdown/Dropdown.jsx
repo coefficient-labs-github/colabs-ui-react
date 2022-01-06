@@ -164,8 +164,10 @@ const Dropdown = ({
         )}
       </div>
       <ul className="select">
-        {items.map((item) => (
-          <li className="option">{item}</li>
+        {items.map((item, index) => (
+          <li key={item?.key || `dropdown-option-${index}`} className="option">
+            {item}
+          </li>
         ))}
       </ul>
     </StyledDropdown>

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
 /**
  * Creates DOM element to be used as React root.
@@ -15,7 +15,10 @@ function createRootElement(id) {
  * @param {HTMLElement} rootElem
  */
 function addRootElement(rootElem) {
-  document.body.insertBefore(rootElem, document.body.lastElementChild.nextElementSibling);
+  document.body.insertBefore(
+    rootElem,
+    document.body.lastElementChild.nextElementSibling
+  );
 }
 
 /**

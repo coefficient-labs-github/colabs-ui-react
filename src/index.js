@@ -1,10 +1,14 @@
 export { default as Avatar } from './components/Avatar/Avatar';
 export { default as Button } from './components/Button/Button';
 export { default as Card } from './components/Card/Card';
+export { default as Checkbox } from './components/Checkbox/Checkbox';
 export { default as Chip } from './components/Chip/Chip';
 export { default as Divider } from './components/Divider/Divider';
+export { default as Dropdown } from './components/Dropdown/Dropdown';
+export { default as Image } from './components/Image/Image';
+export { default as Modal } from './components/Modal/Modal';
+export { default as Popper } from './components/Popper/Popper';
+export { default as Stepper } from './components/Stepper/Stepper';
 export { default as Text } from './components/Text/Text';
 export { default as Textfield } from './components/Textfield/Textfield';
-export { default as Dropdown } from './components/Dropdown/Dropdown';
-export { default as Stepper } from './components/Stepper/Stepper';
 // export { default as CssBaseline } from './components/CssBaseline/CssBaseline';

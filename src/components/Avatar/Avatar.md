@@ -22,8 +22,8 @@ It comes in three sizes
     alignItems: 'center',
   }}
 >
-  <Avatar picture={`/asdasdsad`} size="lg" />
-  <Avatar picture={`/asdasdsad`} size="md" />
-  <Avatar picture={`/asdasdsad`} size="sm" />
+  <Avatar picture="" size="lg" />
+  <Avatar picture="" size="md" />
+  <Avatar picture="" size="sm" />
 </span>
 ```

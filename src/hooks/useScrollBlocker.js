@@ -26,6 +26,7 @@ const useScrollBlocker = (isActive) => {
         Object.defineProperty({}, 'passive', {
           get: () => {
             supportsPassive = true;
+            return undefined;
           },
         })
       );
@@ -34,7 +35,8 @@ const useScrollBlocker = (isActive) => {
     }
 
     const wheelOpt = supportsPassive ? { passive: false } : false;
-    const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+    const wheelEvent =
+      'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
 
     function disableScroll() {
       window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF

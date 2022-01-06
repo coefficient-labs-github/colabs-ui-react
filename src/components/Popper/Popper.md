@@ -57,7 +57,17 @@ It comes in two variants
     alignItems: 'center',
   }}
 >
-  <Popper type="Popper" checked={true} onChange={(e) => null} />
-  <Popper type="radio" checked={true} onChange={(e) => null} />
+  <Popper
+    type="Popper"
+    anchorSelector="#anchorSelector"
+    checked={true}
+    onChange={(e) => null}
+  />
+  <Popper
+    type="radio"
+    anchorSelector="#anchorSelector"
+    checked={true}
+    onChange={(e) => null}
+  />
 </span>
 ```

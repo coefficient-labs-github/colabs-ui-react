@@ -47,7 +47,7 @@ const StyledTextField = styled.div`
       padding: 0;
       margin: 0 0 0 0.5rem;
       grid-row: 1 / 2;
-      & .left {
+      &.left {
         grid-column: 1 / 2;
         margin: 0 0.5rem 0 0;
       }
@@ -136,11 +136,7 @@ const TextField = ({
         className={`container ${isFocus ? 'focused' : ''}`}
         style={{ backgroundColor }}
       >
-        {icon && (
-          <span className={`icon ${iconPos}`} iconPos={iconPos}>
-            {icon}
-          </span>
-        )}
+        {icon && <span className={`icon ${iconPos}`}>{icon}</span>}
         {disabled ? (
           <Text color="#b6b6b6">{placeholder}</Text>
         ) : (
