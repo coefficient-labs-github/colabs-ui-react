@@ -8,8 +8,8 @@ const StyledChip = styled.span`
   border-radius: 5rem;
   margin: 0;
   background-color: ${({ color, variant, theme }) =>
-    variant === 'tertiary' ? 'none' : theme.colors[color].light}};
-  border: 1px solid ${({ color, theme }) => theme.colors[color].light};
+    variant === 'tertiary' ? 'none' : theme.color[color].light}};
+  border: 1px solid ${({ color, theme }) => theme.color[color].light};
   padding: ${({ size }) => {
     if (size === 'lg') return '0.25rem 1.45rem';
     if (size === 'md') return '0.2rem 1.2rem';
@@ -40,7 +40,7 @@ const StyledChip = styled.span`
     }
   }
   > .chip-label {
-    color: ${({ color, theme }) => theme.colors[color].main};
+    color: ${({ color, theme }) => theme.color[color].main};
   }
 `;
 

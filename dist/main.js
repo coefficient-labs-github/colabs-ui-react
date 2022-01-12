@@ -1383,11 +1383,11 @@ var StyledChip = styled_components__WEBPACK_IMPORTED_MODULE_8__.default.span(_te
   var color = _ref.color,
       variant = _ref.variant,
       theme = _ref.theme;
-  return variant === 'tertiary' ? 'none' : theme.colors[color].light;
+  return variant === 'tertiary' ? 'none' : theme.color[color].light;
 }, function (_ref2) {
   var color = _ref2.color,
       theme = _ref2.theme;
-  return theme.colors[color].light;
+  return theme.color[color].light;
 }, function (_ref3) {
   var size = _ref3.size;
   if (size === 'lg') return '0.25rem 1.45rem';
@@ -1401,7 +1401,7 @@ var StyledChip = styled_components__WEBPACK_IMPORTED_MODULE_8__.default.span(_te
 }, function (_ref5) {
   var color = _ref5.color,
       theme = _ref5.theme;
-  return theme.colors[color].main;
+  return theme.color[color].main;
 });
 
 var Chip = function Chip(_ref6) {
