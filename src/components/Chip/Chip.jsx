@@ -2,15 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Text from '../Text/Text';
+import defaultTheme from '../../defaultTheme';
 
 const StyledChip = styled.span`
-  border-radius: 100px;
-  border: 1px solid
-    ${({ variant }) => (variant === 'primary' ? '#FB4D9D' : '#CCCCCC')};
+  border-radius: 5rem;
+  margin: 0;
+  background-color: ${({ color, variant, theme }) =>
+    variant === 'tertiary' ? 'none' : theme.colors[color].light}};
+  border: 1px solid ${({ color, theme }) => theme.colors[color].light};
   padding: ${({ size }) => {
-    if (size === 'lg') return '0.25rem 0.75rem';
-    if (size === 'md') return '0.2rem 0.6rem';
-    return '0.15rem 0.5rem';
+    if (size === 'lg') return '0.25rem 1.45rem';
+    if (size === 'md') return '0.2rem 1.2rem';
+    return '0.15rem 0.9rem';
   }};
   width: min-content;
   height: min-content;
@@ -36,24 +39,33 @@ const StyledChip = styled.span`
       margin: 0 0 0 0.5rem;
     }
   }
+  > .chip-label {
+    color: ${({ color, theme }) => theme.colors[color].main};
+  }
 `;
 
-const Chip = ({ label, icon, iconPos, variant, size, ...props }) => {
+const Chip = ({ label, color, icon, iconPos, variant, size, ...props }) => {
   return (
     <StyledChip
       className={`cui-chip ${iconPos === 'right' ? 'right' : 'left'}`}
       variant={variant}
       size={size}
+      color={color}
       {...props}
     >
       {icon && <span className="icon">{icon}</span>}
       <Text
         noWrap
         tag="span"
+        className="chip-label"
         size={(() => {
           if (size === 'lg') return 3;
           if (size === 'md') return 2;
           return 1;
+        })()}
+        weight={(() => {
+          if (variant === 'primary') return 'medium';
+          return 'regular';
         })()}
       >
         {label}
@@ -62,8 +74,11 @@ const Chip = ({ label, icon, iconPos, variant, size, ...props }) => {
   );
 };
 
+StyledChip.defaultProps = { theme: defaultTheme };
+
 Chip.propTypes = {
-  variant: PropTypes.oneOf(['primary', 'secondary']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
+  color: PropTypes.oneOf(['blue', 'green', 'red', 'purple', 'orange', 'gray']),
   size: PropTypes.oneOf(['lg', 'md', 'sm']),
   label: PropTypes.string.isRequired,
   icon: PropTypes.element,
@@ -71,7 +86,8 @@ Chip.propTypes = {
 };
 
 Chip.defaultProps = {
-  variant: 'secondary',
+  variant: 'primary',
+  color: 'gray',
   size: 'md',
   icon: null,
   iconPos: 'left',

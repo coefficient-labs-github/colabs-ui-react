@@ -1,16 +1,35 @@
 export default {
   color: {
-    primary: {
-      main: '#1171FA',
-      light: '#B8D4FE',
-      dark: '#0542F6',
+    blue: {
+      main: '#1171ff',
+      light: '#edf5ff',
+      // dark: '#0542F6',
     },
-    secondary: {
-      main: '#60E2FD',
-      light: ' #CFF6FE',
-      dark: ' #33CFFC',
+    green: {
+      main: '#44dc7a',
+      light: '#c7ffdb',
+      // dark: '#0542F6',
     },
-    background: 'white',
+    red: {
+      main: '#f55050',
+      light: '#ffdbdb',
+      // dark: '#0542F6',
+    },
+    purple: {
+      main: '#ae41e8',
+      light: '#ecc7ff',
+      // dark: '#0542F6',
+    },
+    orange: {
+      main: '#ffa311',
+      light: '#ffe9c7',
+      // dark: '#0542F6',
+    },
+    gray: {
+      main: '#373a3e',
+      light: '#f7f7f7',
+      dark: '#000',
+    },
   },
   font: {
     main: {
@@ -18,6 +37,7 @@ export default {
       medium: '"TTNormsMedium", "Arial", "Helvetica", "sans-serif"',
       light: '"TTNormsLight", "Arial", "Helvetica", "sans-serif"',
       bold: '"TTNormsBold", "Arial", "Helvetica", "sans-serif"',
+      italic: '"TTNormsItalic", "Arial", "Helvetica", "sans-serif"',
     },
   },
   elevation: {

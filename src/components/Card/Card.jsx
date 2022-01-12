@@ -35,7 +35,10 @@ const Card = ({ children, className, variant, elevation, color, ...props }) => {
 StyledCard.defaultProps = { theme: defaultTheme };
 
 Card.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
   elevation: PropTypes.number,
   variant: PropTypes.oneOf(['primary', 'secondary']),
   className: PropTypes.string,

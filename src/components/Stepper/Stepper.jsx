@@ -49,7 +49,7 @@ const StyledStepper = styled.div`
       width: 0.5rem;
     }
     &.seen {
-      background: ${({ theme }) => theme.color.primary.main};
+      background: ${({ theme }) => theme.color.blue.main};
       color: white;
       border-color: #1171fa;
     }

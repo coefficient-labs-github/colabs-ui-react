@@ -70,7 +70,10 @@ Text.propTypes = {
   ]),
   align: PropTypes.oneOf(['inherit', 'left', 'center', 'right', 'justify']),
   gutterBottom: PropTypes.bool,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]).isRequired,
   color: PropTypes.string,
   className: PropTypes.string,
 };

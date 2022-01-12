@@ -16,8 +16,8 @@ const StyledDivider = styled.span`
       variant === 'primary'
         ? `-webkit-linear-gradient(
             0deg,
-            ${theme.color.primary.main},
-            ${theme.color.secondary.main}
+            ${theme.color.blue.main},
+            #60E2FD
           );`
         : 'lightgray'};
   }

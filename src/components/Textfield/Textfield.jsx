@@ -70,7 +70,7 @@ const StyledTextField = styled.div`
         width: 6px;
       }
       ::-webkit-scrollbar-thumb {
-        background-color: ${({ theme }) => theme.color.primary.main};
+        background-color: ${({ theme }) => theme.color.blue.main};
       }
       ::-webkit-scrollbar-track {
         background-color: #f5f5f5;

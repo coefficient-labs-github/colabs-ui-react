@@ -1219,7 +1219,7 @@ StyledCard.defaultProps = {
   theme: _defaultTheme__WEBPACK_IMPORTED_MODULE_7__.default
 };
 Card.propTypes = {
-  children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().element),
+  children: prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_6___default().element), prop_types__WEBPACK_IMPORTED_MODULE_6___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_6___default().element))]),
   elevation: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().number),
   variant: prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOf(['primary', 'secondary']),
   className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
@@ -1355,10 +1355,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "prop-types");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _Text_Text__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Text/Text */ "./src/components/Text/Text.jsx");
+/* harmony import */ var _defaultTheme__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../defaultTheme */ "./src/defaultTheme.js");
 
 
 
@@ -1377,55 +1378,78 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledChip = styled_components__WEBPACK_IMPORTED_MODULE_7__.default.span(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  border-radius: 100px;\n  border: 1px solid\n    ", ";\n  padding: ", ";\n  width: min-content;\n  height: min-content;\n  display: inline-flex;\n  flex-direction: row;\n  align-items: center;\n  > .icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin: 0 0.5rem 0 0;\n    > * {\n      ", ";\n    }\n  }\n  &.right {\n    flex-direction: row-reverse;\n    > .icon {\n      margin: 0 0 0 0.5rem;\n    }\n  }\n"])), function (_ref) {
-  var variant = _ref.variant;
-  return variant === 'primary' ? '#FB4D9D' : '#CCCCCC';
+
+var StyledChip = styled_components__WEBPACK_IMPORTED_MODULE_8__.default.span(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  border-radius: 5rem;\n  margin: 0;\n  background-color: ", "};\n  border: 1px solid ", ";\n  padding: ", ";\n  width: min-content;\n  height: min-content;\n  display: inline-flex;\n  flex-direction: row;\n  align-items: center;\n  > .icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin: 0 0.5rem 0 0;\n    > * {\n      ", ";\n    }\n  }\n  &.right {\n    flex-direction: row-reverse;\n    > .icon {\n      margin: 0 0 0 0.5rem;\n    }\n  }\n  > .chip-label {\n    color: ", ";\n  }\n"])), function (_ref) {
+  var color = _ref.color,
+      variant = _ref.variant,
+      theme = _ref.theme;
+  return variant === 'tertiary' ? 'none' : theme.colors[color].light;
 }, function (_ref2) {
-  var size = _ref2.size;
-  if (size === 'lg') return '0.25rem 0.75rem';
-  if (size === 'md') return '0.2rem 0.6rem';
-  return '0.15rem 0.5rem';
+  var color = _ref2.color,
+      theme = _ref2.theme;
+  return theme.colors[color].light;
 }, function (_ref3) {
   var size = _ref3.size;
+  if (size === 'lg') return '0.25rem 1.45rem';
+  if (size === 'md') return '0.2rem 1.2rem';
+  return '0.15rem 0.9rem';
+}, function (_ref4) {
+  var size = _ref4.size;
   if (size === 'lg') return 'height: 1.125rem; width: 1.125;';
   if (size === 'md') return 'height: 1rem; width: 1;';
   return 'height: 0.875rem; width: 0.875;';
+}, function (_ref5) {
+  var color = _ref5.color,
+      theme = _ref5.theme;
+  return theme.colors[color].main;
 });
 
-var Chip = function Chip(_ref4) {
-  var label = _ref4.label,
-      icon = _ref4.icon,
-      iconPos = _ref4.iconPos,
-      variant = _ref4.variant,
-      size = _ref4.size,
-      props = _objectWithoutProperties(_ref4, ["label", "icon", "iconPos", "variant", "size"]);
+var Chip = function Chip(_ref6) {
+  var label = _ref6.label,
+      color = _ref6.color,
+      icon = _ref6.icon,
+      iconPos = _ref6.iconPos,
+      variant = _ref6.variant,
+      size = _ref6.size,
+      props = _objectWithoutProperties(_ref6, ["label", "color", "icon", "iconPos", "variant", "size"]);
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(StyledChip, Object.assign({
     className: "cui-chip ".concat(iconPos === 'right' ? 'right' : 'left'),
     variant: variant,
-    size: size
+    size: size,
+    color: color
   }, props), icon && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("span", {
     className: "icon"
   }, icon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_Text_Text__WEBPACK_IMPORTED_MODULE_6__.default, {
     noWrap: true,
     tag: "span",
+    className: "chip-label",
     size: function () {
       if (size === 'lg') return 3;
       if (size === 'md') return 2;
       return 1;
+    }(),
+    weight: function () {
+      if (variant === 'primary') return 'medium';
+      return 'regular';
     }()
   }, label));
 };
 
+StyledChip.defaultProps = {
+  theme: _defaultTheme__WEBPACK_IMPORTED_MODULE_7__.default
+};
 Chip.propTypes = {
-  variant: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['primary', 'secondary']),
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['primary', 'secondary', 'tertiary']),
+  color: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['blue', 'green', 'red', 'purple', 'orange', 'gray']),
   size: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['lg', 'md', 'sm']),
   label: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string.isRequired),
   icon: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().element),
   iconPos: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['right', 'left'])
 };
 Chip.defaultProps = {
-  variant: 'secondary',
+  variant: 'primary',
+  color: 'gray',
   size: 'md',
   icon: null,
   iconPos: 'left'
@@ -1448,28 +1472,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_index_of_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_index_of_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.symbol.js */ "./node_modules/core-js/modules/es.symbol.js");
 /* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
-/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.object.assign.js */ "./node_modules/core-js/modules/es.object.assign.js");
-/* harmony import */ var core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _defaultTheme__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../defaultTheme */ "./src/defaultTheme.js");
+/* harmony import */ var core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.object.assign.js */ "./node_modules/core-js/modules/es.object.assign.js");
+/* harmony import */ var core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _defaultTheme__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../defaultTheme */ "./src/defaultTheme.js");
 
 
 
 
 var _templateObject;
 
+
+
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-
-
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -1477,13 +1498,13 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledDivider = styled_components__WEBPACK_IMPORTED_MODULE_8__.default.span(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  width: 100%;\n  > hr {\n    height: ", ";\n    width: 100%;\n    margin: 0;\n    border: 0;\n    background: ", ";\n  }\n  > span {\n    margin: 0 1rem;\n    font-family: ", ";\n  }\n"])), function (_ref) {
+var StyledDivider = styled_components__WEBPACK_IMPORTED_MODULE_7__.default.span(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  width: 100%;\n  > hr {\n    height: ", ";\n    width: 100%;\n    margin: 0;\n    border: 0;\n    background: ", ";\n  }\n  > span {\n    margin: 0 1rem;\n    font-family: ", ";\n  }\n"])), function (_ref) {
   var variant = _ref.variant;
   return variant === 'primary' ? '2px' : '1px';
 }, function (_ref2) {
   var variant = _ref2.variant,
       theme = _ref2.theme;
-  return variant === 'primary' ? "-webkit-linear-gradient(\n            0deg,\n            ".concat(theme.color.primary.main, ",\n            ").concat(theme.color.secondary.main, "\n          );") : 'lightgray';
+  return variant === 'primary' ? "-webkit-linear-gradient(\n            0deg,\n            ".concat(theme.color.blue.main, ",\n            #60E2FD\n          );") : 'lightgray';
 }, function (_ref3) {
   var theme = _ref3.theme;
   return theme.font.main.regular;
@@ -1495,19 +1516,19 @@ var Divider = function Divider(_ref4) {
       className = _ref4.className,
       props = _objectWithoutProperties(_ref4, ["orOn", "variant", "className"]);
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(StyledDivider, Object.assign({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(StyledDivider, Object.assign({
     variant: variant,
     className: "cui-divider ".concat(className)
-  }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("hr", null), orOn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement((react__WEBPACK_IMPORTED_MODULE_5___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("span", null, "Or"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("hr", null)) : null);
+  }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("hr", null), orOn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement((react__WEBPACK_IMPORTED_MODULE_4___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("span", null, "Or"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("hr", null)) : null);
 };
 
 StyledDivider.defaultProps = {
-  theme: _defaultTheme__WEBPACK_IMPORTED_MODULE_7__.default
+  theme: _defaultTheme__WEBPACK_IMPORTED_MODULE_6__.default
 };
 Divider.propTypes = {
-  orOn: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
-  variant: prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOf(['primary', 'secondary']),
-  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string)
+  orOn: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().bool),
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['primary', 'secondary']),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string)
 };
 Divider.defaultProps = {
   orOn: null,
@@ -2153,7 +2174,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var StyledStepper = styled_components__WEBPACK_IMPORTED_MODULE_13__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  min-height: 2rem;\n  display: flex;\n  width: 100%;\n  margin: auto;\n  align-items: center;\n  justify-content: space-between;\n  position: relative;\n  > .cui-divider {\n    position: absolute;\n    z-index: 1;\n  }\n  > .step {\n    z-index: 2;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 1rem;\n    border: 1px solid #a0a0a0;\n    &.button {\n      :hover {\n        cursor: pointer;\n      }\n    }\n    &.numbers {\n      width: 2rem;\n      height: 2rem;\n      background: white;\n    }\n    &.lines {\n      width: 100%;\n      height: 0.5rem;\n      margin: 0 0.4rem !important;\n      &:nth-child(1) {\n        margin-left: 0 !important;\n      }\n      &:nth-last-child() {\n        margin-right: 0 !important;\n      }\n    }\n    &.dots {\n      height: 0.5rem;\n      width: 0.5rem;\n    }\n    &.seen {\n      background: ", ";\n      color: white;\n      border-color: #1171fa;\n    }\n  }\n"])), function (_ref) {
   var theme = _ref.theme;
-  return theme.color.primary.main;
+  return theme.color.blue.main;
 });
 
 var Stepper = function Stepper(_ref2) {
@@ -2318,7 +2339,7 @@ Text.propTypes = {
   weight: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['light', 'regular', 'medium', 'bold', 'italicMedium']),
   align: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['inherit', 'left', 'center', 'right', 'justify']),
   gutterBottom: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().bool),
-  children: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string.isRequired),
+  children: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_5___default().string), prop_types__WEBPACK_IMPORTED_MODULE_5___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_5___default().string))]).isRequired,
   color: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string),
   className: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string)
 };
@@ -2461,7 +2482,7 @@ var StyledTextField = styled_components__WEBPACK_IMPORTED_MODULE_18__.default.di
   return theme.font.main.regular;
 }, function (_ref11) {
   var theme = _ref11.theme;
-  return theme.color.primary.main;
+  return theme.color.blue.main;
 });
 
 var TextField = function TextField(_ref12) {
@@ -2600,24 +2621,44 @@ TextField.defaultProps = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   color: {
-    primary: {
-      main: '#1171FA',
-      light: '#B8D4FE',
-      dark: '#0542F6'
+    blue: {
+      main: '#1171ff',
+      light: '#edf5ff' // dark: '#0542F6',
+
     },
-    secondary: {
-      main: '#60E2FD',
-      light: ' #CFF6FE',
-      dark: ' #33CFFC'
+    green: {
+      main: '#44dc7a',
+      light: '#c7ffdb' // dark: '#0542F6',
+
     },
-    background: 'white'
+    red: {
+      main: '#f55050',
+      light: '#ffdbdb' // dark: '#0542F6',
+
+    },
+    purple: {
+      main: '#ae41e8',
+      light: '#ecc7ff' // dark: '#0542F6',
+
+    },
+    orange: {
+      main: '#ffa311',
+      light: '#ffe9c7' // dark: '#0542F6',
+
+    },
+    gray: {
+      main: '#373a3e',
+      light: '#f7f7f7',
+      dark: '#000'
+    }
   },
   font: {
     main: {
       regular: '"TTNormsRegular", "Arial", "Helvetica", "sans-serif"',
       medium: '"TTNormsMedium", "Arial", "Helvetica", "sans-serif"',
       light: '"TTNormsLight", "Arial", "Helvetica", "sans-serif"',
-      bold: '"TTNormsBold", "Arial", "Helvetica", "sans-serif"'
+      bold: '"TTNormsBold", "Arial", "Helvetica", "sans-serif"',
+      italic: '"TTNormsItalic", "Arial", "Helvetica", "sans-serif"'
     }
   },
   elevation: {
