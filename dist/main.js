@@ -2335,7 +2335,7 @@ Text.propTypes = {
   weight: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['light', 'regular', 'medium', 'bold', 'italic', 'italicMedium']),
   align: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['inherit', 'left', 'center', 'right', 'justify']),
   gutterBottom: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().bool),
-  children: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_5___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().number), prop_types__WEBPACK_IMPORTED_MODULE_5___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_5___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().number)]))]),
+  children: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_5___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().element), prop_types__WEBPACK_IMPORTED_MODULE_5___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_5___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().element)]))]),
   color: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string),
   className: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string)
 };
