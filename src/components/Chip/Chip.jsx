@@ -80,7 +80,13 @@ Chip.propTypes = {
   variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
   color: PropTypes.oneOf(['blue', 'green', 'red', 'purple', 'orange', 'gray']),
   size: PropTypes.oneOf(['lg', 'md', 'sm']),
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    ),
+  ]).isRequired,
   icon: PropTypes.element,
   iconPos: PropTypes.oneOf(['right', 'left']),
 };

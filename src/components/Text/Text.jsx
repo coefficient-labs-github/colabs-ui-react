@@ -66,14 +66,18 @@ Text.propTypes = {
     'regular',
     'medium',
     'bold',
+    'italic',
     'italicMedium',
   ]),
   align: PropTypes.oneOf(['inherit', 'left', 'center', 'right', 'justify']),
   gutterBottom: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-  ]).isRequired,
+    PropTypes.number,
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    ),
+  ]),
   color: PropTypes.string,
   className: PropTypes.string,
 };
@@ -81,6 +85,7 @@ Text.propTypes = {
 Text.defaultProps = {
   noWrap: false,
   gutterBottom: false,
+  children: '',
   color: '',
   tag: 'p',
   size: 3,

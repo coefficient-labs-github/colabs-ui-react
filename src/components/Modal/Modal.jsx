@@ -111,8 +111,6 @@ Modal.propTypes = {
   onClose: PropTypes.func,
   className: PropTypes.string,
   parentId: PropTypes.string,
-  yPosition: PropTypes.string,
-  xPosition: PropTypes.string,
   withBackdrop: PropTypes.bool,
   withCloseButton: PropTypes.bool,
 };
@@ -124,8 +122,6 @@ Modal.defaultProps = {
   enableScrollLock: false,
   isOpen: false,
   onClose: () => null,
-  yPosition: null,
-  xPosition: null,
   withCloseButton: false,
   withBackdrop: false,
 };

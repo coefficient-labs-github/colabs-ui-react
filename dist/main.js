@@ -1443,7 +1443,7 @@ Chip.propTypes = {
   variant: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['primary', 'secondary', 'tertiary']),
   color: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['blue', 'green', 'red', 'purple', 'orange', 'gray']),
   size: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['lg', 'md', 'sm']),
-  label: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string.isRequired),
+  label: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_5___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().number), prop_types__WEBPACK_IMPORTED_MODULE_5___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_5___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().number)]))]).isRequired,
   icon: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().element),
   iconPos: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['right', 'left'])
 };
@@ -1756,8 +1756,8 @@ Media.propTypes = {
   srcSuffix: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string)
 };
 Media.defaultProps = {
-  imgProps: '',
-  videoProps: '',
+  imgProps: {},
+  videoProps: {},
   className: '',
   srcSuffix: ''
 };
@@ -1894,8 +1894,6 @@ Modal.propTypes = {
   onClose: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().func),
   className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
   parentId: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
-  yPosition: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
-  xPosition: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
   withBackdrop: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
   withCloseButton: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool)
 };
@@ -1908,8 +1906,6 @@ Modal.defaultProps = {
   onClose: function onClose() {
     return null;
   },
-  yPosition: null,
-  xPosition: null,
   withCloseButton: false,
   withBackdrop: false
 };
@@ -2084,8 +2080,8 @@ Popper.propTypes = {
   onClose: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().func),
   onNotFoundAnchor: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().func),
   className: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string),
-  yPosition: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string),
-  xPosition: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string),
+  yPosition: prop_types__WEBPACK_IMPORTED_MODULE_7___default().oneOf(['top', 'bottom']),
+  xPosition: prop_types__WEBPACK_IMPORTED_MODULE_7___default().oneOf(['left', 'right']),
   withBackdrop: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool),
   withHighlighter: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool)
 };
@@ -2336,16 +2332,17 @@ Text.propTypes = {
   noWrap: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().bool),
   tag: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span']),
   size: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().number),
-  weight: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['light', 'regular', 'medium', 'bold', 'italicMedium']),
+  weight: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['light', 'regular', 'medium', 'bold', 'italic', 'italicMedium']),
   align: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOf(['inherit', 'left', 'center', 'right', 'justify']),
   gutterBottom: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().bool),
-  children: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_5___default().string), prop_types__WEBPACK_IMPORTED_MODULE_5___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_5___default().string))]).isRequired,
+  children: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_5___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().number), prop_types__WEBPACK_IMPORTED_MODULE_5___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_5___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().number)]))]),
   color: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string),
   className: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string)
 };
 Text.defaultProps = {
   noWrap: false,
   gutterBottom: false,
+  children: '',
   color: '',
   tag: 'p',
   size: 3,

@@ -43,8 +43,8 @@ Media.propTypes = {
 };
 
 Media.defaultProps = {
-  imgProps: '',
-  videoProps: '',
+  imgProps: {},
+  videoProps: {},
   className: '',
   srcSuffix: '',
 };

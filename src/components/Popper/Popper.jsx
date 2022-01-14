@@ -192,8 +192,8 @@ Popper.propTypes = {
   onClose: PropTypes.func,
   onNotFoundAnchor: PropTypes.func,
   className: PropTypes.string,
-  yPosition: PropTypes.string,
-  xPosition: PropTypes.string,
+  yPosition: PropTypes.oneOf(['top', 'bottom']),
+  xPosition: PropTypes.oneOf(['left', 'right']),
   withBackdrop: PropTypes.bool,
   withHighlighter: PropTypes.bool,
 };
