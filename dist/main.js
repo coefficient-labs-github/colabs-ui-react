@@ -2204,7 +2204,20 @@ var Stepper = function Stepper(_ref2) {
       onClick: function onClick() {
         return onStepClick(index);
       }
-    }, variant === 'numbers' && (activeStepIndex > index ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default().createElement("span", null) : label));
+    }, variant === 'numbers' && (activeStepIndex > index ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default().createElement("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "24",
+      height: "24",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "white",
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      className: "feather feather-check"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default().createElement("polyline", {
+      points: "20 6 9 17 4 12"
+    })) : label));
   }));
 };
 

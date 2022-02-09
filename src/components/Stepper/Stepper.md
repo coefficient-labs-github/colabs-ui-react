@@ -11,6 +11,7 @@
   <Stepper
     steps={[{ hidden: true }, { label: 1 }, { label: 2 }, { label: 3 }]}
     variant="numbers"
+    activeStepIndex={2}
     onStepClick={(e) => alert(e)}
   />
   <Stepper
