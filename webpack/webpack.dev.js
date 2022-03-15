@@ -5,6 +5,7 @@ module.exports = {
     filename: '[name].js',
     chunkFilename: '[name].js',
     libraryTarget: 'umd',
+    globalObject: 'this',
   },
   plugins: [],
   module: {

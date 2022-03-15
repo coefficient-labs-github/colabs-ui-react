@@ -7,7 +7,7 @@
 		var a = typeof exports === 'object' ? factory(require("react"), require("prop-types"), require("react-dom")) : factory(root["react"], root["prop-types"], root["react-dom"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(self, function(__WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_prop_types__, __WEBPACK_EXTERNAL_MODULE_react_dom__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_prop_types__, __WEBPACK_EXTERNAL_MODULE_react_dom__) {
 return /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
