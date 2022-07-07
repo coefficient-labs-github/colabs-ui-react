@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import defaultTheme from '../../defaultTheme';
 
-const StyledCard = styled.div`
+type StyledCardProps = HTMLAttributes<HTMLDivElement> & {
+  elevation?: number;
+  color?: string;
+  variant?: 'primary' | 'secondary';
+};
+
+type CardProps = StyledCardProps & {
+  children?: React.ReactElement | React.ReactElement[];
+  className?: string;
+};
+const StyledCard = styled.div<StyledCardProps>`
   border-radius: 0.625rem;
   background: ${({ color }) => color || 'white'};
   box-shadow: ${({ elevation, color }) =>
@@ -18,7 +27,14 @@ const StyledCard = styled.div`
     })()} ${elevation && color ? color : '#00000044'}`};
 `;
 
-const Card = ({ children, className, variant, elevation, color, ...props }) => {
+const Card = ({
+  children = null,
+  className,
+  variant,
+  elevation,
+  color,
+  ...props
+}: CardProps) => {
   return (
     <StyledCard
       variant={variant}
@@ -33,17 +49,6 @@ const Card = ({ children, className, variant, elevation, color, ...props }) => {
 };
 
 StyledCard.defaultProps = { theme: defaultTheme };
-
-Card.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element),
-  ]),
-  elevation: PropTypes.number,
-  variant: PropTypes.oneOf(['primary', 'secondary']),
-  className: PropTypes.string,
-  color: PropTypes.string,
-};
 
 Card.defaultProps = {
   elevation: null,

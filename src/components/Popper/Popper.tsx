@@ -1,13 +1,30 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React, { useRef } from 'react';
+import React, { useRef, HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import Card from '../Card/Card';
 import Button from '../Button/Button';
 import usePortal from '../../hooks/usePortal';
 import useScrollBlocker from '../../hooks/useScrollBlocker';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
+
+type PopperProps = HTMLAttributes<HTMLDivElement> & {
+  anchorSelector: string;
+  isOpen?: boolean;
+  enableScrollLock?: boolean;
+  onClose?(...args: unknown[]): unknown;
+  onNotFoundAnchor?(...args: unknown[]): unknown;
+  className?: string;
+  yPosition?: 'top' | 'bottom';
+  xPosition?: 'left' | 'right';
+  withBackdrop?: boolean;
+  withHighlighter?: boolean;
+  children?: React.ReactElement | React.ReactElement[];
+  parentId?: string;
+  withCloseButton?: boolean;
+  closeOnOutsideClick?: boolean;
+  highlightElement: boolean;
+  withArrow: boolean;
+};
 
 const StyledPopper = styled.div`
   position: fixed;
@@ -96,14 +113,13 @@ const Popper = ({
   withBackdrop,
   highlightElement,
   withCloseButton,
-  closeOnOutsideClick,
   enableScrollLock,
   withArrow,
-  closeWhenClickOutside,
+  closeOnOutsideClick,
   className,
   onNotFoundAnchor,
   ...props
-}) => {
+}: PopperProps) => {
   const { height: viewportHeight } = useWindowDimensions();
   useScrollBlocker(isOpen && enableScrollLock);
 
@@ -184,27 +200,13 @@ const Popper = ({
   );
 };
 
-Popper.propTypes = {
-  anchorSelector: PropTypes.string.isRequired,
-  isOpen: PropTypes.bool,
-  enableScrollLock: PropTypes.bool,
-  closeOnOutsideClick: PropTypes.bool,
-  onClose: PropTypes.func,
-  onNotFoundAnchor: PropTypes.func,
-  className: PropTypes.string,
-  yPosition: PropTypes.oneOf(['top', 'bottom']),
-  xPosition: PropTypes.oneOf(['left', 'right']),
-  withBackdrop: PropTypes.bool,
-  withHighlighter: PropTypes.bool,
-};
-
 Popper.defaultProps = {
   className: '',
   isOpen: false,
   enableScrollLock: false,
   closeOnOutsideClick: false,
-  onClose: () => null,
-  onNotFoundAnchor: () => null,
+  onClose: (): undefined => null,
+  onNotFoundAnchor: (): undefined => null,
   yPosition: null,
   xPosition: null,
   withBackdrop: false,

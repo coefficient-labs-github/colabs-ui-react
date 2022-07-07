@@ -1,13 +1,23 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React, { useRef } from 'react';
+import React, { useRef, HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import Card from '../Card/Card';
 import Button from '../Button/Button';
 import usePortal from '../../hooks/usePortal';
 import useScrollBlocker from '../../hooks/useScrollBlocker';
 import defaultTheme from '../../defaultTheme';
+
+type ModalProps = HTMLAttributes<HTMLDivElement> & {
+  isOpen?: boolean;
+  closeOnOutsideClick?: boolean;
+  enableScrollLock?: boolean;
+  onClose?(...args: unknown[]): unknown;
+  className?: string;
+  children?: React.ReactElement | React.ReactElement[];
+  parentId?: string;
+  withBackdrop?: boolean;
+  withCloseButton?: boolean;
+};
 
 const StyledModal = styled.div`
   position: fixed;
@@ -46,7 +56,7 @@ const Modal = ({
   withCloseButton,
   className,
   ...props
-}) => {
+}: ModalProps) => {
   useScrollBlocker(isOpen && enableScrollLock);
   const popperRef = useRef();
   const target = usePortal(parentId);
@@ -54,9 +64,9 @@ const Modal = ({
   return createPortal(
     <StyledModal
       hidden={!isOpen}
-      {...props}
       ref={popperRef}
       className={`cui-modal ${className}`}
+      {...props}
     >
       {withBackdrop && (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
@@ -104,24 +114,13 @@ const Modal = ({
 
 StyledModal.defaultProps = { theme: defaultTheme };
 
-Modal.propTypes = {
-  isOpen: PropTypes.bool,
-  closeOnOutsideClick: PropTypes.bool,
-  enableScrollLock: PropTypes.bool,
-  onClose: PropTypes.func,
-  className: PropTypes.string,
-  parentId: PropTypes.string,
-  withBackdrop: PropTypes.bool,
-  withCloseButton: PropTypes.bool,
-};
-
 Modal.defaultProps = {
   className: '',
   parentId: undefined,
   closeOnOutsideClick: false,
   enableScrollLock: false,
   isOpen: false,
-  onClose: () => null,
+  onClose: (): undefined => null,
   withCloseButton: false,
   withBackdrop: false,
 };

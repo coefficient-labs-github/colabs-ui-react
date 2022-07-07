@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import defaultTheme from '../../defaultTheme';
 
-const StyledDivider = styled.span`
+type StyledDividerProps = HTMLAttributes<HTMLSpanElement> & {
+  variant?: 'primary' | 'secondary';
+};
+
+type DividerProps = StyledDividerProps & {
+  orOn?: boolean;
+  className?: string;
+};
+
+const StyledDivider = styled.span<StyledDividerProps>`
   display: flex;
   align-items: center;
   width: 100%;
@@ -27,7 +35,7 @@ const StyledDivider = styled.span`
   }
 `;
 
-const Divider = ({ orOn, variant, className, ...props }) => {
+const Divider = ({ orOn, variant, className, ...props }: DividerProps) => {
   return (
     <StyledDivider
       variant={variant}
@@ -46,12 +54,6 @@ const Divider = ({ orOn, variant, className, ...props }) => {
 };
 
 StyledDivider.defaultProps = { theme: defaultTheme };
-
-Divider.propTypes = {
-  orOn: PropTypes.bool,
-  variant: PropTypes.oneOf(['primary', 'secondary']),
-  className: PropTypes.string,
-};
 
 Divider.defaultProps = {
   orOn: null,

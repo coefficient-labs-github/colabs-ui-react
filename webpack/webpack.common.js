@@ -11,9 +11,14 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.js|jsx$/,
+        test: /\.js|jsx|ts|tsx$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.js$/,
+        use: ['source-map-loader'],
+        enforce: 'pre',
       },
       // {
       //   test: /\.(woff|woff2)$/,
@@ -37,7 +42,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.css'],
+    extensions: ['.js', '.jsx', '.css', '.ts', '.tsx'],
   },
   externals: [
     {

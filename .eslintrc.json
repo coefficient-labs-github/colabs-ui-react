@@ -4,24 +4,41 @@
     "es2021": true,
     "jest": true
   },
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "plugin:react/recommended",
     "airbnb",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript"
   ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
+    "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "plugins": ["react", "prettier"],
   "rules": {
     // "prettier/prettier": "error",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-use-before-define": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
     "react/state-in-constructor": "off",
     "react/jsx-props-no-spreading": [
       1,
@@ -29,5 +46,10 @@
         "custom": "ignore"
       }
     ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+    }
   }
 }

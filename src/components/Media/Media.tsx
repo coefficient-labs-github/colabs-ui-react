@@ -1,5 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { HTMLAttributes } from 'react';
+
+type MediaProps = HTMLAttributes<HTMLImageElement> &
+  HTMLAttributes<HTMLVideoElement> & {
+    src: string;
+    imgProps?: HTMLAttributes<HTMLImageElement>;
+    videoProps?: HTMLAttributes<HTMLVideoElement>;
+    className?: string;
+    srcSuffix?: string;
+  };
 
 const Media = ({
   src,
@@ -8,7 +16,7 @@ const Media = ({
   srcSuffix,
   className,
   ...props
-}) => {
+}: MediaProps) => {
   if (!src || src.match(/\.(jpeg|jpg|gif|png|webp)$/) != null) {
     return (
       // eslint-disable-next-line jsx-a11y/alt-text
@@ -32,14 +40,6 @@ const Media = ({
     );
   }
   return <div />;
-};
-
-Media.propTypes = {
-  src: PropTypes.string.isRequired,
-  imgProps: PropTypes.shape(),
-  videoProps: PropTypes.shape(),
-  className: PropTypes.string,
-  srcSuffix: PropTypes.string,
 };
 
 Media.defaultProps = {

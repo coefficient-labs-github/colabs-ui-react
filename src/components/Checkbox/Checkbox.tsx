@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
-const StyledCheckbox = styled.div`
+type StyledCheckbox = HTMLAttributes<HTMLDivElement>;
+
+type CheckboxProps = HTMLAttributes<HTMLInputElement> & {
+  label?: string;
+  className?: string;
+  checked?: boolean;
+  type?: 'checkbox' | 'radio';
+  onChange(...args: unknown[]): unknown;
+};
+
+const StyledCheckbox = styled.div<StyledCheckbox>`
   display: flex;
   align-items: center;
   > .wrapper {
@@ -70,8 +79,15 @@ const StyledCheckbox = styled.div`
   }
 `;
 
-const Checkbox = ({ label, checked, onChange, type, className, ...props }) => {
-  const uniqueId = Math.random();
+const Checkbox = ({
+  label,
+  checked,
+  onChange,
+  type,
+  className,
+  ...props
+}: CheckboxProps) => {
+  const uniqueId = Math.random().toString();
 
   return (
     <StyledCheckbox className={`cui-checkbox ${className}`}>
@@ -109,14 +125,6 @@ const Checkbox = ({ label, checked, onChange, type, className, ...props }) => {
       </label>
     </StyledCheckbox>
   );
-};
-
-Checkbox.propTypes = {
-  label: PropTypes.string,
-  className: PropTypes.string,
-  checked: PropTypes.bool,
-  type: PropTypes.oneOf(['checkbox', 'radio']),
-  onChange: PropTypes.func.isRequired,
 };
 
 Checkbox.defaultProps = {

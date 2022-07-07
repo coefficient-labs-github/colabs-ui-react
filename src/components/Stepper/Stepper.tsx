@@ -1,8 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import Divider from '../Divider/Divider';
 import defaultTheme from '../../defaultTheme';
+
+type StepperProps = {
+  steps: {
+    hidden: boolean;
+    label: string;
+  }[];
+  className?: string;
+  activeStepIndex?: number;
+  onStepClick?: (index: number) => void;
+  variant?: 'numbers' | 'lines' | 'dots';
+};
 
 const StyledStepper = styled.div`
   min-height: 2rem;
@@ -63,7 +73,7 @@ const Stepper = ({
   className,
   onStepClick,
   ...props
-}) => {
+}: StepperProps) => {
   return (
     <StyledStepper className={`cui-stepper ${className}`} {...props}>
       {variant === 'numbers' && <Divider />}
@@ -109,14 +119,6 @@ const Stepper = ({
 };
 
 StyledStepper.defaultProps = { theme: defaultTheme };
-
-Stepper.propTypes = {
-  steps: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  className: PropTypes.string,
-  activeStepIndex: PropTypes.number,
-  onStepClick: PropTypes.func,
-  variant: PropTypes.oneOf(['numbers', 'lines', 'dots']),
-};
 
 Stepper.defaultProps = {
   className: '',

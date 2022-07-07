@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import defaultTheme from '../../defaultTheme';
 
-const StyledDropdown = styled.div`
+type StyledDropdownProps = HTMLAttributes<HTMLDivElement> & {
+  fullWidth?: boolean;
+  align?: 'left' | 'right' | 'center';
+  variant?: 'primary' | 'secondary';
+  size?: 'sm' | 'md' | 'lg';
+};
+
+type DropdownProps = StyledDropdownProps & {
+  chevronShown?: boolean;
+  items: React.ReactElement[];
+  toggle: React.ReactElement;
+  className?: string;
+};
+
+const StyledDropdown = styled.div<StyledDropdownProps>`
   height: fit-content;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'fit-content')};
   display: flex;
@@ -134,7 +147,7 @@ const Dropdown = ({
   size,
   className,
   ...props
-}) => {
+}: DropdownProps) => {
   return (
     <StyledDropdown
       className={`cui-dropdown ${className}`}
@@ -175,17 +188,6 @@ const Dropdown = ({
 };
 
 StyledDropdown.defaultProps = { theme: defaultTheme };
-
-Dropdown.propTypes = {
-  chevronShown: PropTypes.bool,
-  items: PropTypes.arrayOf(PropTypes.element).isRequired,
-  toggle: PropTypes.element.isRequired,
-  fullWidth: PropTypes.bool,
-  align: PropTypes.oneOf(['left', 'right', 'center']),
-  variant: PropTypes.oneOf(['primary', 'secondary']),
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  className: PropTypes.string,
-};
 
 Dropdown.defaultProps = {
   size: 'sm',

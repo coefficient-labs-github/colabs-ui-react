@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import defaultTheme from '../../defaultTheme';
 
-const StyledButton = styled.button`
+type StyledButtonProps = HTMLAttributes<HTMLButtonElement> & {
+  variant?: 'primary' | 'secondary' | 'tertiary';
+  fullWidth?: boolean;
+  onClick?(...args: unknown[]): unknown;
+  elevated?: boolean;
+  size?: 'lg' | 'md' | 'sm';
+  iconPos?: 'right' | 'left';
+};
+
+type ButtonProps = StyledButtonProps & {
+  text?: string;
+  icon?: React.ReactElement;
+  disabled?: boolean;
+  className?: string;
+};
+
+const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
   border: 0;
   cursor: pointer;
@@ -201,7 +216,7 @@ const Button = ({
   elevated,
   className,
   ...props
-}) => {
+}: ButtonProps) => {
   return (
     <StyledButton
       onClick={disabled ? null : onClick}
@@ -223,19 +238,6 @@ const Button = ({
 };
 
 StyledButton.defaultProps = { theme: defaultTheme };
-
-Button.propTypes = {
-  text: PropTypes.string,
-  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
-  iconPos: PropTypes.oneOf(['right', 'left']),
-  size: PropTypes.oneOf(['lg', 'md', 'sm']),
-  icon: PropTypes.element,
-  onClick: PropTypes.func,
-  fullWidth: PropTypes.bool,
-  elevated: PropTypes.bool,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-};
 
 Button.defaultProps = {
   onClick: null,

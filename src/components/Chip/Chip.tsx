@@ -4,7 +4,19 @@ import PropTypes from 'prop-types';
 import Text from '../Text/Text';
 import defaultTheme from '../../defaultTheme';
 
-const StyledChip = styled.span`
+type StyledChipProps = {
+  variant?: 'primary' | 'secondary' | 'tertiary';
+  color?: 'blue' | 'green' | 'red' | 'purple' | 'orange' | 'gray';
+  size?: 'lg' | 'md' | 'sm';
+};
+
+type ChipProps = StyledChipProps & {
+  label: string | number | string | number[];
+  icon?: React.ReactElement;
+  iconPos?: 'right' | 'left';
+};
+
+const StyledChip = styled.span<StyledChipProps>`
   border-radius: 5rem;
   margin: 0;
   background-color: ${({ color, variant, theme }) =>
@@ -44,7 +56,15 @@ const StyledChip = styled.span`
   }
 `;
 
-const Chip = ({ label, color, icon, iconPos, variant, size, ...props }) => {
+const Chip = ({
+  label,
+  color,
+  icon,
+  iconPos,
+  variant,
+  size,
+  ...props
+}: ChipProps) => {
   return (
     <StyledChip
       className={`cui-chip ${iconPos === 'right' ? 'right' : 'left'}`}

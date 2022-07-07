@@ -1,12 +1,37 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from 'react';
+import React, { useState, HTMLAttributes, ComponentProps } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import NumberFormat from 'react-number-format';
 import Text from '../Text/Text';
 import defaultTheme from '../../defaultTheme';
 
-const StyledTextField = styled.div`
+type StyledTextfieldProps = HTMLAttributes<HTMLDivElement> & {
+  disabled: boolean;
+  multiline: boolean;
+  fullWidth?: boolean;
+  elevated?: boolean;
+  error?: boolean;
+};
+
+type TextfieldProps = StyledTextfieldProps & {
+  placeholder?: string;
+  className?: string;
+  label?: string;
+  iconPos?: 'left' | 'right';
+  icon?: React.ReactElement;
+  bottomActions?: React.ReactElement;
+  onFocus?: () => void;
+  onBlur?: () => void;
+  autoComplete?: boolean;
+  inputTag?: 'input' | 'textarea' | 'number';
+  backgroundColor?: string;
+  helperText?: string;
+  containerProps?: HTMLAttributes<HTMLDivElement>;
+  inputProps?: HTMLAttributes<HTMLInputElement> &
+    HTMLAttributes<HTMLTextAreaElement> &
+    ComponentProps<typeof NumberFormat>;
+};
+
+const StyledTextField = styled.div<StyledTextfieldProps>`
   z-index: 1;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   > label {
@@ -96,7 +121,6 @@ const TextField = ({
   icon,
   iconPos,
   label,
-  rows,
   onFocus,
   onBlur,
   disabled,
@@ -107,23 +131,22 @@ const TextField = ({
   elevated,
   className,
   bottomActions,
-  style,
-  ...props
-}) => {
+  inputProps, // rows
+  containerProps, // style
+}: TextfieldProps) => {
   const InputTag = inputTag === 'number' ? NumberFormat : inputTag;
-  const uniqueId = Math.random();
-  const [isFocus, setIsFocus] = useState();
+  const uniqueId = Math.random().toString();
+  const [isFocus, setIsFocus] = useState<boolean>(false);
 
   return (
     <StyledTextField
       className={`cui-textfield ${className}`}
       multiline={inputTag === 'textarea'}
-      rows={rows}
       disabled={disabled}
       error={error}
       elevated={elevated}
       fullWidth={fullWidth}
-      style={style}
+      {...containerProps}
     >
       {label && (
         <label htmlFor={uniqueId}>
@@ -137,9 +160,8 @@ const TextField = ({
         style={{ backgroundColor }}
       >
         {icon && <span className={`icon ${iconPos}`}>{icon}</span>}
-        {disabled ? (
-          <Text color="#b6b6b6">{placeholder}</Text>
-        ) : (
+        {disabled && <Text color="#b6b6b6">{placeholder}</Text>}
+        {!disabled && (
           <InputTag
             onFocus={() => {
               setIsFocus(true);
@@ -152,9 +174,8 @@ const TextField = ({
             className="input"
             id={uniqueId}
             placeholder={placeholder}
-            rows={rows}
             autoComplete={autoComplete?.toString()}
-            {...props}
+            {...inputProps}
           />
         )}
         {bottomActions && <div className="bottomActions">{bottomActions}</div>}
@@ -178,33 +199,15 @@ const TextField = ({
 
 StyledTextField.defaultProps = { theme: defaultTheme };
 
-TextField.propTypes = {
-  ...NumberFormat.propTypes,
-  iconPos: PropTypes.oneOf(['right', 'left']),
-  placeholder: PropTypes.string,
-  icon: PropTypes.element,
-  label: PropTypes.string,
-  elevated: PropTypes.bool,
-  rows: PropTypes.number,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  autoComplete: PropTypes.bool,
-  inputTag: PropTypes.string,
-  style: PropTypes.shape(),
-  backgroundColor: PropTypes.string,
-  className: PropTypes.string,
-  bottomActions: PropTypes.element,
-  fullWidth: PropTypes.bool,
-};
-
 TextField.defaultProps = {
-  onFocus: () => null,
-  onBlur: () => null,
+  onFocus: (): undefined => null,
+  onBlur: (): undefined => null,
+  error: false,
+  inputProps: {},
   backgroundColor: 'white',
-  style: {},
+  helperText: '',
   autoComplete: false,
   placeholder: '',
-  rows: 2,
   icon: null,
   elevated: false,
   iconPos: 'left',
@@ -213,6 +216,7 @@ TextField.defaultProps = {
   className: '',
   bottomActions: null,
   fullWidth: false,
+  containerProps: {},
 };
 
 export default TextField;
