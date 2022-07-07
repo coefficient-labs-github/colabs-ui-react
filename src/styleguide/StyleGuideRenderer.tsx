@@ -3,6 +3,16 @@ import styled from 'styled-components';
 import theme from '../defaultTheme';
 import CssBaseline from '../components/CssBaseline/CssBaseline';
 
+type StyleGuideRendererProps = {
+  title: string;
+  version: string;
+  homepageUrl: string;
+  children: React.ReactNode;
+  components: React.ReactNode | React.ReactNode[];
+  toc: React.ReactNode;
+  hasSidebar: boolean;
+};
+
 const StyledStyleGuideRenderer = styled.div`
   > .wrapper {
     * {
@@ -42,10 +52,10 @@ const StyleGuideRenderer = ({
   title,
   version,
   homepageUrl,
+  hasSidebar,
   components,
   toc,
-  // hasSidebar,
-}) => (
+}: StyleGuideRendererProps) => (
   <StyledStyleGuideRenderer>
     <CssBaseline />
     <main className="wrapper">

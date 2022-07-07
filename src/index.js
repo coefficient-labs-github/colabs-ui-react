@@ -1,4 +1,3 @@
-export { default as Avatar } from './components/Avatar/Avatar';
 export { default as Button } from './components/Button/Button';
 export { default as Card } from './components/Card/Card';
 export { default as Checkbox } from './components/Checkbox/Checkbox';
