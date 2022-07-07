@@ -12,24 +12,24 @@ type StyledTextfieldProps = HTMLAttributes<HTMLDivElement> & {
   error?: boolean;
 };
 
-type TextfieldProps = StyledTextfieldProps & {
-  placeholder?: string;
-  className?: string;
-  label?: string;
-  iconPos?: 'left' | 'right';
-  icon?: React.ReactElement;
-  bottomActions?: React.ReactElement;
-  onFocus?: () => void;
-  onBlur?: () => void;
-  autoComplete?: boolean;
-  inputTag?: 'input' | 'textarea' | 'number';
-  backgroundColor?: string;
-  helperText?: string;
-  containerProps?: HTMLAttributes<HTMLDivElement>;
-  inputProps?: HTMLAttributes<HTMLInputElement> &
-    HTMLAttributes<HTMLTextAreaElement> &
-    ComponentProps<typeof NumberFormat>;
-};
+type TextfieldProps = StyledTextfieldProps &
+  HTMLAttributes<HTMLInputElement> &
+  HTMLAttributes<HTMLTextAreaElement> &
+  ComponentProps<typeof NumberFormat> & {
+    placeholder?: string;
+    className?: string;
+    label?: string;
+    iconPos?: 'left' | 'right';
+    icon?: React.ReactElement;
+    bottomActions?: React.ReactElement;
+    onFocus?: () => void;
+    onBlur?: () => void;
+    autoComplete?: boolean;
+    inputTag?: 'input' | 'textarea' | 'number';
+    backgroundColor?: string;
+    helperText?: string;
+    containerProps?: HTMLAttributes<HTMLDivElement>;
+  };
 
 const StyledTextField = styled.div<StyledTextfieldProps>`
   z-index: 1;
@@ -124,15 +124,14 @@ const TextField = ({
   onFocus,
   onBlur,
   disabled,
-  autoComplete,
   inputTag,
   error,
   helperText,
   elevated,
   className,
   bottomActions,
-  inputProps, // rows
   containerProps, // style
+  ...props
 }: TextfieldProps) => {
   const InputTag = inputTag === 'number' ? NumberFormat : inputTag;
   const uniqueId = Math.random().toString();
@@ -174,8 +173,7 @@ const TextField = ({
             className="input"
             id={uniqueId}
             placeholder={placeholder}
-            autoComplete={autoComplete?.toString()}
-            {...inputProps}
+            {...props}
           />
         )}
         {bottomActions && <div className="bottomActions">{bottomActions}</div>}
@@ -203,7 +201,6 @@ TextField.defaultProps = {
   onFocus: (): undefined => null,
   onBlur: (): undefined => null,
   error: false,
-  inputProps: {},
   backgroundColor: 'white',
   helperText: '',
   autoComplete: false,
