@@ -1640,7 +1640,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _excluded = ["tag", "children", "className"];
+var _excluded = ["tag", "color", "children", "className"];
 
 var _templateObject;
 
@@ -1683,12 +1683,14 @@ var StyledText = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div(_
 
 var Text = function Text(_ref8) {
   var tag = _ref8.tag,
+      color = _ref8.color,
       children = _ref8.children,
       className = _ref8.className,
       props = _objectWithoutProperties(_ref8, _excluded);
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement(StyledText, Object.assign({
     as: tag,
+    color: color,
     className: "cui-text ".concat(className)
   }, props), children);
 };
