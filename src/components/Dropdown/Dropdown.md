@@ -16,7 +16,7 @@ import Text from '../Text/Text';
     variant="primary"
     toggle={<Text>Select an option</Text>}
     items={['option 1', 'option 2'].map((option) => (
-      <Text>{option}</Text>
+      <Text onClick={() => alert(`Clicked on ${option}`)}>{option}</Text>
     ))}
   />
 </span>;
@@ -41,20 +41,20 @@ import Text from '../Text/Text';
     chevronShown
     toggle={<Text>Primary Dropdown</Text>}
     items={['option 1', 'option 2'].map((option) => (
-      <Text>{option}</Text>
+      <Text onClick={() => alert(`Clicked on ${option}`)}>{option}</Text>
     ))}
   />
   <Dropdown
     variant="secondary"
     toggle={<Text>Secondary Dropdown</Text>}
     items={['option 1', 'option 2'].map((option) => (
-      <Text>{option}</Text>
+      <Text onClick={() => alert(`Clicked on ${option}`)}>{option}</Text>
     ))}
   />
 </span>;
 ```
 
-It has three sizes.
+It can open on click or on hover.
 
 ```jsx
 import Text from '../Text/Text';
@@ -62,7 +62,40 @@ import Text from '../Text/Text';
 <span
   style={{
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '1rem',
+    justifyItems: 'center',
+    alignItems: 'center',
+  }}
+>
+  <Dropdown
+    variant="primary"
+    chevronShown
+    toggle={<Text>This opens on click</Text>}
+    openOnClick
+    items={['option 1', 'option 2'].map((option) => (
+      <Text onClick={() => alert(`Clicked on ${option}`)}>{option}</Text>
+    ))}
+  />
+  <Dropdown
+    variant="secondary"
+    toggle={<Text>This opens on hover</Text>}
+    items={['option 1', 'option 2'].map((option) => (
+      <Text onClick={() => alert(`Clicked on ${option}`)}>{option}</Text>
+    ))}
+  />
+</span>;
+```
+
+It has 5 sizes.
+
+```jsx
+import Text from '../Text/Text';
+
+<span
+  style={{
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr',
     gap: '1rem',
     justifyItems: 'center',
     alignItems: 'center',
@@ -71,28 +104,76 @@ import Text from '../Text/Text';
   <Dropdown
     variant="secondary"
     chevronShown
-    size="sm"
-    toggle={<Text size={3}>Small Dropdown</Text>}
+    size="xs"
+    toggle={
+      <Text noWrap size={1}>
+        XSmall
+      </Text>
+    }
     items={['option 1', 'option 2'].map((option) => (
-      <Text>{option}</Text>
+      <Text noWrap onClick={() => alert(`Clicked on ${option}`)}>
+        {option}
+      </Text>
+    ))}
+  />
+  <Dropdown
+    variant="secondary"
+    chevronShown
+    size="sm"
+    toggle={
+      <Text noWrap size={2}>
+        Small
+      </Text>
+    }
+    items={['option 1', 'option 2'].map((option) => (
+      <Text noWrap onClick={() => alert(`Clicked on ${option}`)}>
+        {option}
+      </Text>
     ))}
   />
   <Dropdown
     variant="secondary"
     chevronShown
     size="md"
-    toggle={<Text size={4}>Medium Dropdown</Text>}
+    toggle={
+      <Text noWrap size={3}>
+        Medium
+      </Text>
+    }
     items={['option 1', 'option 2'].map((option) => (
-      <Text>{option}</Text>
+      <Text noWrap onClick={() => alert(`Clicked on ${option}`)}>
+        {option}
+      </Text>
     ))}
   />
   <Dropdown
     variant="secondary"
     chevronShown
     size="lg"
-    toggle={<Text size={5}>Large Dropdown</Text>}
+    toggle={
+      <Text noWrap size={4}>
+        Large
+      </Text>
+    }
     items={['option 1', 'option 2'].map((option) => (
-      <Text>{option}</Text>
+      <Text noWrap onClick={() => alert(`Clicked on ${option}`)}>
+        {option}
+      </Text>
+    ))}
+  />
+  <Dropdown
+    variant="secondary"
+    chevronShown
+    size="xl"
+    toggle={
+      <Text noWrap size={5}>
+        XLarge
+      </Text>
+    }
+    items={['option 1', 'option 2'].map((option) => (
+      <Text noWrap onClick={() => alert(`Clicked on ${option}`)}>
+        {option}
+      </Text>
     ))}
   />
 </span>;
@@ -164,7 +245,7 @@ import Text from '../Text/Text';
     fullWidth
     toggle={<Text>Full width dropdown</Text>}
     items={['option 1', 'option 2'].map((option) => (
-      <Text>{option}</Text>
+      <Text onClick={() => alert(`Clicked on ${option}`)}>{option}</Text>
     ))}
   />
 </span>;

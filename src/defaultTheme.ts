@@ -3,34 +3,45 @@ export default {
     blue: {
       main: '#1171ff',
       light: '#edf5ff',
-      // dark: '#0542F6',
+      dark: '#062d65',
     },
     green: {
       main: '#44dc7a',
       light: '#c7ffdb',
-      // dark: '#0542F6',
+      dark: '#144224',
     },
     red: {
       main: '#f55050',
       light: '#ffdbdb',
-      // dark: '#0542F6',
+      dark: '#5b1d1d',
     },
     purple: {
       main: '#ae41e8',
       light: '#ecc7ff',
-      // dark: '#0542F6',
+      dark: '#3a154e',
     },
     orange: {
       main: '#ffa311',
       light: '#ffe9c7',
-      // dark: '#0542F6',
+      dark: '#3a154e',
     },
     gray: {
-      main: '#373a3e',
+      main: '#666666',
       light: '#f7f7f7',
-      dark: '#000',
+      dark: '#434343',
+    },
+    white: {
+      main: '#ffffff',
+      light: '#ffffff',
+      dark: '#f7f7f7',
+    },
+    black: {
+      main: '#000000',
+      light: '#434343',
+      dark: '#000000',
     },
   },
+  borderRadius: '0.675rem;',
   font: {
     main: {
       regular: '"TTNormsRegular", "Arial", "Helvetica", "sans-serif"',

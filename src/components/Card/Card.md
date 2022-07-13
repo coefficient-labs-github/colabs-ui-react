@@ -1,4 +1,4 @@
-The Card is a container with a border and a drop shadow
+The Card is a container with a rounded corners and a drop shadow that gives the perception of depth.
 
 ```jsx
 import Text from '../Text/Text';
@@ -22,7 +22,7 @@ import Text from '../Text/Text';
 </span>;
 ```
 
-It can have different elevations
+It can have from 1-6 levels of elevation
 
 ```jsx
 import Text from '../Text/Text';
@@ -77,7 +77,7 @@ import Text from '../Text/Text';
 </span>;
 ```
 
-It can also have different colors
+It can use any of the colors of the colabs-ui palette
 
 ```jsx
 import Text from '../Text/Text';
@@ -93,19 +93,37 @@ import Text from '../Text/Text';
     background: '#f5f5f5',
   }}
 >
-  <Card color="#2B8DFF">
+  <Card elevation={6} color="red">
     <div style={{ padding: '1rem' }}>
       <Text color="white">This is the content</Text>
       <Text color="white">Of the card</Text>
     </div>
   </Card>
-  <Card elevation={3} color="#2B8DFF">
+  <Card elevation={6} color="green">
     <div style={{ padding: '1rem' }}>
       <Text color="white">This is the content</Text>
       <Text color="white">Of the card</Text>
     </div>
   </Card>
-  <Card elevation={6} color="#2B8DFF">
+  <Card elevation={6} color="blue">
+    <div style={{ padding: '1rem' }}>
+      <Text color="white">This is the content</Text>
+      <Text color="white">Of the card</Text>
+    </div>
+  </Card>
+  <Card elevation={6} color="gray">
+    <div style={{ padding: '1rem' }}>
+      <Text color="white">This is the content</Text>
+      <Text color="white">Of the card</Text>
+    </div>
+  </Card>
+  <Card elevation={6} color="orange">
+    <div style={{ padding: '1rem' }}>
+      <Text color="white">This is the content</Text>
+      <Text color="white">Of the card</Text>
+    </div>
+  </Card>
+  <Card elevation={6} color="purple">
     <div style={{ padding: '1rem' }}>
       <Text color="white">This is the content</Text>
       <Text color="white">Of the card</Text>

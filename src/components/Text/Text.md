@@ -11,6 +11,8 @@
       justifyItems: 'flex-start',
     }}
   >
+    <Text size={10}>Size 10</Text>
+    <Text size={9}>Size 9</Text>
     <Text size={8}>Size 8</Text>
     <Text size={7}>Size 7</Text>
     <Text size={6}>Size 6</Text>
@@ -34,9 +36,9 @@ It also has different weights:
     alignItems: 'center',
   }}
 >
-  <Text weight="light">Size</Text>
-  <Text weight="regular">Size</Text>
-  <Text weight="medium">Size</Text>
-  <Text weight="bold">Size</Text>
+  <Text weight="light">Light</Text>
+  <Text weight="regular">Regular</Text>
+  <Text weight="medium">Medium</Text>
+  <Text weight="bold">Bold</Text>
 </span>
 ```

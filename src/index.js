@@ -1,4 +1,5 @@
 export { default as Button } from './components/Button/Button';
+export { default as Button2 } from './components/Button2/Button2';
 export { default as Card } from './components/Card/Card';
 export { default as Checkbox } from './components/Checkbox/Checkbox';
 export { default as Chip } from './components/Chip/Chip';

@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import defaultTheme from '../../defaultTheme';
 
 type StyledCardProps = HTMLAttributes<HTMLDivElement> & {
-  elevation?: number;
-  color?: string;
-  variant?: 'primary' | 'secondary';
+  elevation?: 1 | 2 | 3 | 4 | 5 | 6;
+  color?: keyof typeof defaultTheme.color;
 };
 
 type CardProps = StyledCardProps & {
@@ -14,30 +13,31 @@ type CardProps = StyledCardProps & {
 };
 const StyledCard = styled.div<StyledCardProps>`
   border-radius: 0.625rem;
-  background: ${({ color }) => color || 'white'};
-  box-shadow: ${({ elevation, color }) =>
-    `${(() => {
-      if (elevation === 6) return '0px 11px 15px -7px';
-      if (elevation === 5) return '0px 8px 10px -5px';
-      if (elevation === 4) return '0px 7px 8px -4px';
-      if (elevation === 3) return '0px 5px 5px -3px';
-      if (elevation === 2) return '0px 2px 4px -1px';
-      if (elevation === 1) return '0px 3px 1px -2px';
-      return '0px 0px 0px 0px';
-    })()} ${elevation && color ? color : '#00000044'}`};
+  overflow: hidden;
+  background: ${({ color, theme }) => theme.color[color].main};
+  box-shadow: ${({ elevation, color, theme }) =>
+    `${
+      [
+        '0px 0px 0px 0px',
+        '0px 3px 1px -2px',
+        '0px 2px 4px -1px',
+        '0px 5px 5px -3px',
+        '0px 7px 8px -4px',
+        '0px 8px 10px -5px',
+        '0px 11px 15px -7px',
+      ][elevation]
+    } ${color === 'white' ? '#666666' : theme.color[color].main}88`};
 `;
 
 const Card = ({
   children = null,
   className,
-  variant,
   elevation,
   color,
   ...props
 }: CardProps) => {
   return (
     <StyledCard
-      variant={variant}
       className={`cui-card ${className}`}
       elevation={elevation}
       color={color}
@@ -51,10 +51,9 @@ const Card = ({
 StyledCard.defaultProps = { theme: defaultTheme };
 
 Card.defaultProps = {
-  elevation: null,
-  color: null,
+  elevation: 0,
+  color: 'white',
   children: null,
-  variant: 'secondary',
   className: '',
 };
 

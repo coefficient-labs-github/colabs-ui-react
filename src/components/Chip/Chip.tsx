@@ -6,7 +6,7 @@ import defaultTheme from '../../defaultTheme';
 
 type StyledChipProps = {
   variant?: 'primary' | 'secondary' | 'tertiary';
-  color?: 'blue' | 'green' | 'red' | 'purple' | 'orange' | 'gray';
+  color?: keyof typeof defaultTheme.color;
   size?: 'lg' | 'md' | 'sm';
 };
 
@@ -20,7 +20,7 @@ const StyledChip = styled.span<StyledChipProps>`
   border-radius: 5rem;
   margin: 0;
   background-color: ${({ color, variant, theme }) =>
-    variant === 'tertiary' ? 'none' : theme.color[color].light}};
+    variant === 'tertiary' ? 'none' : theme.color[color].light};
   border: 1px solid ${({ color, theme }) => theme.color[color].light};
   padding: ${({ size }) => {
     if (size === 'lg') return '0.25rem 1.45rem';

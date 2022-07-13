@@ -41,8 +41,7 @@ const StyledTextField = styled.div<StyledTextfieldProps>`
   }
   > .container {
     margin: 0 auto;
-    padding: 0 1rem;
-    /* width: 100%; */
+    padding: 0 0.75rem;
     border-radius: 0.625rem;
     border: 1px solid
       ${({ elevated, disabled }) => {
@@ -57,7 +56,7 @@ const StyledTextField = styled.div<StyledTextfieldProps>`
     background: #ffffff 0% 0% no-repeat padding-box;
     box-shadow: ${({ elevated }) =>
       elevated ? '0px 3px 4px #0000001C' : '#ffffff00'};
-    ${({ multiline }) => (multiline ? '' : 'height: 2.75rem')};
+    ${({ multiline }) => (multiline ? '' : 'height: 34px')};
     &:hover {
       ${({ disabled }) =>
         disabled ? '' : 'background: #f9f9f9 0% 0% no-repeat padding-box;'};
@@ -83,13 +82,13 @@ const StyledTextField = styled.div<StyledTextfieldProps>`
       grid-column: 2 / 3;
       grid-row: 1 / 2;
       height: ${({ multiline }) => (multiline ? 'fit-content' : '100%')};
-      margin: ${({ multiline }) => (multiline ? '1rem 0' : '0')};
+      margin: ${({ multiline }) => (multiline ? '0.75rem 0' : '0')};
       resize: none;
       border: 0;
       background: #ffffff00;
       color: #000;
       font-family: ${({ theme }) => theme.font.main.regular};
-      font-size: 1rem;
+      font-size: 14px;
       letter-spacing: -0.02em;
       ::-webkit-scrollbar {
         width: 6px;
@@ -159,7 +158,11 @@ const TextField = ({
         style={{ backgroundColor }}
       >
         {icon && <span className={`icon ${iconPos}`}>{icon}</span>}
-        {disabled && <Text color="#b6b6b6">{placeholder}</Text>}
+        {disabled && (
+          <Text color="gray" size={3}>
+            {placeholder}
+          </Text>
+        )}
         {!disabled && (
           <InputTag
             onFocus={() => {
@@ -184,8 +187,8 @@ const TextField = ({
           size={2}
           color={(() => {
             if (error) return 'red';
-            if (disabled) return '#b6b6b6';
-            return '#000';
+            if (disabled) return 'gray';
+            return 'black';
           })()}
         >
           {helperText}

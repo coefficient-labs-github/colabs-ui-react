@@ -2,63 +2,40 @@ import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import defaultTheme from '../../defaultTheme';
 
-type StyledDividerProps = HTMLAttributes<HTMLSpanElement> & {
-  variant?: 'primary' | 'secondary';
+type StyledDividerProps = HTMLAttributes<HTMLHRElement> & {
+  px?: 1 | 2 | 3;
+  color?: keyof typeof defaultTheme.color;
 };
 
 type DividerProps = StyledDividerProps & {
-  orOn?: boolean;
   className?: string;
 };
 
-const StyledDivider = styled.span<StyledDividerProps>`
-  display: flex;
-  align-items: center;
+const StyledDivider = styled.hr<StyledDividerProps>`
+  height: ${({ px }) => px}px;
   width: 100%;
-  > hr {
-    height: ${({ variant }) => (variant === 'primary' ? '2px' : '1px')};
-    width: 100%;
-    margin: 0;
-    border: 0;
-    background: ${({ variant, theme }) =>
-      variant === 'primary'
-        ? `-webkit-linear-gradient(
-            0deg,
-            ${theme.color.blue.main},
-            #60E2FD
-          );`
-        : 'lightgray'};
-  }
-  > span {
-    margin: 0 1rem;
-    font-family: ${({ theme }) => theme.font.main.regular};
-  }
+  margin: 0;
+  border: 0;
+  background: ${({ theme, color }) => theme.color[color].main}88;
 `;
 
-const Divider = ({ orOn, variant, className, ...props }: DividerProps) => {
+const Divider = ({ px, className, color, ...props }: DividerProps) => {
   return (
     <StyledDivider
-      variant={variant}
       className={`cui-divider ${className}`}
+      px={px}
+      color={color}
       {...props}
-    >
-      <hr />
-      {orOn ? (
-        <>
-          <span>Or</span>
-          <hr />
-        </>
-      ) : null}
-    </StyledDivider>
+    />
   );
 };
 
 StyledDivider.defaultProps = { theme: defaultTheme };
 
 Divider.defaultProps = {
-  orOn: null,
-  variant: 'secondary',
   className: '',
+  px: 1,
+  color: 'black',
 };
 
 export default Divider;
