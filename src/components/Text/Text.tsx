@@ -39,9 +39,14 @@ const StyledText = styled.div<StyledTextProps>`
   text-align: ${({ align }) => align};
 `;
 
-const Text = ({ tag, children, className, ...props }: TextProps) => {
+const Text = ({ tag, color, children, className, ...props }: TextProps) => {
   return (
-    <StyledText as={tag} className={`cui-text ${className}`} {...props}>
+    <StyledText
+      as={tag}
+      color={color}
+      className={`cui-text ${className}`}
+      {...props}
+    >
       {children}
     </StyledText>
   );
