@@ -13,8 +13,7 @@ type CardProps = StyledCardProps & {
 };
 const StyledCard = styled.div<StyledCardProps>`
   border-radius: 0.625rem;
-  overflow: hidden;
-  background: ${({ color, theme }) => theme.color[color].main};
+  background: ${({ color, theme }) => theme.color[color]?.main};
   box-shadow: ${({ elevation, color, theme }) =>
     `${
       [
@@ -26,7 +25,7 @@ const StyledCard = styled.div<StyledCardProps>`
         '0px 8px 10px -5px',
         '0px 11px 15px -7px',
       ][elevation]
-    } ${color === 'white' ? '#666666' : theme.color[color].main}88`};
+    } ${color === 'white' ? '#666666' : theme.color[color]?.main}88`};
 `;
 
 const Card = ({

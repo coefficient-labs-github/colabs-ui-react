@@ -39,7 +39,7 @@ const StyledDropdown = styled.div<StyledDropdownProps>`
     border-radius: ${({ sizeIndex }) => [6, 8, 10, 14, 18][sizeIndex - 1]}px;
     width: 100%;
     background-color: ${({ theme, variantIndex, color }) =>
-      [theme.color[color].main, '#ffffff'][variantIndex - 1]};
+      [theme.color[color]?.main, '#ffffff'][variantIndex - 1]};
     * {
       color: ${({ variantIndex }) => ['#ffffff', '#000000'][variantIndex - 1]};
       stroke: ${({ variantIndex }) => ['#ffffff', '#000000'][variantIndex - 1]};

@@ -16,7 +16,7 @@ const StyledDivider = styled.hr<StyledDividerProps>`
   width: 100%;
   margin: 0;
   border: 0;
-  background: ${({ theme, color }) => theme.color[color].main}88;
+  background: ${({ theme, color }) => theme.color[color].main}55;
 `;
 
 const Divider = ({ px, className, color, ...props }: DividerProps) => {
@@ -35,7 +35,7 @@ StyledDivider.defaultProps = { theme: defaultTheme };
 Divider.defaultProps = {
   className: '',
   px: 1,
-  color: 'black',
+  color: 'gray',
 };
 
 export default Divider;

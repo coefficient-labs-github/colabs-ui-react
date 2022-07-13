@@ -40,12 +40,12 @@ const StyledButton = styled.button<StyledButtonProps>`
     [0.375, 0.5, 0.625, 0.625, 0.875][sizeIndex - 1]}rem;
   border: 1px solid
     ${({ theme, variantIndex, color }) =>
-      ['#ffffff00', theme.color[color].main, '#ffffff00'][variantIndex - 1]};
+      ['#ffffff00', theme.color[color]?.main, '#ffffff00'][variantIndex - 1]};
   padding: 0
     ${({ sizeIndex, hasText }) =>
       hasText ? `${[0.5, 0.625, 0.75, 0.875, 1][sizeIndex - 1]}rem` : '0'};
   background-color: ${({ theme, variantIndex, color }) =>
-    [theme.color[color].main, theme.color[color].light, '#ffffff00'][
+    [theme.color[color]?.main, theme.color[color]?.light, '#ffffff00'][
       variantIndex - 1
     ]};
   > * {
@@ -59,7 +59,7 @@ const StyledButton = styled.button<StyledButtonProps>`
       [0.5, 0.625, 0.75, 0.875, 1][sizeIndex - 1]}rem;
     width: ${({ sizeIndex }) => [0.5, 0.625, 0.75, 0.875, 1][sizeIndex - 1]}rem;
     fill: ${({ theme, variantIndex, color }) =>
-      ['white', theme.color[color].main, theme.color[color].main][
+      ['white', theme.color[color]?.main, theme.color[color]?.main][
         variantIndex - 1
       ]};
   }

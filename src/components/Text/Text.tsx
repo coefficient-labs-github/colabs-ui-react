@@ -25,17 +25,16 @@ type TextProps = StyledTextProps & {
 };
 
 const StyledText = styled.div<StyledTextProps>`
-  font-size: ${({ size }) =>
-    [10, 12, 14, 16, 20, 24, 34, 48, 60, 96][size - 1]}px;
+  font-size: ${({ size }) => [10, 14, 16, 20, 24, 32, 48, 72, 96][size - 1]}px;
   letter-spacing: ${({ size }) =>
-    [1.5, 0.4, 0.25, 0.5, 0.15, 0, 0.25, 0, -0.5, -1.5][size - 1]};
+    [1.5, 0.25, 0.5, 0.15, 0, 0.25, 0, -0.5, -1.5][size - 1]};
   margin: 0;
   padding: 0;
   white-space: ${({ noWrap }) => (noWrap ? 'nowrap' : 'initial')};
   margin-bottom: ${({ gutterBottom, size }) =>
     gutterBottom ? `${size * 0.3}rem` : '0'};
   font-family: ${({ theme, weight }) => theme.font.main[weight]};
-  color: ${({ color, theme }) => theme.color[color].main};
+  color: ${({ color, theme }) => theme.color[color]?.main};
   text-align: ${({ align }) => align};
 `;
 

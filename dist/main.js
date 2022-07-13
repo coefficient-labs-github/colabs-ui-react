@@ -92,19 +92,23 @@ var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_13__["default"].bu
   var sizeIndex = _ref6.sizeIndex;
   return [0.375, 0.5, 0.625, 0.625, 0.875][sizeIndex - 1];
 }, function (_ref7) {
+  var _theme$color$color;
+
   var theme = _ref7.theme,
       variantIndex = _ref7.variantIndex,
       color = _ref7.color;
-  return ['#ffffff00', theme.color[color].main, '#ffffff00'][variantIndex - 1];
+  return ['#ffffff00', (_theme$color$color = theme.color[color]) === null || _theme$color$color === void 0 ? void 0 : _theme$color$color.main, '#ffffff00'][variantIndex - 1];
 }, function (_ref8) {
   var sizeIndex = _ref8.sizeIndex,
       hasText = _ref8.hasText;
   return hasText ? "".concat([0.5, 0.625, 0.75, 0.875, 1][sizeIndex - 1], "rem") : '0';
 }, function (_ref9) {
+  var _theme$color$color2, _theme$color$color3;
+
   var theme = _ref9.theme,
       variantIndex = _ref9.variantIndex,
       color = _ref9.color;
-  return [theme.color[color].main, theme.color[color].light, '#ffffff00'][variantIndex - 1];
+  return [(_theme$color$color2 = theme.color[color]) === null || _theme$color$color2 === void 0 ? void 0 : _theme$color$color2.main, (_theme$color$color3 = theme.color[color]) === null || _theme$color$color3 === void 0 ? void 0 : _theme$color$color3.light, '#ffffff00'][variantIndex - 1];
 }, function (_ref10) {
   var iconPos = _ref10.iconPos,
       hasIcon = _ref10.hasIcon,
@@ -117,10 +121,12 @@ var StyledButton = styled_components__WEBPACK_IMPORTED_MODULE_13__["default"].bu
   var sizeIndex = _ref12.sizeIndex;
   return [0.5, 0.625, 0.75, 0.875, 1][sizeIndex - 1];
 }, function (_ref13) {
+  var _theme$color$color4, _theme$color$color5;
+
   var theme = _ref13.theme,
       variantIndex = _ref13.variantIndex,
       color = _ref13.color;
-  return ['white', theme.color[color].main, theme.color[color].main][variantIndex - 1];
+  return ['white', (_theme$color$color4 = theme.color[color]) === null || _theme$color$color4 === void 0 ? void 0 : _theme$color$color4.main, (_theme$color$color5 = theme.color[color]) === null || _theme$color$color5 === void 0 ? void 0 : _theme$color$color5.main][variantIndex - 1];
 });
 
 var Button = function Button(_ref14) {
@@ -470,15 +476,19 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledCard = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  border-radius: 0.625rem;\n  overflow: hidden;\n  background: ", ";\n  box-shadow: ", ";\n"])), function (_ref) {
+var StyledCard = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  border-radius: 0.625rem;\n  background: ", ";\n  box-shadow: ", ";\n"])), function (_ref) {
+  var _theme$color$color;
+
   var color = _ref.color,
       theme = _ref.theme;
-  return theme.color[color].main;
+  return (_theme$color$color = theme.color[color]) === null || _theme$color$color === void 0 ? void 0 : _theme$color$color.main;
 }, function (_ref2) {
+  var _theme$color$color2;
+
   var elevation = _ref2.elevation,
       color = _ref2.color,
       theme = _ref2.theme;
-  return "".concat(['0px 0px 0px 0px', '0px 3px 1px -2px', '0px 2px 4px -1px', '0px 5px 5px -3px', '0px 7px 8px -4px', '0px 8px 10px -5px', '0px 11px 15px -7px'][elevation], " ").concat(color === 'white' ? '#666666' : theme.color[color].main, "88");
+  return "".concat(['0px 0px 0px 0px', '0px 3px 1px -2px', '0px 2px 4px -1px', '0px 5px 5px -3px', '0px 7px 8px -4px', '0px 8px 10px -5px', '0px 11px 15px -7px'][elevation], " ").concat(color === 'white' ? '#666666' : (_theme$color$color2 = theme.color[color]) === null || _theme$color$color2 === void 0 ? void 0 : _theme$color$color2.main, "88");
 });
 
 var Card = function Card(_ref3) {
@@ -669,14 +679,18 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 var StyledChip = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].span(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  border-radius: 5rem;\n  margin: 0;\n  background-color: ", ";\n  border: 1px solid ", ";\n  padding: ", ";\n  width: min-content;\n  height: min-content;\n  display: inline-flex;\n  flex-direction: row;\n  align-items: center;\n  > .icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin: 0 0.5rem 0 0;\n    > * {\n      ", ";\n    }\n  }\n  &.right {\n    flex-direction: row-reverse;\n    > .icon {\n      margin: 0 0 0 0.5rem;\n    }\n  }\n  > .chip-label {\n    color: ", ";\n  }\n"])), function (_ref) {
+  var _theme$color$color;
+
   var color = _ref.color,
       variant = _ref.variant,
       theme = _ref.theme;
-  return variant === 'tertiary' ? 'none' : theme.color[color].light;
+  return variant === 'tertiary' ? 'none' : (_theme$color$color = theme.color[color]) === null || _theme$color$color === void 0 ? void 0 : _theme$color$color.light;
 }, function (_ref2) {
+  var _theme$color$color2;
+
   var color = _ref2.color,
       theme = _ref2.theme;
-  return theme.color[color].light;
+  return (_theme$color$color2 = theme.color[color]) === null || _theme$color$color2 === void 0 ? void 0 : _theme$color$color2.light;
 }, function (_ref3) {
   var size = _ref3.size;
   if (size === 'lg') return '0.25rem 1.45rem';
@@ -688,9 +702,11 @@ var StyledChip = styled_components__WEBPACK_IMPORTED_MODULE_11__["default"].span
   if (size === 'md') return 'height: 1rem; width: 1;';
   return 'height: 0.875rem; width: 0.875;';
 }, function (_ref5) {
+  var _theme$color$color3;
+
   var color = _ref5.color,
       theme = _ref5.theme;
-  return theme.color[color].main;
+  return (_theme$color$color3 = theme.color[color]) === null || _theme$color$color3 === void 0 ? void 0 : _theme$color$color3.main;
 });
 
 var Chip = function Chip(_ref6) {
@@ -794,7 +810,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledDivider = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].hr(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  height: ", "px;\n  width: 100%;\n  margin: 0;\n  border: 0;\n  background: ", "88;\n"])), function (_ref) {
+var StyledDivider = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].hr(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  height: ", "px;\n  width: 100%;\n  margin: 0;\n  border: 0;\n  background: ", "55;\n"])), function (_ref) {
   var px = _ref.px;
   return px;
 }, function (_ref2) {
@@ -822,7 +838,7 @@ StyledDivider.defaultProps = {
 Divider.defaultProps = {
   className: '',
   px: 1,
-  color: 'black'
+  color: 'gray'
 };
 /* harmony default export */ __webpack_exports__["default"] = (Divider);
 
@@ -930,10 +946,12 @@ var StyledDropdown = styled_components__WEBPACK_IMPORTED_MODULE_19__["default"].
   var sizeIndex = _ref4.sizeIndex;
   return [6, 8, 10, 14, 18][sizeIndex - 1];
 }, function (_ref5) {
+  var _theme$color$color;
+
   var theme = _ref5.theme,
       variantIndex = _ref5.variantIndex,
       color = _ref5.color;
-  return [theme.color[color].main, '#ffffff'][variantIndex - 1];
+  return [(_theme$color$color = theme.color[color]) === null || _theme$color$color === void 0 ? void 0 : _theme$color$color.main, '#ffffff'][variantIndex - 1];
 }, function (_ref6) {
   var variantIndex = _ref6.variantIndex;
   return ['#ffffff', '#000000'][variantIndex - 1];
@@ -1657,10 +1675,10 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var StyledText = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  font-size: ", "px;\n  letter-spacing: ", ";\n  margin: 0;\n  padding: 0;\n  white-space: ", ";\n  margin-bottom: ", ";\n  font-family: ", ";\n  color: ", ";\n  text-align: ", ";\n"])), function (_ref) {
   var size = _ref.size;
-  return [10, 12, 14, 16, 20, 24, 34, 48, 60, 96][size - 1];
+  return [10, 14, 16, 20, 24, 32, 48, 72, 96][size - 1];
 }, function (_ref2) {
   var size = _ref2.size;
-  return [1.5, 0.4, 0.25, 0.5, 0.15, 0, 0.25, 0, -0.5, -1.5][size - 1];
+  return [1.5, 0.25, 0.5, 0.15, 0, 0.25, 0, -0.5, -1.5][size - 1];
 }, function (_ref3) {
   var noWrap = _ref3.noWrap;
   return noWrap ? 'nowrap' : 'initial';
@@ -1673,9 +1691,11 @@ var StyledText = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div(_
       weight = _ref5.weight;
   return theme.font.main[weight];
 }, function (_ref6) {
+  var _theme$color$color;
+
   var color = _ref6.color,
       theme = _ref6.theme;
-  return theme.color[color].main;
+  return (_theme$color$color = theme.color[color]) === null || _theme$color$color === void 0 ? void 0 : _theme$color$color.main;
 }, function (_ref7) {
   var align = _ref7.align;
   return align;
