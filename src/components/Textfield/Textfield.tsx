@@ -65,8 +65,8 @@ const StyledTextField = styled.div<StyledTextfieldProps>`
       border: 1px solid #6da7fd;
     }
     > .icon {
-      height: 1rem;
-      width: 1rem;
+      display: flex;
+      align-items: center;
       grid-column: 3 / 4;
       padding: 0;
       margin: 0 0 0 0.5rem;
